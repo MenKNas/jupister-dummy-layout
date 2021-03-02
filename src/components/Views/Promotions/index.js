@@ -1,4 +1,4 @@
-import React from "react";
+import * as React from "react";
 import PromotionCard from "./PromotionCard";
 
 export default function Promotions({ preview = false }) {
