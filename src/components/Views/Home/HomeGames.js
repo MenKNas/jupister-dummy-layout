@@ -1,3 +1,5 @@
+import { faAngleRight } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import * as React from "react";
 import { Game } from "../../Game";
 import ChoosePlanet from "./ChoosePlanet";
@@ -31,7 +33,9 @@ export default function HomeGames() {
           <div className="flex justify-between items-center py-4">
             <div>Category Title </div>
             <button className="truncate uppercase inline-block">
-              Show All
+              <span>
+                Show All <FontAwesomeIcon icon={faAngleRight} />
+              </span>
             </button>
           </div>
           <GamesGrid />
@@ -43,7 +47,9 @@ export default function HomeGames() {
           <div className="flex justify-between items-center py-4">
             <div>Category Title </div>
             <button className="truncate uppercase inline-block">
-              Show All
+              <span>
+                Show All <FontAwesomeIcon icon={faAngleRight} />
+              </span>
             </button>
           </div>
           <GamesGrid />

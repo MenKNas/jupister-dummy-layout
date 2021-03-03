@@ -3,7 +3,7 @@ import { NavLink } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBars, faAngleDown } from "@fortawesome/free-solid-svg-icons";
 import { isMobile } from "react-device-detect";
-import SideBar from "./SideBar";
+import { SideBar } from "./SideBar";
 import MainButton from "../../Button";
 
 function MobileHeader() {
@@ -26,9 +26,7 @@ function MobileHeader() {
           <MainButton secondary> Register </MainButton>
         </div>
       </div>
-      {showSidebar && (
-        <SideBar showSidebar={showSidebar} setShowSidebar={setShowSidebar} />
-      )}
+      <SideBar showSidebar={showSidebar} setShowSidebar={setShowSidebar} />
     </>
   );
 }
