@@ -10,8 +10,8 @@ export default function Home() {
     <div className="tw:space-y-8 tw:w-full tw:flex tw:flex-col tw:items-stretch">
       <Carousel />
       <HomeGames />
-      <div className="bg-gray-300">
-        <Promotions preview={true} />
+      <div className="bg-gray-800 space-y-4 py-8">
+        {/* <Promotions preview={true} /> */}
         <LiveCasino />
         <TotalJackpot />
       </div>

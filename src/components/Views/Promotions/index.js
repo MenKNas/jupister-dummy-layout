@@ -3,7 +3,7 @@ import PromotionCard from "./PromotionCard";
 
 export default function Promotions({ preview = false }) {
   return (
-    <div className="bg-blue-900 p-8">
+    <div className="bg-gray-800">
       {preview ? (
         <div className="flex flex-col items-center space-y-6 py-3 lg:w-4/5 lg:mx-auto lg:flex-row lg:justify-evenly lg:space-y-0">
           {/* Promotions will probably be two images in flex-col for mobile and flex-row for desktop */}
