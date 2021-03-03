@@ -5,10 +5,10 @@ export default function Promotions({ preview = false }) {
   return (
     <div className="bg-gray-800">
       {preview ? (
-        <div className="flex flex-col items-center space-y-6 py-3 lg:w-4/5 lg:mx-auto lg:flex-row lg:justify-evenly lg:space-y-0">
+        <div className="flex flex-col items-center space-y-6 py-3 space-x-6 lg:flex-row lg:justify-between lg:space-y-0">
           {/* Promotions will probably be two images in flex-col for mobile and flex-row for desktop */}
-          <div> Promotion 1 </div>
-          <div> Promotion 2 </div>
+          <PromotionCard preview={preview} className="w-1/2" />
+          <PromotionCard preview={preview} className="w-1/2" />
         </div>
       ) : (
         <div className="w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 lg:flex-rows-2 items-center gap-8 lg:w-4/5 lg:mx-auto h-full">

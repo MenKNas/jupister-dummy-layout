@@ -8,11 +8,12 @@ function GamesGrid() {
       className="grid grid-cols-2 gap-4 md:grid-cols-3 lg:grid-cols-4"
       data-component="GamesGrid"
     >
-      <Game gameTitle="Dragons" />
+      <Game gameTitle="Dragons" className="lg:row-span-2" />
       <Game gameTitle="Ninjas" />
       <Game gameTitle="Fairies" />
       <Game gameTitle="Jokers" />
       <Game gameTitle="Dwarfs" />
+      <Game gameTitle="Elves" />
       <Game gameTitle="Elves" />
     </div>
   );

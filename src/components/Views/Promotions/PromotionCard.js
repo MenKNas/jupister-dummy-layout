@@ -6,6 +6,7 @@ export default function PromotionCard({
   mainText,
   className,
   hasDeposit,
+  preview,
 }) {
   return (
     <div
@@ -15,7 +16,7 @@ export default function PromotionCard({
       <p> {mainText} </p>
       <div className="flex space-x-4">
         {hasDeposit && <MainButton secondary> Deposit </MainButton>}
-        <MainButton> Read more </MainButton>
+        {!preview && <MainButton> Read more </MainButton>}
       </div>
     </div>
   );

@@ -14,6 +14,11 @@ function GamesGrid() {
       <Game gameTitle="Jokers" />
       <Game gameTitle="Dwarfs" />
       <Game gameTitle="Elves" />
+      <Game gameTitle="Elves" />
+      <Game gameTitle="Elves" />
+      <Game gameTitle="Elves" />
+      <Game gameTitle="Elves" />
+      <Game gameTitle="Elves" />
     </div>
   );
 }
