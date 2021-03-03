@@ -8,7 +8,7 @@ function Header() {
       <div className="flex justify-between space-x-4 items-center">
         <button> Icon </button>
         <div> Logo </div>
-        <div className="flex items-center px-4">
+        <div className="hidden lg:flex items-center px-4">
           <span className="border-r-2 border-gray-200 px-4">
             <NavLink
               to="/"

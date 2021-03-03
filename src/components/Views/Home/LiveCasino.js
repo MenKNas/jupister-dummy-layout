@@ -1,4 +1,4 @@
-import React from "react";
+import * as React from "react";
 import { Game } from "../../Game";
 
 function GamesGrid() {
@@ -19,7 +19,7 @@ function GamesGrid() {
 
 export default function LiveCasino() {
   return (
-    <div className="space-y-4 lg:pb-8">
+    <div className="space-y-4 p-4 lg:pb-8">
       <div className="lg:w-4/5 mx-auto">
         <div className="flex justify-between items-center py-4">
           <div>Category Title </div>

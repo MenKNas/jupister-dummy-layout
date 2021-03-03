@@ -1,5 +1,6 @@
 import * as React from "react";
 import { Game } from "../../Game";
+import ChoosePlanet from "./ChoosePlanet";
 
 function GamesGrid() {
   return (
@@ -7,7 +8,7 @@ function GamesGrid() {
       className="grid grid-cols-2 gap-4 md:grid-cols-3 lg:grid-cols-4"
       data-component="GamesGrid"
     >
-      <Game gameTitle="Dragons" />
+      <Game gameTitle="Dragons" className="lg:row-span-2" />
       <Game gameTitle="Ninjas" />
       <Game gameTitle="Fairies" />
       <Game gameTitle="Jokers" />
@@ -20,7 +21,7 @@ function GamesGrid() {
 export default function HomeGames() {
   return (
     <>
-      <div className="space-y-4 bg-gray-500 lg:pb-8">
+      <div className="space-y-4 bg-gray-500 p-4 lg:pb-8">
         <div className="lg:w-4/5 mx-auto">
           <div className="flex justify-between items-center py-4">
             <div>Category Title </div>
@@ -29,9 +30,10 @@ export default function HomeGames() {
             </button>
           </div>
           <GamesGrid />
+          <ChoosePlanet />
         </div>
       </div>
-      <div className="space-y-4 lg:pb-8">
+      <div className="space-y-4 p-4 lg:pb-8">
         <div className="lg:w-4/5 mx-auto">
           <div className="flex justify-between items-center py-4">
             <div>Category Title </div>
