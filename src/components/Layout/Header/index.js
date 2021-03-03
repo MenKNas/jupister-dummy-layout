@@ -1,69 +1,96 @@
 import * as React from "react";
 import { NavLink } from "react-router-dom";
-import Button from "../../Button";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faBars, faAngleDown } from "@fortawesome/free-solid-svg-icons";
+import { isMobile } from "react-device-detect";
+import SideBar from "./SideBar";
+import MainButton from "../../Button";
 
-function Header() {
+function MobileHeader() {
+  const [showSidebar, setShowSidebar] = React.useState(false);
   return (
-    <div className="flex justify-between items-center w-full lg:w-4/5 lg:mx-auto p-2">
+    <>
+      <div className="flex justify-between items-center w-full p-2 bg-gray-800 px-4">
+        <div className="space-x-4">
+          <button
+            className="text-blue-500 text-2xl"
+            onClick={() => setShowSidebar((prev) => !prev)}
+          >
+            <FontAwesomeIcon icon={faBars} />
+          </button>
+          <span className="text-yellow-400 text-2xl tracking-wide">
+            Jupiter
+          </span>
+        </div>
+        <div>
+          <MainButton secondary> Register </MainButton>
+        </div>
+      </div>
+      {showSidebar && (
+        <SideBar showSidebar={showSidebar} setShowSidebar={setShowSidebar} />
+      )}
+    </>
+  );
+}
+
+function DesktopHeader() {
+  return (
+    <div className="flex justify-between items-center py-4 px-40 bg-gray-800">
       <div className="flex justify-between space-x-4 items-center">
-        <button> Icon </button>
-        <div> Logo </div>
-        <div className="hidden lg:flex items-center px-4">
-          <span className="border-r-2 border-gray-200 px-4">
-            <NavLink
-              to="/"
-              className="uppercase border-b-4 border-transparent"
-              activeClassName="border-yellow-300 rounded-sm"
-              exact={true}
-            >
+        <div>
+          <span className="text-yellow-400 text-2xl tracking-wide">
+            Jupiter
+          </span>
+        </div>
+        <div className="hidden lg:flex items-center uppercase px-4 text-white font-bold">
+          <span className="px-4">
+            <NavLink to="/" activeClassName="text-yellow-300" exact={true}>
               Home
             </NavLink>
           </span>
-          <span className="border-r-2 border-gray-200 px-4">
+          <span className="px-4">
             <NavLink
               to="/casino"
-              className="uppercase border-b-4 border-transparent "
-              activeClassName="border-yellow-300 rounded-sm"
+              activeClassName="text-yellow-300"
               exact={true}
             >
               Casino
             </NavLink>
           </span>
-          <span className="border-r-2 border-gray-200 px-4">
+          <span className="px-4">
             <NavLink
               to="/livecasino"
-              className="uppercase border-b-4 border-transparent "
-              activeClassName="border-yellow-300 rounded-sm"
+              activeClassName="text-yellow-300"
               exact={true}
             >
               Live Casino
             </NavLink>
           </span>
-          <span className="border-r-2 border-gray-200 px-4">
+          <span className="px-4">
             <NavLink
               to="/sports"
-              className="uppercase border-b-4 border-transparent "
-              activeClassName="border-yellow-300 rounded-sm"
+              activeClassName="text-yellow-300"
               exact={true}
             >
               Sports
             </NavLink>
           </span>
-          <span className="border-r-2 border-gray-200 px-4">
+          <span className="px-4">
             <NavLink
               to="/livecasino"
-              className="uppercase border-b-4 border-transparent "
-              activeClassName="border-yellow-300 rounded-sm"
+              activeClassName="text-yellow-300"
               exact={true}
             >
               More
+              <span className="ml-2">
+                <FontAwesomeIcon icon={faAngleDown} />
+              </span>
             </NavLink>
           </span>
           <span className="px-4">
             <NavLink
               to="/promotions"
-              className="uppercase border-b-4 border-transparent "
-              activeClassName="border-yellow-300 rounded-sm"
+              activeClassName="text-yellow-300"
               exact={true}
             >
               Promotions
@@ -71,11 +98,16 @@ function Header() {
           </span>
         </div>
       </div>
-      <div>
-        <Button> Register </Button>
+      <div className="space-x-4">
+        <MainButton outline> Login </MainButton>
+        <MainButton secondary> Register </MainButton>
       </div>
     </div>
   );
+}
+
+function Header() {
+  return isMobile ? <MobileHeader /> : <DesktopHeader />;
 }
 
 export default Header;

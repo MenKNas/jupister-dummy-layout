@@ -1,6 +1,6 @@
 import * as React from "react";
 import Carousel from "../../Carousels";
-import Promotions from "../Promotions";
+// import Promotions from "../Promotions";
 import HomeGames from "./HomeGames";
 import LiveCasino from "./LiveCasino";
 import TotalJackpot from "./TotalJackpot";

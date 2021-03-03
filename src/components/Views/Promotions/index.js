@@ -11,7 +11,7 @@ export default function Promotions({ preview = false }) {
           <PromotionCard preview={preview} className="w-1/2" />
         </div>
       ) : (
-        <div className="w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 lg:flex-rows-2 items-center gap-8 lg:w-4/5 lg:mx-auto h-full">
+        <div className="w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 lg:flex-rows-2 items-center gap-8 lg:w-4/5 lg:mx-auto h-full py-10 px-4 lg:px-0">
           <PromotionCard
             className="md:row-span-2 h-full justify-end"
             mainText="Get 750% Welcome Casino Package Bonus"
