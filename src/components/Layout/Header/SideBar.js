@@ -27,7 +27,7 @@ const footerLinks = [
 
 const authenticatedUser = true;
 
-function RegisteredUserTab({ showSidebar, setShowSidebar }) {
+function RegisteredUserTab({ showSidebar, setShowSidebar, user }) {
   return (
     <div className="flex flex-col space-y-4">
       <div className="flex flex-row justify-between items-center space-x-4">
@@ -40,7 +40,9 @@ function RegisteredUserTab({ showSidebar, setShowSidebar }) {
             />
             <div className="flex flex-col">
               <h4 className="text-gray-300 text-xs"> User </h4>
-              <span className="text-sm font-bold">papadopoulos@gmail.com</span>
+              <span className="text-sm font-bold truncate">
+                {user.userMail}
+              </span>
             </div>
           </div>
         </div>
@@ -55,8 +57,12 @@ function RegisteredUserTab({ showSidebar, setShowSidebar }) {
       <div className="flex justify-between items-center border-b border-gray-600 pb-4">
         <div>
           <div className="flex flex-col">
-            <h4 className="font-bold text-lg"> 2,504.25 &euro;</h4>
-            <span className="text-yellow-300"> 200.00 &euro;</span>
+            <h4 className="font-bold text-lg">
+              {user.totalBalance.toFixed(2)} &euro;
+            </h4>
+            <span className="text-yellow-300">
+              {user.bonusBalance.toFixed(2)} &euro;
+            </span>
           </div>
         </div>
         <div>
@@ -93,6 +99,12 @@ const FooterLinks = React.memo(({ setShowSidebar }) => {
 });
 
 export const SideBar = ({ showSidebar, setShowSidebar }) => {
+  let user = {
+    userName: "George Papadopoulos",
+    userMail: "papadopoulosg@gmail.com",
+    totalBalance: 2500,
+    bonusBalance: 200,
+  };
   return (
     <>
       <div
@@ -114,6 +126,7 @@ export const SideBar = ({ showSidebar, setShowSidebar }) => {
             <RegisteredUserTab
               setShowSidebar={setShowSidebar}
               showSidebar={showSidebar}
+              user={user}
             />
           ) : (
             <VisitorUserTab />

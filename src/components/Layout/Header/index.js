@@ -1,10 +1,12 @@
 import * as React from "react";
 import { NavLink } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faBars, faAngleDown } from "@fortawesome/free-solid-svg-icons";
+import { faBars, faAngleDown, faUser } from "@fortawesome/free-solid-svg-icons";
 import { isMobile } from "react-device-detect";
 import { SideBar } from "./SideBar";
 import MainButton from "../../Buttons/MainButton";
+
+const authenticatedUser = true;
 
 function MobileHeader() {
   const [showSidebar, setShowSidebar] = React.useState(false);
@@ -34,6 +36,32 @@ function MobileHeader() {
       )}
       <SideBar showSidebar={showSidebar} setShowSidebar={setShowSidebar} />
     </>
+  );
+}
+
+function VisitorHeaderButtons() {
+  return (
+    <>
+      <MainButton outline> Login </MainButton>
+      <MainButton secondary> Register </MainButton>
+    </>
+  );
+}
+
+function RegisteredHeaderButtons() {
+  return (
+    <div className="flex flex-row items-center space-x-4">
+      <div className="flex flex-col text-right">
+        <h4 className="font-bold text-white text-sm">2,504.24 &euro;</h4>
+        <span className="text-blue-600 text-xs">200.00 &euro;</span>
+      </div>
+      <FontAwesomeIcon
+        icon={faUser}
+        className="bg-blue-500 p-2 w-full text-4xl rounded-lg text-white"
+        size="lg"
+      />
+      <MainButton secondary> Deposit </MainButton>
+    </div>
   );
 }
 
@@ -103,8 +131,11 @@ function DesktopHeader() {
         </div>
       </div>
       <div className="space-x-4">
-        <MainButton outline> Login </MainButton>
-        <MainButton secondary> Register </MainButton>
+        {authenticatedUser ? (
+          <RegisteredHeaderButtons />
+        ) : (
+          <VisitorHeaderButtons />
+        )}
       </div>
     </div>
   );
