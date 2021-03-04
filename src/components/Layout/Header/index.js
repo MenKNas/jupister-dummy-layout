@@ -25,7 +25,11 @@ function MobileHeader() {
           </span>
         </div>
         <div>
-          <MainButton secondary> Register </MainButton>
+          {authenticatedUser ? (
+            <MainButton secondary> Deposit </MainButton>
+          ) : (
+            <MainButton secondary> Register </MainButton>
+          )}
         </div>
       </div>
       {showSidebar && (
