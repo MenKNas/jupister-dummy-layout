@@ -2,7 +2,11 @@ import React from "react";
 import { Link } from "react-router-dom";
 import MainButton from "../../Buttons/MainButton";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faTimes } from "@fortawesome/free-solid-svg-icons";
+import {
+  faAngleRight,
+  faTimes,
+  faUser,
+} from "@fortawesome/free-solid-svg-icons";
 
 const links = [
   { name: "Casino", link: "/casino" },
@@ -20,6 +24,61 @@ const footerLinks = [
   { name: "Responsible Gaming", link: "/" },
   { name: "Privacy Policy", link: "/" },
 ];
+
+const authenticatedUser = true;
+
+function RegisteredUserTab({ showSidebar, setShowSidebar }) {
+  return (
+    <div className="flex flex-col space-y-4">
+      <div className="flex flex-row justify-between items-center space-x-4">
+        <div>
+          <div className="flex flex-row justify-evenly space-x-2 items-center">
+            <FontAwesomeIcon
+              icon={faUser}
+              className="bg-blue-500 p-2 w-1/2 text-4xl rounded-lg"
+              size="lg"
+            />
+            <div className="flex flex-col">
+              <h4 className="text-gray-300 text-xs"> User </h4>
+              <span className="text-sm font-bold">papadopoulos@gmail.com</span>
+            </div>
+          </div>
+        </div>
+        <div>
+          <Link to="/financials" onClick={() => setShowSidebar(!showSidebar)}>
+            <button>
+              <FontAwesomeIcon icon={faAngleRight} />
+            </button>
+          </Link>
+        </div>
+      </div>
+      <div className="flex justify-between items-center border-b border-gray-600 pb-4">
+        <div>
+          <div className="flex flex-col">
+            <h4 className="font-bold text-lg"> 2,504.25 &euro;</h4>
+            <span className="text-yellow-300"> 200.00 &euro;</span>
+          </div>
+        </div>
+        <div>
+          <MainButton secondary> Deposit </MainButton>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+function VisitorUserTab() {
+  return (
+    <div className="flex justify-between space-x-4">
+      <MainButton outline className="w-1/2">
+        Login
+      </MainButton>
+      <MainButton secondary className="w-1/2">
+        Register
+      </MainButton>
+    </div>
+  );
+}
 
 const FooterLinks = React.memo(({ setShowSidebar }) => {
   return (
@@ -50,15 +109,15 @@ export const SideBar = ({ showSidebar, setShowSidebar }) => {
         >
           <FontAwesomeIcon icon={faTimes} />
         </button>
-        <div className="w-5/6 mx-auto">
-          <div className="flex justify-between space-x-4">
-            <MainButton outline className="w-1/2">
-              Login
-            </MainButton>
-            <MainButton secondary className="w-1/2">
-              Register
-            </MainButton>
-          </div>
+        <div className="px-2">
+          {authenticatedUser ? (
+            <RegisteredUserTab
+              setShowSidebar={setShowSidebar}
+              showSidebar={showSidebar}
+            />
+          ) : (
+            <VisitorUserTab />
+          )}
           <div className="space-y-4">
             <div className="flex flex-col space-y-4 uppercase tracking-wider font-bold border-b border-gray-600 py-4">
               {links.map(({ name, link }) => (
