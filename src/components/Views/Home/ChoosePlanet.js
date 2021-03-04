@@ -1,5 +1,5 @@
 import * as React from "react";
-import MainButton from "../../Button";
+import MainButton from "../../Buttons/MainButton";
 import TextTransition, { presets } from "react-text-transition";
 import classNames from "classnames";
 

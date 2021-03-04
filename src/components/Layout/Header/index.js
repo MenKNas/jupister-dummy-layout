@@ -4,13 +4,13 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBars, faAngleDown } from "@fortawesome/free-solid-svg-icons";
 import { isMobile } from "react-device-detect";
 import { SideBar } from "./SideBar";
-import MainButton from "../../Button";
+import MainButton from "../../Buttons/MainButton";
 
 function MobileHeader() {
   const [showSidebar, setShowSidebar] = React.useState(false);
   return (
     <>
-      <div className="flex justify-between items-center w-full p-2 bg-gray-800 px-4">
+      <div className="flex justify-between items-center p-2 bg-gray-800 px-4">
         <div className="space-x-4">
           <button
             className="text-blue-500 text-2xl"
@@ -26,6 +26,12 @@ function MobileHeader() {
           <MainButton secondary> Register </MainButton>
         </div>
       </div>
+      {showSidebar && (
+        <div
+          className="fixed top-0 start-0 end-0 bottom-0 z-10 bg-opacity-50 bg-gray-900 w-screen"
+          onClick={() => setShowSidebar(!showSidebar)}
+        />
+      )}
       <SideBar showSidebar={showSidebar} setShowSidebar={setShowSidebar} />
     </>
   );

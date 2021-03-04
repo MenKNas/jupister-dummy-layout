@@ -1,5 +1,5 @@
 import * as React from "react";
-import MainButton from "../Button";
+import MainButton from "../Buttons/MainButton";
 
 export const Game = React.memo(({ gameTitle, className }) => {
   return (

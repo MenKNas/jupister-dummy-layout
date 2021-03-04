@@ -5,6 +5,7 @@ export default function MainButton({
   secondary = false,
   className,
   outline,
+  ...rest
 }) {
   function finalClasses() {
     return outline
@@ -17,6 +18,7 @@ export default function MainButton({
   return (
     <button
       className={`${finalClasses()} font-bold py-2 px-4 rounded-lg outline-none uppercase text-sm tracking-wide truncate ${className}`}
+      {...rest}
     >
       {children}
     </button>
