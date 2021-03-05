@@ -12,7 +12,7 @@ export default function Carousels() {
   return (
     <div className="bg-gray-800">
       <div
-        className="flex flex-col justify-center items-center mx-auto xl:px-40"
+        className="flex flex-col justify-center items-center mx-auto xl:px-36"
         style={{ maxWidth: 1400, margin: "0 auto" }}
       >
         <Carousel />

@@ -1,10 +1,11 @@
 import * as React from "react";
-import { Link, NavLink } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBars, faAngleDown, faUser } from "@fortawesome/free-solid-svg-icons";
 import { SideBar } from "./SideBar";
 import MainButton from "../../Buttons/MainButton";
 import useWindowSize from "../../../hooks/useWindowSize";
+import AccountMenu from "./AccountMenu";
 
 const authenticatedUser = true;
 
@@ -71,28 +72,7 @@ function RegisteredHeaderButtons() {
           />
         </button>
         {showProfileLinks && (
-          <div className="absolute top-14 right-0 pl-2 pr-24 bg-gray-800 z-30 rounded-md origin-top-left w-56">
-            <div className="flex flex-col text-white text-left py-1">
-              <Link to="/deposit" className="py-2 truncate">
-                Deposit
-              </Link>
-              <Link to="/deposit" className="py-2 truncate">
-                Deposit
-              </Link>
-              <Link to="/deposit" className="py-2 truncate">
-                Deposit
-              </Link>
-              <Link to="/deposit" className="py-2 truncate">
-                Deposit
-              </Link>
-              <Link to="/deposit" className="py-2 truncate">
-                Deposit
-              </Link>
-              <Link to="/deposit" className="py-2 truncate">
-                Deposit
-              </Link>
-            </div>
-          </div>
+          <AccountMenu setShowProfileLinks={setShowProfileLinks} />
         )}
       </div>
       <MainButton secondary> Deposit </MainButton>
