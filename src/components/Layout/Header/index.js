@@ -5,6 +5,7 @@ import { faBars, faAngleDown, faUser } from "@fortawesome/free-solid-svg-icons";
 import { isMobile } from "react-device-detect";
 import { SideBar } from "./SideBar";
 import MainButton from "../../Buttons/MainButton";
+import useWindowSize from "../../../hooks/useWindowSize";
 
 const authenticatedUser = true;
 
@@ -56,7 +57,9 @@ function RegisteredHeaderButtons() {
   return (
     <div className="flex flex-row items-center space-x-4">
       <div className="flex flex-col text-right">
-        <h4 className="font-bold text-white text-sm">2,504.24 &euro;</h4>
+        <h4 className="font-bold text-white text-sm truncate">
+          2,504.24 &euro;
+        </h4>
         <span className="text-blue-600 text-xs">200.00 &euro;</span>
       </div>
       <FontAwesomeIcon
@@ -71,7 +74,7 @@ function RegisteredHeaderButtons() {
 
 function DesktopHeader() {
   return (
-    <div className="flex justify-between items-center py-4 px-40 bg-gray-800">
+    <div className="flex justify-between items-center py-4 lg:px-10 xl:px-40 bg-gray-800">
       <div className="flex justify-between space-x-4 items-center">
         <div>
           <span className="text-yellow-400 text-2xl tracking-wide">
@@ -79,12 +82,12 @@ function DesktopHeader() {
           </span>
         </div>
         <div className="hidden lg:flex items-center uppercase px-4 text-white font-bold">
-          <span className="px-4">
+          <span className="px-4 truncate">
             <NavLink to="/" activeClassName="text-yellow-300" exact={true}>
               Home
             </NavLink>
           </span>
-          <span className="px-4">
+          <span className="px-4 truncate">
             <NavLink
               to="/casino"
               activeClassName="text-yellow-300"
@@ -93,7 +96,7 @@ function DesktopHeader() {
               Casino
             </NavLink>
           </span>
-          <span className="px-4">
+          <span className="px-4 truncate">
             <NavLink
               to="/livecasino"
               activeClassName="text-yellow-300"
@@ -102,7 +105,7 @@ function DesktopHeader() {
               Live Casino
             </NavLink>
           </span>
-          <span className="px-4">
+          <span className="px-4 truncate">
             <NavLink
               to="/sports"
               activeClassName="text-yellow-300"
@@ -111,7 +114,7 @@ function DesktopHeader() {
               Sports
             </NavLink>
           </span>
-          <span className="px-4">
+          <span className="px-4 truncate">
             <NavLink
               to="/livecasino"
               activeClassName="text-yellow-300"
@@ -123,7 +126,7 @@ function DesktopHeader() {
               </span>
             </NavLink>
           </span>
-          <span className="px-4">
+          <span className="px-4 truncate">
             <NavLink
               to="/promotions"
               activeClassName="text-yellow-300"
@@ -146,7 +149,10 @@ function DesktopHeader() {
 }
 
 function Header() {
-  return isMobile ? <MobileHeader /> : <DesktopHeader />;
+  const windowSize = useWindowSize();
+  const { width, height } = windowSize;
+
+  return width < 1025 ? <MobileHeader /> : <DesktopHeader />;
 }
 
 export default Header;
