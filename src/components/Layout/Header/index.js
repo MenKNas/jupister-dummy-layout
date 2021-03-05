@@ -2,7 +2,6 @@ import * as React from "react";
 import { Link, NavLink } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBars, faAngleDown, faUser } from "@fortawesome/free-solid-svg-icons";
-import { isMobile } from "react-device-detect";
 import { SideBar } from "./SideBar";
 import MainButton from "../../Buttons/MainButton";
 import useWindowSize from "../../../hooks/useWindowSize";
@@ -184,7 +183,7 @@ function DesktopHeader() {
 
 function Header() {
   const windowSize = useWindowSize();
-  const { width, height } = windowSize;
+  const { width } = windowSize;
 
   return width < 1366 ? <MobileHeader /> : <DesktopHeader />;
 }
