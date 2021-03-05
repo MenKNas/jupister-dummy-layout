@@ -1,5 +1,5 @@
 import * as React from "react";
-import { NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBars, faAngleDown, faUser } from "@fortawesome/free-solid-svg-icons";
 import { isMobile } from "react-device-detect";
@@ -54,6 +54,7 @@ function VisitorHeaderButtons() {
 }
 
 function RegisteredHeaderButtons() {
+  const [showProfileLinks, setShowProfileLinks] = React.useState(false);
   return (
     <div className="flex flex-row items-center space-x-4">
       <div className="flex flex-col text-right">
@@ -62,11 +63,39 @@ function RegisteredHeaderButtons() {
         </h4>
         <span className="text-blue-600 text-xs">200.00 &euro;</span>
       </div>
-      <FontAwesomeIcon
-        icon={faUser}
-        className="bg-blue-500 p-2 w-full text-4xl rounded-lg text-white"
-        size="lg"
-      />
+      <div className="relative">
+        <button onClick={() => setShowProfileLinks((prev) => !prev)}>
+          <FontAwesomeIcon
+            icon={faUser}
+            className="bg-blue-500 p-2 w-full text-4xl rounded-lg text-white"
+            size="lg"
+          />
+        </button>
+        {showProfileLinks && (
+          <div className="absolute top-14 right-0 pl-2 pr-24 bg-gray-800 z-30 rounded-md origin-top-left w-56">
+            <div className="flex flex-col text-white text-left py-1">
+              <Link to="/deposit" className="py-2 truncate">
+                Deposit
+              </Link>
+              <Link to="/deposit" className="py-2 truncate">
+                Deposit
+              </Link>
+              <Link to="/deposit" className="py-2 truncate">
+                Deposit
+              </Link>
+              <Link to="/deposit" className="py-2 truncate">
+                Deposit
+              </Link>
+              <Link to="/deposit" className="py-2 truncate">
+                Deposit
+              </Link>
+              <Link to="/deposit" className="py-2 truncate">
+                Deposit
+              </Link>
+            </div>
+          </div>
+        )}
+      </div>
       <MainButton secondary> Deposit </MainButton>
     </div>
   );
@@ -152,7 +181,7 @@ function Header() {
   const windowSize = useWindowSize();
   const { width, height } = windowSize;
 
-  return width < 1025 ? <MobileHeader /> : <DesktopHeader />;
+  return width < 1366 ? <MobileHeader /> : <DesktopHeader />;
 }
 
 export default Header;

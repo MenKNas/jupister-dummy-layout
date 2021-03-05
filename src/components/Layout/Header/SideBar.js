@@ -110,9 +110,9 @@ export const SideBar = ({ showSidebar, setShowSidebar }) => {
       <div
         className="flex flex-col fixed left-0 top-0 bottom-0 text-white bg-gray-800 space-y-4 z-10 p-4 transform-gpu"
         style={{
-          width: 300,
+          width: 320,
           transition: "0.35s ease-out",
-          transform: `translateX(${showSidebar ? 0 : -300}px)`,
+          transform: `translateX(${showSidebar ? 0 : -320}px)`,
         }}
       >
         <button
