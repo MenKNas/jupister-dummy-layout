@@ -1,8 +1,4 @@
-import {
-  faAngleDown,
-  faCaretDown,
-  faList,
-} from "@fortawesome/free-solid-svg-icons";
+import { faAngleDown, faList } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import * as React from "react";
 import { isMobile } from "react-device-detect";
