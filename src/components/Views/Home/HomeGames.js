@@ -27,8 +27,11 @@ function GamesGrid() {
 
 export default function HomeGames() {
   return (
-    <>
-      <div className="space-y-4 bg-gray-500 p-4 lg:pb-8">
+    <div className="bg-gray-500">
+      <div
+        className="space-y-4  p-4 lg:pb-8"
+        style={{ maxWidth: 1400, margin: "0 auto" }}
+      >
         <div className="lg:w-4/5 mx-auto">
           <div className="flex justify-between items-center py-4">
             <div>Category Title </div>
@@ -42,7 +45,10 @@ export default function HomeGames() {
           <ChoosePlanet />
         </div>
       </div>
-      <div className="space-y-4 p-4 lg:pb-8">
+      <div
+        className="space-y-4 p-4 lg:pb-8"
+        style={{ maxWidth: 1400, margin: "0 auto" }}
+      >
         <div className="lg:w-4/5 mx-auto">
           <div className="flex justify-between items-center py-4">
             <div>Category Title </div>
@@ -55,6 +61,6 @@ export default function HomeGames() {
           <GamesGrid />
         </div>
       </div>
-    </>
+    </div>
   );
 }

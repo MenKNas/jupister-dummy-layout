@@ -13,7 +13,7 @@ function MobileHeader() {
   const [showSidebar, setShowSidebar] = React.useState(false);
   return (
     <>
-      <div className="flex justify-between items-center p-2 bg-gray-800 px-4">
+      <div className="flex justify-between items-center p-2 bg-gray-800 px-4 lg:px-32">
         <div className="space-x-4">
           <button
             className="text-blue-500 text-2xl"
@@ -103,75 +103,80 @@ function RegisteredHeaderButtons() {
 
 function DesktopHeader() {
   return (
-    <div className="flex justify-between items-center py-4 lg:px-10 xl:px-40 bg-gray-800">
-      <div className="flex justify-between space-x-4 items-center">
-        <div>
-          <span className="text-yellow-400 text-2xl tracking-wide">
-            Jupiter
-          </span>
+    <div className="bg-gray-800">
+      <div
+        className="flex justify-between items-center py-4 lg:px-10 xl:px-36"
+        style={{ maxWidth: 1400, margin: "0 auto" }}
+      >
+        <div className="flex justify-between space-x-4 items-center">
+          <div>
+            <span className="text-yellow-400 text-2xl tracking-wide">
+              Jupiter
+            </span>
+          </div>
+          <div className="hidden lg:flex items-center uppercase px-4 text-white font-bold">
+            <span className="px-4 truncate">
+              <NavLink to="/" activeClassName="text-yellow-300" exact={true}>
+                Home
+              </NavLink>
+            </span>
+            <span className="px-4 truncate">
+              <NavLink
+                to="/casino"
+                activeClassName="text-yellow-300"
+                exact={true}
+              >
+                Casino
+              </NavLink>
+            </span>
+            <span className="px-4 truncate">
+              <NavLink
+                to="/livecasino"
+                activeClassName="text-yellow-300"
+                exact={true}
+              >
+                Live Casino
+              </NavLink>
+            </span>
+            <span className="px-4 truncate">
+              <NavLink
+                to="/sports"
+                activeClassName="text-yellow-300"
+                exact={true}
+              >
+                Sports
+              </NavLink>
+            </span>
+            <span className="px-4 truncate">
+              <NavLink
+                to="/livecasino"
+                activeClassName="text-yellow-300"
+                exact={true}
+              >
+                More
+                <span className="ml-2">
+                  <FontAwesomeIcon icon={faAngleDown} />
+                </span>
+              </NavLink>
+            </span>
+            <span className="px-4 truncate">
+              <NavLink
+                to="/promotions"
+                activeClassName="text-yellow-300"
+                exact={true}
+              >
+                Promotions
+              </NavLink>
+            </span>
+          </div>
         </div>
-        <div className="hidden lg:flex items-center uppercase px-4 text-white font-bold">
-          <span className="px-4 truncate">
-            <NavLink to="/" activeClassName="text-yellow-300" exact={true}>
-              Home
-            </NavLink>
-          </span>
-          <span className="px-4 truncate">
-            <NavLink
-              to="/casino"
-              activeClassName="text-yellow-300"
-              exact={true}
-            >
-              Casino
-            </NavLink>
-          </span>
-          <span className="px-4 truncate">
-            <NavLink
-              to="/livecasino"
-              activeClassName="text-yellow-300"
-              exact={true}
-            >
-              Live Casino
-            </NavLink>
-          </span>
-          <span className="px-4 truncate">
-            <NavLink
-              to="/sports"
-              activeClassName="text-yellow-300"
-              exact={true}
-            >
-              Sports
-            </NavLink>
-          </span>
-          <span className="px-4 truncate">
-            <NavLink
-              to="/livecasino"
-              activeClassName="text-yellow-300"
-              exact={true}
-            >
-              More
-              <span className="ml-2">
-                <FontAwesomeIcon icon={faAngleDown} />
-              </span>
-            </NavLink>
-          </span>
-          <span className="px-4 truncate">
-            <NavLink
-              to="/promotions"
-              activeClassName="text-yellow-300"
-              exact={true}
-            >
-              Promotions
-            </NavLink>
-          </span>
+        <div className="space-x-4">
+          {authenticatedUser ? (
+            <RegisteredHeaderButtons />
+          ) : (
+            <VisitorHeaderButtons />
+          )}
         </div>
-      </div>
-      <div className="space-x-4">
-        {authenticatedUser ? (
-          <RegisteredHeaderButtons />
-        ) : (
-          <VisitorHeaderButtons />
-        )}
       </div>
     </div>
   );
