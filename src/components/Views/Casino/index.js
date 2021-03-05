@@ -4,9 +4,9 @@ import CasinoHeader from "./CasinoHeader";
 
 export default function Casino() {
   return (
-    <div className="bg-blue-900">
+    <div className="tw:space-y-8 tw:w-full tw:flex tw:flex-col tw:items-stretch bg-gray-800">
       <CasinoHeader />
-      <div className="w-full lg:w-4/5 lg:mx-auto">
+      <div className="lg:mx-auto">
         <CasinoGames />
       </div>
     </div>

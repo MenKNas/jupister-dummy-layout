@@ -182,8 +182,7 @@ function DesktopHeader() {
 }
 
 function Header() {
-  const windowSize = useWindowSize();
-  const { width } = windowSize;
+  const { width } = useWindowSize();
 
   return width < 1366 ? <MobileHeader /> : <DesktopHeader />;
 }

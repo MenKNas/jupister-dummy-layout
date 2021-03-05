@@ -17,7 +17,6 @@ function PlanetCard({ planet, selectedPlanet, setSelectedPlanet }) {
       <div className="flex flex-col w-2/3 justify-center text-center cursor-pointer items-center">
         <img src="/" alt="planet" />
         <div
-          //   className="flex flex-col"
           className={classNames("flex flex-col p-2", {
             "bg-gray-800 rounded-md text-white": isSelected,
           })}

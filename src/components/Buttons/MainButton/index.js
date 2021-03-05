@@ -17,7 +17,9 @@ export default function MainButton({
 
   return (
     <button
-      className={`${finalClasses()} font-bold py-2 px-4 rounded-lg outline-none uppercase text-sm tracking-wide truncate ${className}`}
+      className={`${finalClasses()} font-bold py-2 px-4 rounded-lg outline-none uppercase text-sm tracking-wide truncate ${
+        className ? className : ""
+      }`}
       {...rest}
     >
       {children}
