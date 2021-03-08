@@ -3,7 +3,11 @@ import PromotionCard from "./PromotionCard";
 
 export default function Promotions({ preview = false }) {
   return (
-    <div className="bg-gray-800" style={{ maxWidth: 1400, margin: "0 auto" }}>
+    <div
+      className="bg-gray-800"
+      style={{ maxWidth: 1400, margin: "0 auto" }}
+      data-component="Promotions"
+    >
       {preview ? (
         <div className="flex flex-col justify-center items-center space-y-6 md:py-3 lg:space-x-6 lg:flex-row lg:justify-between lg:space-y-0">
           {/* Promotions will probably be two images in flex-col for mobile and flex-row for desktop */}

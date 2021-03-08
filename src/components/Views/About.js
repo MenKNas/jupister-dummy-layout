@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 
 export default function About() {
   return (
-    <div style={{ maxWidth: 1400, margin: "0 auto" }}>
+    <div style={{ maxWidth: 1400, margin: "0 auto" }} data-component="About">
       <div className="grid grid-cols-3 lg:hidden bg-gray-100 p-2 items-center">
         <Link to="/">Back</Link>
         <h2 className="uppercase font-bold text-lg text-center">About Us</h2>

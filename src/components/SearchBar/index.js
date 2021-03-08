@@ -7,7 +7,7 @@ import useWindowSize from "../../hooks/useWindowSize";
 export default function SearchBar() {
   const { width } = useWindowSize();
   return (
-    <div className="flex space-x-4">
+    <div className="flex space-x-4" data-component="SearchBar">
       <input
         placeholder={"search game".toUpperCase()}
         className="p-2 w-4/5 bg-blue-800 border border-gray-500 rounded-md text-white outline-none"

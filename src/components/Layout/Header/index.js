@@ -13,7 +13,10 @@ function MobileHeader() {
   const [showSidebar, setShowSidebar] = React.useState(false);
   return (
     <>
-      <div className="flex justify-between items-center p-2 bg-gray-800 px-4 lg:px-32">
+      <div
+        className="flex justify-between items-center p-2 bg-gray-800 px-4 lg:px-32"
+        data-component="MobileHeader"
+      >
         <div className="space-x-4">
           <button
             className="text-blue-500 text-2xl"
@@ -56,7 +59,10 @@ function VisitorHeaderButtons() {
 function RegisteredHeaderButtons() {
   const [showProfileLinks, setShowProfileLinks] = React.useState(false);
   return (
-    <div className="flex flex-row items-center space-x-4">
+    <div
+      className="flex flex-row items-center space-x-4"
+      data-component="RegisteredHeaderButtons"
+    >
       <div className="flex flex-col text-right">
         <h4 className="font-bold text-white text-sm truncate">
           2,504.24 &euro;
@@ -82,7 +88,7 @@ function RegisteredHeaderButtons() {
 
 function DesktopHeader() {
   return (
-    <div className="bg-gray-800">
+    <div className="bg-gray-800" data-component="DesktopHeader">
       <div
         className="flex justify-between items-center py-4 lg:px-10 xl:px-36"
         style={{ maxWidth: 1400, margin: "0 auto" }}

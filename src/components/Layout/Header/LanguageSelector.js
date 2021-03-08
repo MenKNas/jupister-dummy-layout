@@ -6,7 +6,7 @@ const supportedLanguages = ["EN", "DE", "ES"];
 
 export default function LanguageSelector() {
   return (
-    <div className="relative">
+    <div className="relative" data-component="LanguageSelector">
       <button>
         <span>
           Initial Language <FontAwesomeIcon icon={faCaretDown} />

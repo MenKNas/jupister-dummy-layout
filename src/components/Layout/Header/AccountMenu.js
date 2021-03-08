@@ -10,6 +10,7 @@ export default function AccountMenu({ setShowProfileLinks }) {
   return (
     <>
       <div
+        data-component="AccountMenu"
         className="absolute top-10 right-0 bg-gray-800 z-30 rounded-md origin-top-left w-56  border border-white"
         ref={ref}
         onMouseLeave={() => setShowProfileLinks(false)}

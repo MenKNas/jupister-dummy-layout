@@ -2,7 +2,10 @@ import * as React from "react";
 
 function Carousel() {
   return (
-    <div className="border border-blue-900 flex justify-center p-4 h-40 items-center bg-white w-full">
+    <div
+      data-component="Carousel"
+      className="border border-blue-900 flex justify-center p-4 h-40 items-center bg-white w-full"
+    >
       This is going to be the actual carousel
     </div>
   );
@@ -10,7 +13,7 @@ function Carousel() {
 
 export default function Carousels() {
   return (
-    <div className="bg-gray-800">
+    <div className="bg-gray-800" data-component="CarouselSection">
       <div
         className="flex flex-col justify-center items-center mx-auto xl:px-36"
         style={{ maxWidth: 1400, margin: "0 auto" }}

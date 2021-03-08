@@ -10,6 +10,7 @@ export default function PromotionCard({
 }) {
   return (
     <div
+      data-component="PromotionCard"
       className={`flex flex-col border-gray-400 bg-white p-8 space-y-4 rounded-md ${className}`}
     >
       <h3 className="text-lg uppercase font-bold whitespace-nowrap truncate">

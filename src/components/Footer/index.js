@@ -2,7 +2,10 @@ import * as React from "react";
 
 export default function Footer() {
   return (
-    <div className="bg-blue-900 text-white p-4 flex-shrink-0">
+    <div
+      className="bg-blue-900 text-white p-4 flex-shrink-0"
+      data-component="Footer"
+    >
       <div className="w-4/5 mx-auto">
         <div>This is going to be the footer</div>
         <div> Curacao License</div>

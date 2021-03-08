@@ -29,7 +29,7 @@ const authenticatedUser = true;
 
 function RegisteredUserTab({ showSidebar, setShowSidebar, user }) {
   return (
-    <div className="flex flex-col space-y-4">
+    <div className="flex flex-col space-y-4" data-component="RegisteredTab">
       <div className="flex flex-row justify-between items-center space-x-4">
         <div>
           <div className="flex flex-row justify-evenly space-x-2 items-center">
@@ -75,7 +75,7 @@ function RegisteredUserTab({ showSidebar, setShowSidebar, user }) {
 
 function VisitorUserTab() {
   return (
-    <div className="flex justify-between space-x-4">
+    <div className="flex justify-between space-x-4" data-component="VisitorTab">
       <MainButton outline className="w-1/2">
         Login
       </MainButton>
@@ -88,7 +88,10 @@ function VisitorUserTab() {
 
 const FooterLinks = React.memo(({ setShowSidebar }) => {
   return (
-    <div className="flex flex-col text-xs space-y-4 text-white tracking-wider">
+    <div
+      className="flex flex-col text-xs space-y-4 text-white tracking-wider"
+      data-component="FooterLinks"
+    >
       {footerLinks.map(({ name, link }) => (
         <Link to={link} onClick={() => setShowSidebar(false)}>
           {name}
@@ -108,6 +111,7 @@ export const SideBar = ({ showSidebar, setShowSidebar }) => {
   return (
     <>
       <div
+        data-component="SideBar"
         className="flex flex-col fixed left-0 top-0 bottom-0 text-white bg-gray-800 space-y-4 z-10 p-4 transform-gpu"
         style={{
           width: 320,
