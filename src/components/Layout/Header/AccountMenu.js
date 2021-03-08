@@ -10,26 +10,51 @@ export default function AccountMenu({ setShowProfileLinks }) {
   return (
     <>
       <div
-        className="absolute top-10 right-0 pl-2 pr-24 bg-gray-800 z-30 rounded-md origin-top-left w-56  border border-white"
+        className="absolute top-10 right-0 bg-gray-800 z-30 rounded-md origin-top-left w-56  border border-white"
         ref={ref}
+        onMouseLeave={() => setShowProfileLinks(false)}
       >
-        <div className="flex flex-col text-white text-left py-1">
-          <Link to="/deposit" className="py-2 truncate">
+        <div className="text-white py-1 px-2">
+          <Link
+            to="/deposit"
+            className="px-2 py-2 truncate w-full inline-block hover:textw-white hover:bg-yellow-300"
+            onClick={() => setShowProfileLinks(false)}
+          >
             Deposit
           </Link>
-          <Link to="/deposit" className="py-2 truncate">
+          <Link
+            to="/deposit"
+            className="px-2 py-2 truncate w-full inline-block hover:textw-white hover:bg-yellow-300"
+            onClick={() => setShowProfileLinks(false)}
+          >
             Deposit
           </Link>
-          <Link to="/deposit" className="py-2 truncate">
+          <Link
+            to="/deposit"
+            className="px-2 py-2 truncate w-full inline-block hover:textw-white hover:bg-yellow-300"
+            onClick={() => setShowProfileLinks(false)}
+          >
             Deposit
           </Link>
-          <Link to="/deposit" className="py-2 truncate">
+          <Link
+            to="/deposit"
+            className="px-2 py-2 truncate w-full inline-block hover:textw-white hover:bg-yellow-300"
+            onClick={() => setShowProfileLinks(false)}
+          >
             Deposit
           </Link>
-          <Link to="/deposit" className="py-2 truncate">
+          <Link
+            to="/deposit"
+            className="px-2 py-2 truncate w-full inline-block hover:textw-white hover:bg-yellow-300"
+            onClick={() => setShowProfileLinks(false)}
+          >
             Deposit
           </Link>
-          <Link to="/deposit" className="py-2 truncate">
+          <Link
+            to="/deposit"
+            className="px-2 py-2 truncate w-full inline-block hover:textw-white hover:bg-yellow-300"
+            onClick={() => setShowProfileLinks(false)}
+          >
             Deposit
           </Link>
         </div>

@@ -64,7 +64,7 @@ function RegisteredHeaderButtons() {
         <span className="text-blue-600 text-xs">200.00 &euro;</span>
       </div>
       <div className="relative">
-        <button onClick={() => setShowProfileLinks((prev) => !prev)}>
+        <button onMouseOver={() => setShowProfileLinks(true)}>
           <FontAwesomeIcon
             icon={faUser}
             className="bg-blue-500 p-2 w-full text-4xl rounded-lg text-white"
