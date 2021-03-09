@@ -4,7 +4,7 @@ import PromotionCard from "./PromotionCard";
 export default function Promotions({ preview = false }) {
   return (
     <div
-      className="bg-gray-800"
+      className="bg-white dark:bg-gray-800 transition duration-200 "
       style={{ maxWidth: 1400, margin: "0 auto" }}
       data-component="Promotions"
     >

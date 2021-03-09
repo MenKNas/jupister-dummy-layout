@@ -10,7 +10,7 @@ export default function Home() {
     <div className="tw:space-y-8 tw:w-full tw:flex tw:flex-col tw:items-stretch">
       <Carousel />
       <HomeGames />
-      <div className="bg-gray-800 ">
+      <div className="bg-white dark:bg-gray-800 dark:text-white transition duration-200">
         <div
           className="space-y-4 py-8"
           style={{ maxWidth: 1400, margin: "0 auto" }}

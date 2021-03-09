@@ -27,7 +27,7 @@ function GamesGrid() {
 
 export default function HomeGames() {
   return (
-    <div className="bg-gray-500">
+    <div className="bg-white dark:bg-gray-500 transition duration-200">
       <div
         className="space-y-4  p-4 lg:pb-8"
         style={{ maxWidth: 1400, margin: "0 auto" }}

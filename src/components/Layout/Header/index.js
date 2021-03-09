@@ -64,7 +64,7 @@ function RegisteredHeaderButtons() {
       data-component="RegisteredHeaderButtons"
     >
       <div className="flex flex-col text-right">
-        <h4 className="font-bold text-white text-sm truncate">
+        <h4 className="font-bold dark:text-white text-sm truncate transition duration-200">
           2,504.24 &euro;
         </h4>
         <span className="text-blue-600 text-xs">200.00 &euro;</span>
@@ -88,7 +88,10 @@ function RegisteredHeaderButtons() {
 
 function DesktopHeader() {
   return (
-    <div className="bg-gray-800" data-component="DesktopHeader">
+    <div
+      className="dark:bg-gray-800 transition duration-200"
+      data-component="DesktopHeader"
+    >
       <div
         className="flex justify-between items-center py-4 lg:px-10 xl:px-36"
         style={{ maxWidth: 1400, margin: "0 auto" }}
@@ -99,7 +102,7 @@ function DesktopHeader() {
               Jupiter
             </span>
           </div>
-          <div className="hidden lg:flex items-center uppercase px-4 text-white font-bold">
+          <div className="hidden lg:flex items-center uppercase px-4 dark:text-white font-bold transition duration-200">
             <span className="px-4 truncate">
               <NavLink to="/" activeClassName="text-yellow-300" exact={true}>
                 Home
