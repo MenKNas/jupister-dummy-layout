@@ -7,7 +7,7 @@ export default function CasinoHeader() {
     <div className="px-4 bg-blue-400 py-6 lg:px-0">
       <div
         style={{ maxWidth: 1400, margin: "0 auto" }}
-        className="lg:mx-auto lg:px-32 xl:px-36"
+        className="lg:mx-auto lg:px-32 xl:px-4"
       >
         <div>
           <SearchBar />

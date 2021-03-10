@@ -14,7 +14,7 @@ function PlanetCard({ planet, selectedPlanet, setSelectedPlanet }) {
   let isSelected = planet === selectedPlanet ? true : false;
   return (
     <div className="w-1/6" onClick={() => setSelectedPlanet(planet)}>
-      <div className="flex flex-col w-2/3 justify-center text-center cursor-pointer items-center">
+      <div className="flex flex-col w-2/3 justify-center text-center cursor-pointer items-center text-white">
         <img src="/" alt="planet" />
         <div
           className={classNames("flex flex-col p-2", {

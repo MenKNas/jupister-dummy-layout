@@ -6,7 +6,7 @@ export default function CasinoGames() {
   return (
     <div
       style={{ maxWidth: 1400, margin: "0 auto" }}
-      className="lg:px-32 xl:px-36"
+      className="lg:px-32 xl:px-4"
       data-component="CasinoGames"
     >
       <div className="px-4 lg:px-0 py-4 space-y-4">

@@ -27,12 +27,12 @@ function GamesGrid() {
 
 export default function HomeGames() {
   return (
-    <div className="bg-gray-500">
+    <div className="bg-main-bg">
       <div
         className="space-y-4  p-4 lg:pb-8"
         style={{ maxWidth: 1400, margin: "0 auto" }}
       >
-        <div className="lg:w-4/5 mx-auto">
+        <div className="lg:w-full mx-auto">
           <div className="flex justify-between items-center py-4">
             <div>Category Title </div>
             <button className="truncate uppercase inline-block">
@@ -45,20 +45,22 @@ export default function HomeGames() {
           <ChoosePlanet />
         </div>
       </div>
-      <div
-        className="space-y-4 p-4 lg:pb-8"
-        style={{ maxWidth: 1400, margin: "0 auto" }}
-      >
-        <div className="lg:w-4/5 mx-auto">
-          <div className="flex justify-between items-center py-4">
-            <div>Category Title </div>
-            <button className="truncate uppercase inline-block">
-              <span>
-                Show All <FontAwesomeIcon icon={faAngleRight} />
-              </span>
-            </button>
+      <div className="bg-white">
+        <div
+          className="space-y-4 p-4 lg:pb-8"
+          style={{ maxWidth: 1400, margin: "0 auto" }}
+        >
+          <div className="lg:w-full mx-auto">
+            <div className="flex justify-between items-center py-4">
+              <div>Category Title </div>
+              <button className="truncate uppercase inline-block">
+                <span>
+                  Show All <FontAwesomeIcon icon={faAngleRight} />
+                </span>
+              </button>
+            </div>
+            <GamesGrid />
           </div>
-          <GamesGrid />
         </div>
       </div>
     </div>

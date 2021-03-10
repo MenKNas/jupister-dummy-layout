@@ -1,29 +1,54 @@
 import * as React from "react";
+import "react-responsive-carousel/lib/styles/carousel.min.css";
+import { Carousel as ResponsiveCarousel } from "react-responsive-carousel";
+
+const slides = [
+  { image: "/assets/slider-img.jpg", legend: "" },
+  { image: "/assets/slider-img.jpg", legend: "" },
+  { image: "/assets/slider-img.jpg", legend: "" },
+];
 
 function Carousel() {
   return (
-    <div
+    <ResponsiveCarousel
       data-component="Carousel"
-      className="border border-blue-900 flex justify-center p-4 h-40 items-center bg-white w-full"
+      style={{ minHeight: 168 }}
+      autoPlay
+      infiniteLoop
+      showThumbs={false}
+      showArrows={false}
+      showStatus={false}
+      interval={5000}
     >
-      This is going to be the actual carousel
-    </div>
+      {slides.map((slide, index) => {
+        return <Slider key={index} slide={slide} />;
+      })}
+    </ResponsiveCarousel>
+  );
+}
+
+function Slider({ slide }) {
+  return (
+    <img
+      src={slide.image}
+      loading="lazy"
+      alt="Welcome bonus banner"
+      style={{
+        maxWidth: "100%",
+        maxHeight: "100%",
+        minHeight: "200px",
+        objectFit: "cover",
+        borderRadius: "4px",
+      }}
+    />
   );
 }
 
 export default function Carousels() {
   return (
     <div className="bg-gray-800" data-component="CarouselSection">
-      <div
-        className="flex flex-col justify-center items-center mx-auto xl:px-36"
-        style={{ maxWidth: 1400, margin: "0 auto" }}
-      >
+      <div className="flex flex-col justify-center items-center mx-auto">
         <Carousel />
-        <div className="hidden md:flex justify-center  text-white w-full space-x-20 mx-auto p-4">
-          <div> Fast Sign Up </div>
-          <div> Instant Deposit </div>
-          <div> Fastest Payouts </div>
-        </div>
       </div>
     </div>
   );

@@ -3,17 +3,14 @@ module.exports = {
   darkMode: false, // or 'media' or 'class'
   theme: {
     extend: {
-      animation: {
-        slidein: "slidein 2s linear 0s",
+      colors: {
+        "primary-bg-color": "#4444",
+        "primary-text-color": "#7b3611",
+        "secondary-color": "#346bff",
+        "third-color": "#ff45f0",
+        "main-bg": "#020821",
+        "header-bg": "#0B112B",
       },
-      keyframes: {
-        slidein: {
-          "0%": { transform: "translateX(-100)" },
-          "50%": { transform: "translateX(-50)" },
-          "100%": { transform: "translateX(0)" },
-        },
-      },
-      transitionProperty: { visibility: "visibility" },
     },
   },
   variants: {

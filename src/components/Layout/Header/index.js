@@ -14,7 +14,7 @@ function MobileHeader() {
   return (
     <>
       <div
-        className="flex justify-between items-center p-2 bg-gray-800 px-4 lg:px-32"
+        className="flex justify-between items-center p-2 bg-header-bg px-4 lg:px-32"
         data-component="MobileHeader"
       >
         <div className="space-x-4">
@@ -88,9 +88,9 @@ function RegisteredHeaderButtons() {
 
 function DesktopHeader() {
   return (
-    <div className="bg-gray-800" data-component="DesktopHeader">
+    <div className="bg-header-bg" data-component="DesktopHeader">
       <div
-        className="flex justify-between items-center py-4 lg:px-10 xl:px-36"
+        className="flex justify-between items-center py-4 lg:px-10 xl:px-4"
         style={{ maxWidth: 1400, margin: "0 auto" }}
       >
         <div className="flex justify-between space-x-4 items-center">
