@@ -14,7 +14,7 @@ function MobileHeader() {
   return (
     <>
       <div
-        className="flex justify-between items-center p-2 bg-gray-800 px-4 lg:px-32"
+        className="flex justify-between items-center p-2 bg-white dark:bg-gray-800 px-4 lg:px-32"
         data-component="MobileHeader"
       >
         <div className="space-x-4">

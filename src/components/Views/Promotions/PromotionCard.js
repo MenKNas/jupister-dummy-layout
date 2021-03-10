@@ -11,7 +11,7 @@ export default function PromotionCard({
   return (
     <div
       data-component="PromotionCard"
-      className={`flex flex-col border border-gray-300 dark:bg-white p-8 space-y-4 rounded-md ${
+      className={`flex flex-col border border-gray-300 bg-white p-8 space-y-4 rounded-md ${
         className ? className : ""
       }`}
     >

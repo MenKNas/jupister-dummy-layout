@@ -15,7 +15,7 @@ export default function Layout() {
         <Header />
         <div
           style={{ minHeight: "calc(100vh - 230px)" }}
-          className="bg-gray-800"
+          className="bg-gray-100 dark:bg-gray-800"
         >
           <Switch>
             <Route path="/casino" exact>

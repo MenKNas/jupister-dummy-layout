@@ -6,7 +6,10 @@ import {
   faAngleRight,
   faTimes,
   faUser,
+  faSun,
+  faMoon,
 } from "@fortawesome/free-solid-svg-icons";
+import useDarkMode from "../../../hooks/useDarkMode";
 
 const links = [
   { name: "Casino", link: "/casino" },
@@ -35,11 +38,11 @@ function RegisteredUserTab({ showSidebar, setShowSidebar, user }) {
           <div className="flex flex-row justify-evenly space-x-2 items-center">
             <FontAwesomeIcon
               icon={faUser}
-              className="bg-blue-500 p-2 w-1/2 text-4xl rounded-lg"
+              className="bg-blue-500 p-2 w-1/2 text-4xl rounded-lg text-white"
               size="lg"
             />
             <div className="flex flex-col">
-              <h4 className="text-gray-300 text-xs"> User </h4>
+              <h4 className="text-gray-800 dark:text-gray-300 text-xs">User</h4>
               <span className="text-sm font-bold truncate">
                 {user.userMail}
               </span>
@@ -89,11 +92,11 @@ function VisitorUserTab() {
 const FooterLinks = React.memo(({ setShowSidebar }) => {
   return (
     <div
-      className="flex flex-col text-xs space-y-4 text-white tracking-wider"
+      className="flex flex-col text-xs space-y-4 dark:text-white tracking-wider"
       data-component="FooterLinks"
     >
       {footerLinks.map(({ name, link }) => (
-        <Link to={link} onClick={() => setShowSidebar(false)}>
+        <Link key={name} to={link} onClick={() => setShowSidebar(false)}>
           {name}
         </Link>
       ))}
@@ -108,23 +111,40 @@ export const SideBar = ({ showSidebar, setShowSidebar }) => {
     totalBalance: 2500,
     bonusBalance: 200,
   };
+  const [colorTheme, setTheme] = useDarkMode();
   return (
     <>
       <div
         data-component="SideBar"
-        className="flex flex-col fixed left-0 top-0 bottom-0 text-white bg-gray-800 space-y-4 z-10 p-4 transform-gpu"
+        className="flex flex-col fixed left-0 top-0 bottom-0 bg-white dark:text-white dark:bg-gray-800 space-y-4 z-10 p-4 transform-gpu"
         style={{
           width: 320,
           transition: "0.35s ease-out",
           transform: `translateX(${showSidebar ? 0 : -320}px)`,
         }}
       >
-        <button
-          onClick={() => setShowSidebar(false)}
-          className="flex text-2xl text-blue-500 w-1/6"
-        >
-          <FontAwesomeIcon icon={faTimes} />
-        </button>
+        <div className="flex justify-between items-center w-full">
+          <button
+            onClick={() => setShowSidebar(false)}
+            className="flex text-2xl text-blue-500 w-1/6"
+          >
+            <FontAwesomeIcon icon={faTimes} />
+          </button>
+          <button
+            onClick={() => {
+              setTheme(colorTheme);
+              setShowSidebar(false);
+            }}
+            className="flex text-xl text-blue-500"
+          >
+            {colorTheme === "light" ? (
+              <FontAwesomeIcon icon={faSun} className="text-yellow-300" />
+            ) : (
+              <FontAwesomeIcon icon={faMoon} />
+            )}
+          </button>
+        </div>
+
         <div className="px-2">
           {authenticatedUser ? (
             <RegisteredUserTab
@@ -138,7 +158,11 @@ export const SideBar = ({ showSidebar, setShowSidebar }) => {
           <div className="space-y-4">
             <div className="flex flex-col space-y-4 uppercase tracking-wider font-bold border-b border-gray-600 py-4">
               {links.map(({ name, link }) => (
-                <Link to={link} onClick={() => setShowSidebar(false)}>
+                <Link
+                  key={name}
+                  to={link}
+                  onClick={() => setShowSidebar(false)}
+                >
                   {name}
                 </Link>
               ))}
