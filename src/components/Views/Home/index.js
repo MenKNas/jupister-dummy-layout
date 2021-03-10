@@ -7,7 +7,7 @@ import TotalJackpot from "./TotalJackpot";
 
 export default function Home() {
   return (
-    <div className="tw:space-y-8 tw:w-full tw:flex tw:flex-col tw:items-stretch">
+    <div className="w-full flex flex-col items-stretch">
       <Carousel />
       <HomeGames />
       <div className="bg-main-bg">

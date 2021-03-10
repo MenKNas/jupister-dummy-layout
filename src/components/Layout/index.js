@@ -7,6 +7,7 @@ import About from "../Views/About";
 import Footer from "../Footer";
 import Promotions from "../Views/Promotions";
 import Casino from "../Views/Casino";
+import Account from "../Views/Account";
 
 export default function Layout() {
   return (
@@ -29,6 +30,9 @@ export default function Layout() {
             </Route>
             <Route path="/about" exact>
               <About />
+            </Route>
+            <Route path="/account" exact>
+              <Account />
             </Route>
             <Route path="*">
               <Home />

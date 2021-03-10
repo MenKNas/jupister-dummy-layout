@@ -27,9 +27,9 @@ function GamesGrid() {
 
 export default function HomeGames() {
   return (
-    <div className="bg-main-bg">
+    <div className="bg-main-bg text-white">
       <div
-        className="space-y-4  p-4 lg:pb-8"
+        className="space-y-4 p-4 lg:pb-8"
         style={{ maxWidth: 1400, margin: "0 auto" }}
       >
         <div className="lg:w-full mx-auto">
