@@ -10,7 +10,7 @@ export default function MainButton({
 }) {
   function finalClasses() {
     return outline
-      ? "bg-transparent border border-yellow-300 text-white"
+      ? "bg-transparent border border-yellow-300 text-white rounded-lg "
       : secondary
       ? styles.secondary
       : "bg-blue-800 text-white";
@@ -19,7 +19,7 @@ export default function MainButton({
   return (
     <button
       data-component="MainButton"
-      className={`${finalClasses()} font-bold py-2 px-4 rounded-lg outline-none uppercase text-sm tracking-wide truncate ${
+      className={`${finalClasses()} font-bold py-2 px-4 outline-none uppercase text-sm tracking-wide truncate ${
         className ? className : ""
       }`}
       {...rest}
