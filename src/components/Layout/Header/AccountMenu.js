@@ -11,49 +11,49 @@ export default function AccountMenu({ setShowProfileLinks }) {
     <>
       <div
         data-component="AccountMenu"
-        className="absolute top-10 right-0 bg-gray-800 z-30 rounded-md origin-top-left w-56  border border-white"
+        className="absolute top-10 right-0 bg-bg-secondary z-30 rounded-md origin-top-left w-56 shadow-lg"
         ref={ref}
         onMouseLeave={() => setShowProfileLinks(false)}
       >
         <div className="text-white py-1 px-2">
           <Link
             to="/deposit"
-            className="px-2 py-2 truncate w-full inline-block hover:textw-white hover:bg-yellow-300"
+            className="px-2 py-2 truncate w-full inline-block hover:textw-white hover:bg-brand-primary hover:text-bg-darker"
             onClick={() => setShowProfileLinks(false)}
           >
             Deposit
           </Link>
           <Link
             to="/deposit"
-            className="px-2 py-2 truncate w-full inline-block hover:textw-white hover:bg-yellow-300"
+            className="px-2 py-2 truncate w-full inline-block hover:textw-white hover:bg-brand-primary hover:text-bg-darker"
             onClick={() => setShowProfileLinks(false)}
           >
             Deposit
           </Link>
           <Link
             to="/deposit"
-            className="px-2 py-2 truncate w-full inline-block hover:textw-white hover:bg-yellow-300"
+            className="px-2 py-2 truncate w-full inline-block hover:textw-white hover:bg-brand-primary hover:text-bg-darker"
             onClick={() => setShowProfileLinks(false)}
           >
             Deposit
           </Link>
           <Link
             to="/deposit"
-            className="px-2 py-2 truncate w-full inline-block hover:textw-white hover:bg-yellow-300"
+            className="px-2 py-2 truncate w-full inline-block hover:textw-white hover:bg-brand-primary hover:text-bg-darker"
             onClick={() => setShowProfileLinks(false)}
           >
             Deposit
           </Link>
           <Link
             to="/deposit"
-            className="px-2 py-2 truncate w-full inline-block hover:textw-white hover:bg-yellow-300"
+            className="px-2 py-2 truncate w-full inline-block hover:textw-white hover:bg-brand-primary hover:text-bg-darker"
             onClick={() => setShowProfileLinks(false)}
           >
             Deposit
           </Link>
           <Link
             to="/deposit"
-            className="px-2 py-2 truncate w-full inline-block hover:textw-white hover:bg-yellow-300"
+            className="px-2 py-2 truncate w-full inline-block hover:textw-white hover:bg-brand-primary hover:text-bg-darker"
             onClick={() => setShowProfileLinks(false)}
           >
             Deposit

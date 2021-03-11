@@ -1,7 +1,7 @@
+import * as React from "react";
 import { faAngleRight } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import classNames from "classnames";
-import * as React from "react";
 import { Game } from "../../Game";
 import ChoosePlanet from "./ChoosePlanet";
 import styles from "./Homepage.module.css";
@@ -27,9 +27,9 @@ function GamesGrid() {
   );
 }
 
-export default function HomeGames() {
+export default function PopularGames() {
   return (
-    <div className={classNames(styles["main-section"])}>
+    <div className={classNames(styles.mainSection, styles.clippedBottom)}>
       <div
         className="space-y-4 p-4 lg:pb-8"
         style={{
@@ -48,24 +48,6 @@ export default function HomeGames() {
           </div>
           <GamesGrid />
           <ChoosePlanet />
-        </div>
-      </div>
-      <div className="bg-white">
-        <div
-          className="space-y-4 p-4 lg:pb-8"
-          style={{ maxWidth: 1400, margin: "0 auto" }}
-        >
-          <div className="lg:w-full mx-auto">
-            <div className="flex justify-between items-center py-4">
-              <div>Category Title </div>
-              <button className="truncate uppercase inline-block">
-                <span>
-                  Show All <FontAwesomeIcon icon={faAngleRight} />
-                </span>
-              </button>
-            </div>
-            <GamesGrid />
-          </div>
         </div>
       </div>
     </div>

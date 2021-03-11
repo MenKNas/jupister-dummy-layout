@@ -1,8 +1,15 @@
-.main-section {
+.mainSection {
     background: url("../../../images/jupizino-BG_.jpg");
     background-size: auto;
     background-position: center;
     color: white;
     object-fit: contain;
-    /* clip-path: polygon(0 0, 100% 0, 100% 99%, 0 85%); */
+}
+
+.clippedBottom {
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 96%);
+}
+
+.clippedTop {
+    clip-path: polygon(0 4%, 100% 0, 100% 100%, 0 100%);
 }
