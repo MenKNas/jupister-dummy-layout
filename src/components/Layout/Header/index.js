@@ -1,5 +1,6 @@
 import * as React from "react";
 import { NavLink } from "react-router-dom";
+// import { Link } from "";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faAngleDown, faUser } from "@fortawesome/free-solid-svg-icons";
 import { SideBar } from "./SideBar";
@@ -7,6 +8,7 @@ import MainButton from "../../Buttons/MainButton";
 import useWindowSize from "../../../hooks/useWindowSize";
 import AccountMenu from "./AccountMenu";
 import { ReactComponent as BurgerIcon } from "../../../icons/menu_burger_box.svg";
+// import { ReactComponent as Logo } from "../../../icons/brand-logo-main.svg";
 
 const authenticatedUser = true;
 
@@ -25,9 +27,14 @@ function MobileHeader() {
           >
             <BurgerIcon />
           </button>
-          <span className="text-white uppercase text-2xl tracking-wide font-extrabold">
-            Jupiter
-          </span>
+          <NavLink to="/">
+            <img
+              src="/assets/brand-logo-main.svg"
+              alt="Logo"
+              width={100}
+              height={80}
+            />
+          </NavLink>
         </div>
         <div>
           {authenticatedUser ? (
@@ -96,9 +103,14 @@ function DesktopHeader() {
       >
         <div className="flex justify-between space-x-4 items-center">
           <div>
-            <span className="text-white text-2xl tracking-wide font-bold uppercase">
-              Jupiter
-            </span>
+            <NavLink to="/">
+              <img
+                src="/assets/brand-logo-main.svg"
+                alt="Logo"
+                width={80}
+                height={80}
+              />
+            </NavLink>
           </div>
           <div className="hidden lg:flex items-center uppercase px-4 text-white font-bold">
             <span className="px-4 truncate">

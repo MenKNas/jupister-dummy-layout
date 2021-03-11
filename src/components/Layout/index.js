@@ -14,29 +14,34 @@ export default function Layout() {
     <div>
       <div>
         <Header />
-        <div style={{ minHeight: "calc(100vh - 230px)" }} className="bg-white">
-          <Switch>
-            <Route path="/casino" exact>
-              <Casino />
-            </Route>
-            <Route path="/livecasino" exact>
-              <div> Live casino </div>
-            </Route>
-            <Route path="/promotions" exact>
-              <Promotions />
-            </Route>
-            <Route path="/about" exact>
-              <About />
-            </Route>
-            <Route path="/account">
-              <Account />
-            </Route>
-            <Route path="*">
-              <Home />
-            </Route>
-          </Switch>
+        <div className="bg-white">
+          <div
+            style={{ minHeight: "calc(100vh - 230px)" }}
+            className="bg-bg-secondary"
+          >
+            <Switch>
+              <Route path="/casino" exact>
+                <Casino />
+              </Route>
+              <Route path="/livecasino" exact>
+                <div> Live casino </div>
+              </Route>
+              <Route path="/promotions" exact>
+                <Promotions />
+              </Route>
+              <Route path="/about" exact>
+                <About />
+              </Route>
+              <Route path="/account">
+                <Account />
+              </Route>
+              <Route path="*">
+                <Home />
+              </Route>
+            </Switch>
+          </div>
+          <Footer />
         </div>
-        <Footer />
       </div>
     </div>
   );

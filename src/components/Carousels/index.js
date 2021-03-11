@@ -36,9 +36,11 @@ function Slider({ slide }) {
         loading="lazy"
         alt="Welcome bonus banner"
         style={{
+          width: "100%",
+          height: "auto",
           maxWidth: "100%",
           maxHeight: "100%",
-          minHeight: "200px",
+          minHeight: "160px",
           objectFit: "cover",
           borderRadius: "4px",
         }}
