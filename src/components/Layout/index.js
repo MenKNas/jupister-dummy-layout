@@ -31,7 +31,7 @@ export default function Layout() {
             <Route path="/about" exact>
               <About />
             </Route>
-            <Route path="/account" exact>
+            <Route path="/account">
               <Account />
             </Route>
             <Route path="*">
