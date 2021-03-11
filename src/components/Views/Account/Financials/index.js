@@ -31,9 +31,6 @@ export default function Financials() {
         </div>
         <div>
           <Switch>
-            <Route path="/" exact>
-              <Redirect to="deposit" />
-            </Route>
             <Route path="/account/financials/deposit" exact>
               <Deposit />
             </Route>

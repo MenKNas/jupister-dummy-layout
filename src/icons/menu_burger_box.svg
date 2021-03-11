@@ -1,0 +1,8 @@
+<svg id="menu_burger" data-name="menu burger" xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 36 36">
+  <rect id="Rectangle_202" data-name="Rectangle 202" width="36" height="36" fill="none"/>
+  <g id="Group_285" data-name="Group 285" transform="translate(7 10)">
+    <rect id="Rectangle_199" data-name="Rectangle 199" width="22" height="3" rx="1.5" fill="#de1f36"/>
+    <rect id="Rectangle_200" data-name="Rectangle 200" width="15" height="3" rx="1.5" transform="translate(0 7)" fill="#de1f36"/>
+    <rect id="Rectangle_201" data-name="Rectangle 201" width="22" height="3" rx="1.5" transform="translate(0 14)" fill="#de1f36"/>
+  </g>
+</svg>

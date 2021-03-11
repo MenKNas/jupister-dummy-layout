@@ -1,11 +1,12 @@
 import * as React from "react";
 import { NavLink } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faBars, faAngleDown, faUser } from "@fortawesome/free-solid-svg-icons";
+import { faAngleDown, faUser } from "@fortawesome/free-solid-svg-icons";
 import { SideBar } from "./SideBar";
 import MainButton from "../../Buttons/MainButton";
 import useWindowSize from "../../../hooks/useWindowSize";
 import AccountMenu from "./AccountMenu";
+import { ReactComponent as BurgerIcon } from "../../../icons/menu_burger_box.svg";
 
 const authenticatedUser = true;
 
@@ -14,17 +15,17 @@ function MobileHeader() {
   return (
     <>
       <div
-        className="flex justify-between items-center p-2 bg-header-bg px-4 md:px-6"
+        className="flex justify-between items-center p-2 bg-header-bg px-2 py-3 md:px-6"
         data-component="MobileHeader"
       >
-        <div className="space-x-4">
+        <div className="space-x-4 flex items-center">
           <button
             className="text-blue-500 text-2xl"
             onClick={() => setShowSidebar((prev) => !prev)}
           >
-            <FontAwesomeIcon icon={faBars} />
+            <BurgerIcon />
           </button>
-          <span className="text-yellow-400 text-2xl tracking-wide">
+          <span className="text-white uppercase text-2xl tracking-wide font-extrabold">
             Jupiter
           </span>
         </div>
@@ -95,20 +96,20 @@ function DesktopHeader() {
       >
         <div className="flex justify-between space-x-4 items-center">
           <div>
-            <span className="text-yellow-400 text-2xl tracking-wide">
+            <span className="text-white text-2xl tracking-wide font-bold uppercase">
               Jupiter
             </span>
           </div>
           <div className="hidden lg:flex items-center uppercase px-4 text-white font-bold">
             <span className="px-4 truncate">
-              <NavLink to="/" activeClassName="text-yellow-300" exact={true}>
+              <NavLink to="/" activeClassName="text-brand-primary" exact={true}>
                 Home
               </NavLink>
             </span>
             <span className="px-4 truncate">
               <NavLink
                 to="/casino"
-                activeClassName="text-yellow-300"
+                activeClassName="text-brand-primary"
                 exact={true}
               >
                 Casino
@@ -117,7 +118,7 @@ function DesktopHeader() {
             <span className="px-4 truncate">
               <NavLink
                 to="/livecasino"
-                activeClassName="text-yellow-300"
+                activeClassName="text-brand-primary"
                 exact={true}
               >
                 Live Casino
@@ -126,7 +127,7 @@ function DesktopHeader() {
             <span className="px-4 truncate">
               <NavLink
                 to="/sports"
-                activeClassName="text-yellow-300"
+                activeClassName="text-brand-primary"
                 exact={true}
               >
                 Sports
@@ -135,7 +136,7 @@ function DesktopHeader() {
             <span className="px-4 truncate">
               <NavLink
                 to="/livecasino"
-                activeClassName="text-yellow-300"
+                activeClassName="text-brand-primary"
                 exact={true}
               >
                 More
@@ -147,7 +148,7 @@ function DesktopHeader() {
             <span className="px-4 truncate">
               <NavLink
                 to="/promotions"
-                activeClassName="text-yellow-300"
+                activeClassName="text-brand-primary"
                 exact={true}
               >
                 Promotions

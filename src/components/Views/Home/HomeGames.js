@@ -1,8 +1,10 @@
 import { faAngleRight } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import classNames from "classnames";
 import * as React from "react";
 import { Game } from "../../Game";
 import ChoosePlanet from "./ChoosePlanet";
+import styles from "./Homepage.module.css";
 
 function GamesGrid() {
   return (
@@ -27,10 +29,13 @@ function GamesGrid() {
 
 export default function HomeGames() {
   return (
-    <div className="bg-main-bg text-white">
+    <div className={classNames(styles["main-section"])}>
       <div
         className="space-y-4 p-4 lg:pb-8"
-        style={{ maxWidth: 1400, margin: "0 auto" }}
+        style={{
+          maxWidth: 1400,
+          margin: "0 auto",
+        }}
       >
         <div className="lg:w-full mx-auto">
           <div className="flex justify-between items-center py-4">

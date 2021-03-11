@@ -2,11 +2,8 @@ import * as React from "react";
 import { Link } from "react-router-dom";
 import MainButton from "../../Buttons/MainButton";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-  faAngleRight,
-  faTimes,
-  faUser,
-} from "@fortawesome/free-solid-svg-icons";
+import { faAngleRight, faUser } from "@fortawesome/free-solid-svg-icons";
+import { ReactComponent as CloseIcon } from "../../../icons/menu_close_box.svg";
 
 const links = [
   { name: "Casino", link: "/casino" },
@@ -112,7 +109,7 @@ export const SideBar = ({ showSidebar, setShowSidebar }) => {
     <>
       <div
         data-component="SideBar"
-        className="flex flex-col fixed left-0 top-0 bottom-0 text-white bg-gray-800 space-y-4 z-10 p-4 transform-gpu"
+        className="flex flex-col fixed left-0 top-0 bottom-0 text-white bg-bg-primary space-y-4 z-10 p-4 transform-gpu"
         style={{
           width: 320,
           transition: "0.35s ease-out",
@@ -123,7 +120,7 @@ export const SideBar = ({ showSidebar, setShowSidebar }) => {
           onClick={() => setShowSidebar(false)}
           className="flex text-2xl text-blue-500 w-1/6"
         >
-          <FontAwesomeIcon icon={faTimes} />
+          <CloseIcon />
         </button>
         <div className="px-2">
           {authenticatedUser ? (
@@ -138,7 +135,11 @@ export const SideBar = ({ showSidebar, setShowSidebar }) => {
           <div className="space-y-4">
             <div className="flex flex-col space-y-4 uppercase tracking-wider font-bold border-b border-gray-600 py-4">
               {links.map(({ name, link }) => (
-                <Link to={link} onClick={() => setShowSidebar(false)}>
+                <Link
+                  key={name}
+                  to={link}
+                  onClick={() => setShowSidebar(false)}
+                >
                   {name}
                 </Link>
               ))}

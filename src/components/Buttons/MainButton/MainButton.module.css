@@ -1,0 +1,7 @@
+
+.secondary {
+    @apply bg-brand-primary text-gray-800;
+    clip-path: polygon(0 15%, 100% 1%, 93% 90%, 8% 95%);
+}
+
+

@@ -1,4 +1,5 @@
 import * as React from "react";
+import styles from "./MainButton.module.css";
 
 export default function MainButton({
   children,
@@ -11,7 +12,7 @@ export default function MainButton({
     return outline
       ? "bg-transparent border border-yellow-300 text-white"
       : secondary
-      ? "bg-yellow-300 text-yellow-800"
+      ? styles.secondary
       : "bg-blue-800 text-white";
   }
 

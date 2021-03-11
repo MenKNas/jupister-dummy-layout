@@ -15,6 +15,7 @@ function Carousel() {
       style={{ minHeight: 168 }}
       autoPlay
       infiniteLoop
+      showIndicators={false}
       showThumbs={false}
       showArrows={false}
       showStatus={false}
@@ -29,18 +30,21 @@ function Carousel() {
 
 function Slider({ slide }) {
   return (
-    <img
-      src={slide.image}
-      loading="lazy"
-      alt="Welcome bonus banner"
-      style={{
-        maxWidth: "100%",
-        maxHeight: "100%",
-        minHeight: "200px",
-        objectFit: "cover",
-        borderRadius: "4px",
-      }}
-    />
+    <div>
+      <img
+        src={slide.image}
+        loading="lazy"
+        alt="Welcome bonus banner"
+        style={{
+          maxWidth: "100%",
+          maxHeight: "100%",
+          minHeight: "200px",
+          objectFit: "cover",
+          borderRadius: "4px",
+        }}
+      />
+      {/* <div className="h-10 bg-gray-800"></div> */}
+    </div>
   );
 }
 
