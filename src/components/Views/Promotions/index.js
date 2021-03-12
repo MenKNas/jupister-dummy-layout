@@ -1,9 +1,16 @@
 import * as React from "react";
 import PromotionCard from "./PromotionCard";
+import { Modal, ModalBody, ModalHeader } from "../../NewModal";
+import { useClickAway } from "react-use";
 
 export default function Promotions({ preview = false }) {
+  const [isModalOpen, setIsModalOpen] = React.useState(false);
+  const modalRef = React.useRef(null);
+  useClickAway(modalRef, () => {
+    setIsModalOpen(false);
+  });
   return (
-    <div className="bg-bg-secondary">
+    <div className={preview ? "bg-transparent" : "bg-bg-secondary"}>
       <div
         style={{ maxWidth: 1400, margin: "0 auto" }}
         data-component="Promotions"
@@ -21,6 +28,7 @@ export default function Promotions({ preview = false }) {
               mainText="Get 750% Welcome Casino Package Bonus"
               title="Welcome Casino Package"
               hasDeposit
+              setIsModalOpen={setIsModalOpen}
             />
             <PromotionCard
               className="h-full"
@@ -45,6 +53,46 @@ export default function Promotions({ preview = false }) {
           </div>
         )}
       </div>
+      {isModalOpen && (
+        <Modal size="lg" animated ref={modalRef} isOpen={isModalOpen}>
+          <ModalHeader onClose={() => setIsModalOpen(false)}>
+            HELLOOOO
+          </ModalHeader>
+          <ModalBody
+            onClose={() => setIsModalOpen(false)}
+            className="space-y-4"
+          >
+            <p>
+              {" "}
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus
+              porttitor pulvinar rhoncus. Vivamus laoreet faucibus cursus. Sed
+              lacinia risus tempus neque varius, in pretium sapien dapibus.
+              Maecenas facilisis nec metus sed elementum. Donec porttitor eget
+              est vitae aliquet. Donec hendrerit imperdiet mattis. Nunc at
+              scelerisque metus, quis fermentum ligula. Sed malesuada lacinia
+              facilisis. Nam euismod gravida blandit. Nam tincidunt turpis
+              egestas auctor condimentum. Fusce ut lectus ac neque fringilla
+              ultricies eu ac ex. In bibendum nisl varius, gravida felis vel,
+              lacinia tellus. Fusce bibendum ipsum quis erat gravida egestas.
+              Suspendisse convallis suscipit leo, non imperdiet dolor luctus id.
+            </p>
+            <p>
+              Pellentesque habitant morbi tristique senectus et netus et
+              malesuada fames ac turpis egestas. Mauris risus erat, interdum
+              eget tristique a, auctor nec metus. Etiam metus ex, eleifend ut
+              mollis quis, tincidunt quis ipsum. Suspendisse arcu est, porta
+              quis pretium nec, pretium sit amet ligula. Morbi gravida varius
+              ligula, vel tempor velit vehicula a. Cras feugiat lectus vitae mi
+              feugiat, eu ornare lacus convallis. Vestibulum vel lectus vel
+              nulla dignissim cursus. Morbi vitae odio luctus, tempor dui
+              sodales, facilisis purus. Etiam fringilla arcu mollis feugiat
+              consectetur. Maecenas vitae nibh ac nisl vulputate pretium.
+              Vestibulum accumsan auctor ultrices. Etiam varius tempus nibh in
+              laoreet.
+            </p>
+          </ModalBody>
+        </Modal>
+      )}
     </div>
   );
 }
