@@ -7,6 +7,7 @@ export default function PromotionCard({
   className,
   hasDeposit,
   preview,
+  setIsModalOpen,
 }) {
   return (
     <div
@@ -19,7 +20,11 @@ export default function PromotionCard({
       <p> {mainText} </p>
       <div className="flex space-x-4">
         {hasDeposit && <MainButton secondary> Deposit </MainButton>}
-        {!preview && <MainButton> Read more </MainButton>}
+        {!preview && (
+          <MainButton onClick={() => setIsModalOpen(true)}>
+            Read more
+          </MainButton>
+        )}
       </div>
     </div>
   );
