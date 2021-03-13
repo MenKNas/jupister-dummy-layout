@@ -54,16 +54,15 @@ export default function Promotions({ preview = false }) {
         )}
       </div>
       {isModalOpen && (
-        <Modal size="lg" animated ref={modalRef} isOpen={isModalOpen}>
+        <Modal size="sm" animated ref={modalRef} isOpen={isModalOpen}>
           <ModalHeader onClose={() => setIsModalOpen(false)}>
             HELLOOOO
           </ModalHeader>
           <ModalBody
             onClose={() => setIsModalOpen(false)}
-            className="space-y-4"
+            className="space-y-4 py-4"
           >
             <p>
-              {" "}
               Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus
               porttitor pulvinar rhoncus. Vivamus laoreet faucibus cursus. Sed
               lacinia risus tempus neque varius, in pretium sapien dapibus.

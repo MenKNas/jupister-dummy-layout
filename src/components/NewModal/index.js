@@ -2,8 +2,9 @@ import * as React from "react";
 import ReactDOM from "react-dom";
 import styles from "./NewModal.module.css";
 import classNames from "classnames";
-import { ReactComponent as CloseIcon } from "../../icons/menu_close_box.svg";
 import MainButton from "../Buttons/MainButton";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faTimes } from "@fortawesome/free-solid-svg-icons";
 
 const sizes = {
   sm: styles.sizeSM,
@@ -12,12 +13,12 @@ const sizes = {
   xl: styles.sizeXL,
 };
 
-// const fullscreens = {
-//   sm: styles.fullscreenSM,
-//   md: styles.fullscreenMD,
-//   lg: styles.fullscreenLG,
-//   xl: styles.fullscreenXL,
-// };
+const fullscreens = {
+  sm: styles.fullscreenSM,
+  md: styles.fullscreenMD,
+  lg: styles.fullscreenLG,
+  xl: styles.fullscreenXL,
+};
 
 const NewModalContext = React.createContext();
 
@@ -41,10 +42,14 @@ export function ModalManager({ children }) {
 
 export function ModalHeader({ children, onClose }) {
   return (
-    <div className="flex justify-between items-center">
-      <h3 className="text-bg-secondary text-xl"> {children} </h3>
-      <button onClick={onClose}>
-        <CloseIcon />
+    <div className={styles.header}>
+      <h3 className={styles.title}> {children} </h3>
+      <button
+        onClick={onClose}
+        className="-mt-2 text-bg-darker"
+        aria-label="Close"
+      >
+        <FontAwesomeIcon icon={faTimes} size="lg" />
       </button>
     </div>
   );
@@ -58,7 +63,7 @@ export function ModalBody({ children, onClose, ...rest }) {
         <MainButton
           onClick={onClose}
           outline
-          className="border-bg-darker text-bg-darker w-1/5 mx-auto"
+          className="border-bg-darker text-bg-darker w-4/5 xl:w-1/5 mx-auto"
         >
           Close
         </MainButton>
@@ -79,7 +84,11 @@ export const Modal = React.forwardRef(
             className={`${styles.overlay} ${animated ? styles.fadeIn : null}`}
           >
             <div
-              className={classNames(styles.dialog, sizes[size] ?? sizes["md"])}
+              className={classNames(
+                styles.dialog,
+                sizes[size] ?? sizes["md"],
+                fullscreens[fullScreen] ?? fullscreens["sm"]
+              )}
               {...props}
               ref={ref}
             >

@@ -34,6 +34,7 @@ function Slider({ slide }) {
       <img
         src={slide.image}
         loading="lazy"
+        height="260"
         alt="Welcome bonus banner"
         style={{
           width: "100%",
