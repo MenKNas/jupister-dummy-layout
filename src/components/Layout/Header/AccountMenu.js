@@ -8,10 +8,10 @@ export default function AccountMenu({ setShowProfileLinks }) {
     setShowProfileLinks(false);
   });
   return (
-    <>
+    <div>
       <div
         data-component="AccountMenu"
-        className="absolute top-10 right-0 bg-bg-secondary z-30 rounded-md origin-top-left w-56 shadow-lg"
+        className="absolute top-11 right-0 bg-bg-secondary z-30 rounded-md origin-top-left w-56 shadow-lg"
         ref={ref}
         onMouseLeave={() => setShowProfileLinks(false)}
       >
@@ -60,6 +60,6 @@ export default function AccountMenu({ setShowProfileLinks }) {
           </Link>
         </div>
       </div>
-    </>
+    </div>
   );
 }

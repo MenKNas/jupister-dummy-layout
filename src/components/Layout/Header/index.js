@@ -78,16 +78,23 @@ function RegisteredHeaderButtons() {
         <span className="text-blue-600 text-xs">200.00 &euro;</span>
       </div>
       <div className="relative">
-        <button onMouseOver={() => setShowProfileLinks(true)}>
-          <FontAwesomeIcon
-            icon={faUser}
-            className="bg-blue-500 p-2 w-full text-4xl rounded-lg text-white"
-            size="lg"
-          />
-        </button>
-        {showProfileLinks && (
-          <AccountMenu setShowProfileLinks={setShowProfileLinks} />
-        )}
+        <div
+          onMouseEnter={() => setShowProfileLinks(true)}
+          onMouseLeave={() => setShowProfileLinks(false)}
+        >
+          <div className="py-1">
+            <button>
+              <FontAwesomeIcon
+                icon={faUser}
+                className="bg-blue-500 p-2 w-full text-4xl rounded-lg text-white"
+                size="lg"
+              />
+            </button>
+            {showProfileLinks && (
+              <AccountMenu setShowProfileLinks={setShowProfileLinks} />
+            )}
+          </div>
+        </div>
       </div>
       <MainButton secondary> Deposit </MainButton>
     </div>
@@ -96,9 +103,12 @@ function RegisteredHeaderButtons() {
 
 function DesktopHeader() {
   return (
-    <div className="bg-header-bg h-18" data-component="DesktopHeader">
+    <div
+      className="bg-header-bg h-18 sticky top-0 z-50"
+      data-component="DesktopHeader"
+    >
       <div
-        className="flex justify-between items-center py-4 lg:px-10 xl:px-4"
+        className="flex justify-between items-center py-3 lg:px-10 xl:px-4"
         style={{ maxWidth: 1400, margin: "0 auto" }}
       >
         <div className="flex justify-between space-x-4 items-center">
@@ -107,7 +117,7 @@ function DesktopHeader() {
               <img
                 src="/assets/brand-logo-main.svg"
                 alt="Logo"
-                width={100}
+                width={120}
                 height={80}
               />
             </NavLink>
