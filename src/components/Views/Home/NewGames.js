@@ -28,7 +28,7 @@ function GamesGrid() {
 export default function NewGames() {
   return (
     <div className="bg-white">
-      <div className="space-y-4 p-4 lg:pb-8 md:max-w-1200">
+      <div className="space-y-4 p-4 lg:pb-8 xl:max-w-1400 mx-auto">
         <div className="lg:w-full mx-auto">
           <div className="flex justify-between items-center py-4">
             <div>Category Title </div>

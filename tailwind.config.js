@@ -3,14 +3,7 @@ module.exports = {
   darkMode: false, // or 'media' or 'class'
   theme: {
     maxWidth: {
-      1200: "1200px",
       1400: "1400px",
-    },
-    screens: {
-      sm: { max: "767px" },
-      md: { min: "768px" },
-      lg: { min: "1024px" },
-      xl: { min: "1366px" },
     },
     extend: {
       colors: {

@@ -1,7 +1,13 @@
 
 .secondary {
-    @apply bg-brand-primary text-gray-800;
-    clip-path: polygon(0 6%, 100% 0, 96% 94%, 6% 100%);
+    @apply px-4 text-text-dark;
+    background: url("../../../icons/cta_bg.svg");
+    background-position: center;
+    background-size: 100%;
+    background-repeat: no-repeat;
+    font-size: 16px;
+    font-weight: 900;
+    font-style: italic;
 }
 
 

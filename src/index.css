@@ -6,15 +6,15 @@
 @font-face {
   font-family: 'PFEncoreSansPro';
   font-style: normal;
-  font-weight: 400;
+  font-weight: 500;
   src: local(''), url("/src/fonts/PFEncoreSansPro-Reg.otf") format('otf');
 }
 
 @font-face {
   font-family: 'PFEncoreSansPro';
-  font-style: normal;
+  font-style: italic;
   font-weight: 500;
-  src: local(''), url("/src/fonts/PFEncoreSansPro-Black.otf") format('otf');
+  src: local(''), url("/src/fonts/PFEncoreSansPro-RegItalic.otf") format('otf');
 }
 
 @font-face {
@@ -33,9 +33,16 @@
 
 @font-face {
   font-family: 'PFEncoreSansPro';
+  font-style: normal;
+  font-weight: 900;
+  src: local(''), url("/src/fonts/PFEncoreSansPro-UBlack.otf") format('otf');
+}
+
+@font-face {
+  font-family: 'PFEncoreSansPro';
   font-style: italic;
-  font-weight: 500;
-  src: local(''), url("/src/fonts/PFEncoreSansPro-Bold.otf") format('otf');
+  font-weight: 900;
+  src: local(''), url("/src/fonts/PFEncoreSansPro-UBlackItalic.otf") format('otf');
 }
 
 body {
