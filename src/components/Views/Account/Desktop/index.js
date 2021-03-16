@@ -15,7 +15,7 @@ import Financials from "../Financials";
 export function DesktopAccount({ windowWidth }) {
   return (
     <div className="bg-gray-800">
-      <div style={{ maxWidth: 1400, margin: "0 auto" }} className="p-4">
+      <div className="lg:max-w-1200 xl:max-w-1400 mx-auto p-4">
         <div className="bg-bg-primary flex rounded-lg">
           <div className="w-20 xl:w-1/4" style={{ minWidth: 70 }}>
             {windowWidth < 1280 ? <TabletSideMenu /> : <DesktopSideMenu />}

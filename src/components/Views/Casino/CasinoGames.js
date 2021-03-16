@@ -5,8 +5,7 @@ import { Game } from "../../Game";
 export default function CasinoGames() {
   return (
     <div
-      style={{ maxWidth: 1400, margin: "0 auto" }}
-      className="lg:px-32 xl:px-4"
+      className="lg:px-32 xl:px-4 lg:max-w-1200 xl:max-w-1400 mx-auto"
       data-component="CasinoGames"
     >
       <div className="px-4 lg:px-0 py-4 space-y-4">

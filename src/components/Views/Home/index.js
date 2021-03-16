@@ -14,10 +14,7 @@ export default function Home() {
       <PopularGames />
       <NewGames />
       <div className={`${styles.mainSection} ${styles.clippedTop}`}>
-        <div
-          className="space-y-4 py-8"
-          style={{ maxWidth: 1400, margin: "0 auto" }}
-        >
+        <div className="space-y-4 py-8 max-w-1400 mx-auto my-0">
           <LiveCasino />
           <TotalJackpot />
         </div>

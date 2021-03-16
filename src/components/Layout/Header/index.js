@@ -17,7 +17,7 @@ function MobileHeader() {
   return (
     <>
       <div
-        className="flex justify-between items-center p-2 bg-header-bg px-2 py-3 md:px-2"
+        className="flex justify-between items-center p-2 bg-header-bg px-2 py-3 md:px-2 sticky top-0 z-10"
         data-component="MobileHeader"
       >
         <div className="space-x-4 flex items-center">
@@ -107,10 +107,7 @@ function DesktopHeader() {
       className="bg-header-bg h-18 sticky top-0 z-50"
       data-component="DesktopHeader"
     >
-      <div
-        className="flex justify-between items-center py-3 lg:px-10 xl:px-4"
-        style={{ maxWidth: 1400, margin: "0 auto" }}
-      >
+      <div className="flex justify-between items-center py-3 lg:px-10 xl:px-4 max-w-1400 mx-auto">
         <div className="flex justify-between space-x-4 items-center">
           <div>
             <NavLink to="/">
@@ -122,7 +119,7 @@ function DesktopHeader() {
               />
             </NavLink>
           </div>
-          <div className="hidden lg:flex items-center uppercase px-4 text-white font-bold">
+          <div className="hidden xl:flex items-center uppercase px-4 text-white font-bold">
             <span className="px-4 truncate">
               <NavLink to="/" activeClassName="text-brand-primary" exact={true}>
                 Home

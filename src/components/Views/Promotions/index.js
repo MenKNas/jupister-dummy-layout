@@ -12,7 +12,7 @@ export default function Promotions({ preview = false }) {
   return (
     <div className={preview ? "bg-transparent" : "bg-bg-secondary"}>
       <div
-        style={{ maxWidth: 1400, margin: "0 auto" }}
+        className="lg:max-w-1200 xl:max-w-1400 mx-auto"
         data-component="Promotions"
       >
         {preview ? (
