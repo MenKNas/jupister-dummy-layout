@@ -4,6 +4,7 @@ import MainButton from "../../Buttons/MainButton";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faAngleRight, faUser } from "@fortawesome/free-solid-svg-icons";
 import { ReactComponent as CloseIcon } from "../../../icons/menu_close_box.svg";
+import { useLockedScroll } from "../../../hooks/useLockedScroll";
 
 const links = [
   { name: "Casino", link: "/casino" },
@@ -105,6 +106,8 @@ export const SideBar = ({ showSidebar, setShowSidebar }) => {
     totalBalance: 2500,
     bonusBalance: 200,
   };
+  const ref = React.useRef();
+  useLockedScroll(ref, showSidebar);
   return (
     <>
       <div
@@ -115,6 +118,7 @@ export const SideBar = ({ showSidebar, setShowSidebar }) => {
           transition: "0.35s ease-out",
           transform: `translateX(${showSidebar ? 0 : -320}px)`,
         }}
+        ref={ref}
       >
         <button
           onClick={() => setShowSidebar(false)}
