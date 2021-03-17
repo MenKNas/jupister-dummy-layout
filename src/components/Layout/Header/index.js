@@ -104,7 +104,7 @@ function RegisteredHeaderButtons() {
 function DesktopHeader() {
   return (
     <div
-      className="bg-header-bg h-18 sticky top-0 z-50"
+      className="bg-header-bg sticky top-0 z-50"
       data-component="DesktopHeader"
     >
       <div className="flex justify-between items-center py-3 lg:px-10 xl:px-4 max-w-1400 mx-auto">
@@ -114,8 +114,9 @@ function DesktopHeader() {
               <img
                 src="/assets/brand-logo-main.svg"
                 alt="Logo"
+                loading="lazy"
                 width={120}
-                height={80}
+                height={50}
               />
             </NavLink>
           </div>
