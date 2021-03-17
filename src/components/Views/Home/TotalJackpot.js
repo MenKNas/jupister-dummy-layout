@@ -3,7 +3,7 @@ import styles from "./Homepage.module.css";
 
 export default function TotalJackpot() {
   return (
-    <div className="px-4">
+    <div className="px-4 md:px-6">
       <div className={styles.jackpot}>
         <h4 className="text-sm rounded-xl border border-blue-900 tracking-widest px-4 py-1">
           Total Jackpot

@@ -24,15 +24,16 @@ function GamesGrid() {
 
 export default function LiveCasino() {
   return (
-    <div className="space-y-4 p-4 lg:pb-8">
+    <div className="space-y-4 p-4 md:p-6 lg:pb-8">
       <div className="lg:w-full mx-auto">
         <Promotions preview={true} />
         <div className="flex justify-between items-center py-4 text-white">
           <div className="uppercase font-bold">
-            Live Casino{" "}
+            Live Casino
             <img
               src={underheading}
               alt="red colored border under the section title"
+              className="w-7/10"
             />
           </div>
           <button className="truncate inline-block">

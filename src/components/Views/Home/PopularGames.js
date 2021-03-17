@@ -31,7 +31,7 @@ function GamesGrid() {
 export default function PopularGames() {
   return (
     <div className={classNames(styles.mainSection, styles.clippedBottom)}>
-      <div className="space-y-4 p-4 lg:pb-8 lg:max-w-1200 xl:max-w-1400 mx-auto">
+      <div className="space-y-4 p-4 md:p-6 lg:pb-8 lg:max-w-1200 xl:max-w-1400 mx-auto">
         <div className="lg:w-full mx-auto">
           <div className="flex justify-between items-center py-4">
             <div className="uppercase font-bold">
@@ -39,6 +39,7 @@ export default function PopularGames() {
               <img
                 src={underheading}
                 alt="red colored border under the section title"
+                className="w-7/10"
               />
             </div>
             <button className="truncate inline-block">

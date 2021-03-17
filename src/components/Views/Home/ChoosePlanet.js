@@ -145,6 +145,7 @@ export default function ChoosePlanet() {
         {planets.map((planet) => {
           return (
             <PlanetCard
+              key={planet.name}
               planet={planet}
               selectedPlanet={selectedPlanet}
               setSelectedPlanet={setSelectedPlanet}

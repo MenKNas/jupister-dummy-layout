@@ -22,6 +22,9 @@ module.exports = {
         "bg-darker": "#132B4E",
         "bd-primary": "#2A4977",
       },
+      width: {
+        "7/10": "70%",
+      },
     },
   },
   variants: {
