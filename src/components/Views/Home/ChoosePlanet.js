@@ -140,8 +140,8 @@ export default function ChoosePlanet() {
   return width < 768 ? (
     <ChoosePlanetMobile />
   ) : (
-    <div className="flex md:flex-col lg:flex-row md:justify-evenly md:items-center md:my-8 md:space-y-6 space-x-6">
-      <div className="flex justify-evenly md:w-4/5">
+    <div className="flex md:flex-col lg:flex-row md:justify-between md:items-center md:my-8 md:space-y-6 space-x-12">
+      <div className="flex justify-between md:w-3/5">
         {planets.map((planet) => {
           return (
             <PlanetCard

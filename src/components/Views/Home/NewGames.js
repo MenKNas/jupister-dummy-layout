@@ -3,6 +3,7 @@ import { faAngleRight } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 // import classNames from "classnames";
 import { Game } from "../../Game";
+import underheading from "../../../icons/under-heading.svg";
 
 function GamesGrid() {
   return (
@@ -31,8 +32,14 @@ export default function NewGames() {
       <div className="space-y-4 p-4 lg:pb-8 xl:max-w-1400 mx-auto">
         <div className="lg:w-full mx-auto">
           <div className="flex justify-between items-center py-4">
-            <div>Category Title </div>
-            <button className="truncate uppercase inline-block">
+            <div className="uppercase font-bold">
+              New games
+              <img
+                src={underheading}
+                alt="red colored border under the section title"
+              />
+            </div>
+            <button className="truncate inline-block">
               <span>
                 Show All <FontAwesomeIcon icon={faAngleRight} />
               </span>

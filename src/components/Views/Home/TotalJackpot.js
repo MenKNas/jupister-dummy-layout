@@ -8,7 +8,9 @@ export default function TotalJackpot() {
         <h4 className="text-sm rounded-xl border border-blue-900 tracking-widest px-4 py-1">
           Total Jackpot
         </h4>
-        <span className="text-5xl font-bold">&euro; 1,400,400.52</span>
+        <span className="text-xl lg:text-5xl font-bold">
+          &euro; 1,400,400.52
+        </span>
         <span className="text-sm tracking-widest"> waiting to be won</span>
       </div>
     </div>

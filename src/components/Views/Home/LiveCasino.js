@@ -3,6 +3,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import * as React from "react";
 import { Game } from "../../Game";
 import Promotions from "../Promotions";
+import underheading from "../../../icons/under-heading.svg";
 
 function GamesGrid() {
   return (
@@ -27,8 +28,14 @@ export default function LiveCasino() {
       <div className="lg:w-full mx-auto">
         <Promotions preview={true} />
         <div className="flex justify-between items-center py-4 text-white">
-          <div>Category Title </div>
-          <button className="truncate uppercase inline-block">
+          <div className="uppercase font-bold">
+            Live Casino{" "}
+            <img
+              src={underheading}
+              alt="red colored border under the section title"
+            />
+          </div>
+          <button className="truncate inline-block">
             <span>
               Show All <FontAwesomeIcon icon={faAngleRight} />
             </span>
