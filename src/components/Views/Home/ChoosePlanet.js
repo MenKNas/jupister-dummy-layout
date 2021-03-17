@@ -6,8 +6,6 @@ import useWindowSize from "../../../hooks/useWindowSize";
 import { Swiper, SwiperSlide } from "swiper/react";
 import SwiperCore, { Navigation } from "swiper/core";
 import "swiper/swiper-bundle.css";
-// import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-// import { faAngleLeft, faAngleRight } from "@fortawesome/free-solid-svg-icons";
 
 SwiperCore.use([Navigation]);
 
@@ -86,7 +84,6 @@ function ChoosePlanetMobile() {
         centeredSlides={true}
         speed={500}
         centeredSlidesBounds={true}
-        // navigation
         slideToClickedSlide={true}
         loop
         navigation={navigation}
