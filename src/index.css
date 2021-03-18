@@ -47,14 +47,11 @@
 
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'PF Encore Sans Pro', 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+  font-family: 'PF Encore Sans Pro', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   height:100%;
   min-height:100%;
-  font-family: "PF Encore Sans Pro";
 }
 
 code {
@@ -64,7 +61,7 @@ code {
 
 button {
   outline: none;
-  font-family: "PF Encore Sans Pro";
+  font-family: "PF Encore Sans Pro", sans-serif;
 }
 
 button:active {
