@@ -25,10 +25,15 @@ module.exports = {
       width: {
         "7/10": "70%",
       },
+      aspectRatio: {
+        // defaults to {}
+        none: 0,
+        square: [1, 1], // or 1 / 1, or simply 1
+      },
     },
   },
   variants: {
     extend: {},
   },
-  plugins: [],
+  plugins: [require("@tailwindcss/aspect-ratio")],
 };

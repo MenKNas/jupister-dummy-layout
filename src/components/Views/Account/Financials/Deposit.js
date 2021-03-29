@@ -84,18 +84,17 @@ function DepositForm({ setSelectedPayment }) {
               className="p-4 border border-gray-600 rounded-sm bg-bg-secondary h-12 text-gray-400"
             />
           </div>
-          {/* block lg:grid grid-cols-2 gap-4 lg:space-x-0 */}
           <div className="space-x-4">
-            <button className="p-2 bg-brand-secondary text-lg text-white rounded-sm w-16 h-12 font-bold">
+            <button className="p-2 bg-brand-secondary text-lg text-white rounded-sm w-18 h-12 font-bold">
               20 &euro;
             </button>
-            <button className="p-2 bg-brand-secondary text-lg text-white rounded-sm w-16 h-12 font-bold">
+            <button className="p-2 bg-brand-secondary text-lg text-white rounded-sm w-18 h-12 font-bold">
               50 &euro;
             </button>
-            <button className="p-2 bg-brand-secondary text-lg text-white rounded-sm w-16 h-12 font-bold">
+            <button className="p-2 bg-brand-secondary text-lg text-white rounded-sm w-18 h-12 font-bold">
               100 &euro;
             </button>
-            <button className="p-2 bg-brand-secondary text-lg text-white rounded-sm w-16 h-12 font-bold">
+            <button className="p-2 bg-brand-secondary text-lg text-white rounded-sm w-18 h-12 font-bold">
               200 &euro;
             </button>
           </div>
