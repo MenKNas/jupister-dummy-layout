@@ -4,8 +4,6 @@ import TextTransition, { presets } from "react-text-transition";
 import { Swiper, SwiperSlide } from "swiper/react";
 import SwiperCore, { Navigation } from "swiper/core";
 import "swiper/swiper-bundle.css";
-import underheading from "../../../../icons/under-heading.svg";
-// image imports (CRA)
 
 SwiperCore.use([Navigation]);
 
@@ -20,16 +18,6 @@ export function ChoosePlanetMobile({
   };
   return (
     <div className="text-white py-8 space-y-4">
-      <div className="inline-block">
-        <div className="flex flex-col uppercase font-bold">
-          Choose your Planet
-          <img
-            src={underheading}
-            alt="red colored border under the section title"
-            className="w-7/10"
-          />
-        </div>
-      </div>
       <Swiper
         id="main"
         slidesPerView={numberOfSlides}

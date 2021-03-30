@@ -9,6 +9,7 @@ import NeptuneImg from "../../../../../src/images/planets/Neptune.png";
 import MarsImg from "../../../../../src/images/planets/Mars.png";
 import JupiterImg from "../../../../../src/images/planets/Jupiter.png";
 import XOS24Img from "../../../../../src/images/planets/XOS-24.png";
+import underheading from "../../../../icons/under-heading.svg";
 
 const NO_OF_SLIDES = 3;
 
@@ -44,37 +45,51 @@ export default function ChoosePlanet() {
   const [selectedPlanet, setSelectedPlanet] = React.useState(planets[0]);
   const [activeIndex, setActiveIndex] = React.useState(NO_OF_SLIDES);
   const { width } = useWindowSize();
-  return width < 768 ? (
-    <>
-      <ChoosePlanetMobile
-        setSelectedPlanet={setSelectedPlanet}
-        setActiveIndex={setActiveIndex}
-        numberOfSlides={NO_OF_SLIDES}
-        planets={planets}
-      />
-      <MobileInfoCard
-        activeIndex={activeIndex}
-        setSelectedPlanet={setSelectedPlanet}
-        selectedPlanet={selectedPlanet}
-        planets={planets}
-        numberOfSlides={NO_OF_SLIDES}
-      />
-    </>
-  ) : (
-    <div className="flex md:flex-col lg:flex-row md:justify-between md:items-center md:my-8 md:space-y-6 space-x-12">
-      <div className="flex justify-between w-5/6 lg:w-3/5">
-        {planets.map((planet) => {
-          return (
-            <PlanetCard
-              key={planet.name}
-              planet={planet}
-              selectedPlanet={selectedPlanet}
-              setSelectedPlanet={setSelectedPlanet}
-            />
-          );
-        })}
+  return (
+    <div className="py-8">
+      <div className="inline-block">
+        <div className="flex flex-col uppercase font-bold text-xl lg:text-2xl">
+          Choose your Planet
+          <img
+            src={underheading}
+            alt="red colored border under the section title"
+            className="w-7/10"
+          />
+        </div>
       </div>
-      <InfoCard selectedPlanet={selectedPlanet} />
+      {width < 768 ? (
+        <>
+          <ChoosePlanetMobile
+            setSelectedPlanet={setSelectedPlanet}
+            setActiveIndex={setActiveIndex}
+            numberOfSlides={NO_OF_SLIDES}
+            planets={planets}
+          />
+          <MobileInfoCard
+            activeIndex={activeIndex}
+            setSelectedPlanet={setSelectedPlanet}
+            selectedPlanet={selectedPlanet}
+            planets={planets}
+            numberOfSlides={NO_OF_SLIDES}
+          />
+        </>
+      ) : (
+        <div className="flex md:flex-col lg:flex-row md:justify-between md:items-center md:my-8 md:space-y-6 space-x-12">
+          <div className="flex justify-between w-5/6 lg:w-3/5">
+            {planets.map((planet) => {
+              return (
+                <PlanetCard
+                  key={planet.planetName}
+                  planet={planet}
+                  selectedPlanet={selectedPlanet}
+                  setSelectedPlanet={setSelectedPlanet}
+                />
+              );
+            })}
+          </div>
+          <InfoCard selectedPlanet={selectedPlanet} />
+        </div>
+      )}
     </div>
   );
 }

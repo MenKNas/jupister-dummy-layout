@@ -1,9 +1,8 @@
-import { faAngleRight } from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import * as React from "react";
 import { Game } from "../../Game";
 import Promotions from "../Promotions";
 import underheading from "../../../icons/under-heading.svg";
+import { ShowAllButton } from "../../Buttons/ShowAll";
 
 function GamesGrid() {
   return (
@@ -27,8 +26,8 @@ export default function LiveCasino() {
     <div className="space-y-4 p-4 md:p-6 lg:pb-8">
       <div className="lg:w-full mx-auto">
         <Promotions preview={true} />
-        <div className="flex justify-between items-center py-4 text-white">
-          <div className="uppercase font-bold">
+        <div className="flex justify-between items-center py-4">
+          <div className="uppercase font-black text-xl lg:text-2xl text-white">
             Live Casino
             <img
               src={underheading}
@@ -36,11 +35,7 @@ export default function LiveCasino() {
               className="w-7/10"
             />
           </div>
-          <button className="truncate inline-block">
-            <span>
-              Show All <FontAwesomeIcon icon={faAngleRight} />
-            </span>
-          </button>
+          <ShowAllButton />
         </div>
         <GamesGrid />
       </div>
