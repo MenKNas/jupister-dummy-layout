@@ -1,5 +1,5 @@
 import * as React from "react";
-import { useForm } from "react-hook-form";
+import { useForm, Controller } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/dist/ie11/yup";
 import { useTranslation } from "react-i18next";
 import * as yup from "yup";
@@ -35,8 +35,8 @@ const schema = (t) =>
     amount: yup.number().label("Amount").required(),
     cardNumber: yup.string().label("Card number").required(),
     fullName: yup.string().label("Full Name").min(5).required(),
-    cardExpiry: yup.date().label("Card Expiry").required(),
-    ccv: yup.number().label("CVC/CVV").max(3).min(3).required(),
+    cardExpiry: yup.string().label("Card Expiry").required(),
+    ccv: yup.number().label("CVC/CVV").required(),
   });
 
 function FormField({ label, input }) {
@@ -149,13 +149,16 @@ function DepositPage({ selectedPayment, setSelectedPayment }) {
 
 function Form() {
   const { t } = useTranslation();
+  // const [selectedAmount, setSelectedAmount] = React.useState();
   const {
     register,
     handleSubmit,
     errors,
+    control,
     // formState: { isSubmitting },
   } = useForm({
     defaultValues: {
+      // amount: selectedAmount,
       //   country: user.country,
       //   city: user.city,
       //   houseNumberAndStreetName: user.houseNumberAndStreetName,
@@ -167,9 +170,10 @@ function Form() {
   //   const fieldDisabled = profileChangeDisabled || isSubmitting;
   const onSubmit = (data) => console.log(data);
   console.log(errors);
+
   return (
     <form className="space-y-4" onSubmit={handleSubmit(onSubmit)}>
-      <div className="flex space-x-8 w-full">
+      {/* <div className="flex space-x-8 w-full">
         <div className="space-y-1 w-1/3">
           <Field invalid={errors?.amount?.message}>
             <FormField
@@ -193,12 +197,73 @@ function Form() {
             <button
               className="bg-brand-secondary text-sm text-white rounded-sm font-bold h-14 w-14"
               key={amount}
+              onClick={() => setSelectedAmount(amount)}
             >
               {amount} &euro;
             </button>
           ))}
         </div>
-      </div>
+      </div> */}
+      <Field invalid={errors?.mobileNumber?.message}>
+        <FormField
+          label={
+            <Field.Label htmlFor="mobileNumber">
+              {t("Mobile Number")}
+            </Field.Label>
+          }
+          input={
+            <>
+              <Controller
+                name="mobileNumber"
+                control={control}
+                render={(props) => (
+                  <div className="flex space-x-8 w-full">
+                    <div className="space-y-1 w-1/3">
+                      <Field
+                        invalid={errors?.amount?.message}
+                        defalutValue={props.value}
+                        onChange={props.onChange}
+                      >
+                        <FormField
+                          label={
+                            <Field.Label htmlFor="amount">
+                              {t("Amount")}
+                            </Field.Label>
+                          }
+                          input={
+                            <>
+                              <Field.Input
+                                type="text"
+                                name="amount"
+                                ref={register}
+                                //   disabled={fieldDisabled}
+                              />
+                            </>
+                          }
+                        />
+                        <Field.Error>{errors?.amount?.message}</Field.Error>
+                      </Field>
+                    </div>
+                    <div className="grid grid-cols-2 gap-2">
+                      {paymentAmounts.map((amount) => (
+                        <button
+                          className="bg-brand-secondary text-sm text-white rounded-sm font-bold h-14 w-14"
+                          key={amount}
+                          // onClick={() => setSelectedAmount(amount)}
+                          value={amount}
+                        >
+                          {amount} &euro;
+                        </button>
+                      ))}
+                    </div>
+                  </div>
+                )}
+              />
+              <Field.Error>{errors?.mobileNumber?.message}</Field.Error>
+            </>
+          }
+        />
+      </Field>
       <div className="grid grid-cols-2 gap-2 lg:grid-cols-4 lg:space-x-4">
         <div className="space-y-1 lg:w-auto w-full">
           <Field invalid={errors?.cardNumber?.message}>

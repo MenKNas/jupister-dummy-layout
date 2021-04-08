@@ -1,8 +1,5 @@
 import * as React from "react";
 import { Link, NavLink } from "react-router-dom";
-// import { Link } from "";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faAngleDown } from "@fortawesome/free-solid-svg-icons";
 import { SideBar } from "./SideBar";
 import MainButton from "../../Buttons/MainButton";
 import useWindowSize from "../../../hooks/useWindowSize";
