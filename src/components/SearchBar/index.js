@@ -1,31 +1,38 @@
-import { faAngleDown, faList } from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import * as React from "react";
-import { isMobile } from "react-device-detect";
 import useWindowSize from "../../hooks/useWindowSize";
+import { ReactComponent as SearchIcon } from "../../icons/search-icon.svg";
+import { ReactComponent as ListIcon } from "../../icons/list-icon.svg";
+import { ReactComponent as ChevronDown } from "../../icons/chevron-down.svg";
 
 export default function SearchBar() {
   const { width } = useWindowSize();
+  const [showSearchIcon, setShowSearchIcon] = React.useState(true);
   return (
     <div className="flex space-x-4" data-component="SearchBar">
-      <input
-        placeholder={"search game".toUpperCase()}
-        className="p-2 w-4/5 bg-blue-800 border border-gray-500 rounded-md text-white outline-none"
-      />
+      <div
+        className="p-2 w-4/5 bg-bg-secondary rounded-md text-text-secondary outline-none flex items-center space-x-2"
+        onFocus={() => setShowSearchIcon(false)}
+        onBlur={() => setShowSearchIcon(true)}
+      >
+        {showSearchIcon && (
+          <span>
+            <SearchIcon />
+          </span>
+        )}
+        <input placeholder="Search" className="bg-transparent" />
+      </div>
       {width < 780 ? (
-        <button className="w-1/5 bg-blue-800 rounded-md text-md flex items-center justify-center text-white">
-          <div className="flex items-center text-xl">
-            <FontAwesomeIcon icon={faList} size={isMobile ? "lg" : "md"} />
-          </div>
+        <button className="w-1/5 bg-bd-focused rounded-md text- flex items-center justify-center text-white">
+          <ListIcon />
         </button>
       ) : (
-        <button className="w-1/5 bg-blue-800 rounded-md text-md flex items-center justify-between text-white px-4">
+        <button className="w-1/5 bg-bd-focused rounded-md text-md flex items-center justify-between text-white px-4">
           <div className="flex items-center space-x-2">
-            <FontAwesomeIcon icon={faList} size={isMobile ? "lg" : "md"} />
-            <span className="hidden md:block">Providers </span>
+            <ListIcon />
+            <span className="hidden md:block tracking-wide">Providers </span>
           </div>
           <span className="hidden md:block">
-            <FontAwesomeIcon icon={faAngleDown} size={isMobile ? "lg" : "md"} />
+            <ChevronDown stroke="#fff" />
           </span>
         </button>
       )}

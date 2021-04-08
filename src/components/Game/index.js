@@ -8,7 +8,7 @@ export const Game = React.memo(({ gameTitle, gameImg, className }) => {
   const { width } = useWindowSize();
   return (
     <div
-      className={`block border-2 border-gray-300 rounded-md relative overflow-hidden ${className}`}
+      className={`block rounded-md relative overflow-hidden ${className}`}
       data-component="Game"
       onMouseEnter={() => setOpacity({ main: 1, overlay: 1 })}
       onMouseLeave={() => setOpacity({ main: 1, overlay: 0 })}

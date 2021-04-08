@@ -9,12 +9,12 @@ import MyHistory from "../MyHistory";
 import { ReactComponent as Avatar } from "../../../../icons/avatar.svg";
 import { ReactComponent as ProfileIcon } from "../../../../icons/profile.svg";
 import { ReactComponent as HistoryIcon } from "../../../../icons/history.svg";
-import { ReactComponent as FinancialIcon } from "../../../../icons/financial.svg";
+import { ReactComponent as FinancialIcon } from "../../../../icons/financials.svg";
 // import { ReactComponent as ExpandIcon } from "../../../../icons/expand.svg";
 
 export function DesktopAccount({ windowWidth }) {
   return (
-    <div className="bg-gray-800">
+    <div className="bg-bg-secondary">
       <div className="lg:max-w-1200 xl:max-w-1400 mx-auto p-4">
         <div className="bg-bg-primary flex rounded-lg">
           <div
@@ -97,10 +97,10 @@ function TabletSideMenu() {
       <NavLink
         to="/account/financials/"
         className="bg-bg-primary p-3 rounded-md flex items-center"
-        activeStyle={{ border: "1px solid #fddb4c" }}
+        activeStyle={{ border: "1px solid #fddb4c", stroke: "#123Β4Ε" }}
       >
         <button>
-          <FinancialIcon />
+          <FinancialIcon stroke="#123Β4Ε" fill="#123Β4Ε" />
         </button>
       </NavLink>
       <NavLink
