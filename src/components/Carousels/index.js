@@ -38,7 +38,7 @@ function Slider({ slide }) {
         alt="Welcome bonus banner"
         style={{
           width: "100%",
-          height: "auto",
+          height: "100%",
           maxWidth: "100%",
           maxHeight: "100%",
           minHeight: "160px",
