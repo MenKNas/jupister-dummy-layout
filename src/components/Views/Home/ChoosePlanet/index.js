@@ -48,7 +48,7 @@ export default function ChoosePlanet() {
   return (
     <div className="py-8">
       <div className="inline-block">
-        <div className="flex flex-col uppercase font-bold text-xl lg:text-2xl">
+        <div className="flex flex-col uppercase font-bold text-xl lg:text-2xl tracking-wide">
           Choose your Planet
           <img
             src={underheading}

@@ -1,11 +1,11 @@
 import * as React from "react";
 import { Switch, Route, Redirect } from "react-router";
 import { NavLink } from "react-router-dom";
-import Deposit from "./Deposit";
-import Withdraw from "./Withdraw";
-import PendingWithdraws from "./PendingWithdraws";
+import AccountStatement from "./AccountStatement";
+import BettingHistory from "./BettingHistory";
+import ProfitLoss from "./ProfitLoss";
 
-export default function Financials() {
+export default function History() {
   return (
     <div>
       <div className="flex flex-col p-4 space-y-4">
@@ -13,39 +13,39 @@ export default function Financials() {
         <div className="flex space-x-6 border-b border-bg-secondary text text-white">
           <NavLink
             className="py-4"
-            to="/account/financials/deposit"
+            to="/account/history/bets"
             activeClassName="text-brand-primary"
           >
-            <span className="px-2">Deposit </span>
+            <span className="px-2">Betting History </span>
           </NavLink>
           <NavLink
             className="py-4"
-            to="/account/financials/withdraw"
+            to="/account/history/statement"
             activeClassName="text-brand-primary"
           >
-            <span className="px-2">Withdraw </span>
+            <span className="px-2">Account Statement </span>
           </NavLink>
           <NavLink
             className="py-4"
-            to="/account/financials/pendingwithdraws"
+            to="/account/history/profitnloss"
             activeClassName="text-brand-primary"
           >
-            <span className="px-2">Pending Withdraws </span>
+            <span className="px-2">Profit & Loss </span>
           </NavLink>
         </div>
         <div>
           <Switch>
-            <Route path="/account/financials/deposit" exact>
-              <Deposit />
+            <Route path="/account/history/bets" exact>
+              <BettingHistory />
             </Route>
-            <Route path="/account/financials/withdraw" exact>
-              <Withdraw />
+            <Route path="/account/history/statement" exact>
+              <AccountStatement />
             </Route>
-            <Route path="/account/financials/pendingwithdraws" exact>
-              <PendingWithdraws />
+            <Route path="/account/history/profitnloss" exact>
+              <ProfitLoss />
             </Route>
             <Route path="*">
-              <Redirect to="deposit" />
+              <Redirect to="bets" />
             </Route>
           </Switch>
         </div>

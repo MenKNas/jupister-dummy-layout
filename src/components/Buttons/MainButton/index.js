@@ -10,7 +10,7 @@ export default function MainButton({
 }) {
   function finalClasses() {
     return outline
-      ? "bg-transparent border border-yellow-300 text-white rounded-lg "
+      ? "bg-transparent text-white rounded-lg italic font-black text-lg"
       : secondary
       ? styles.secondary
       : "bg-blue-800 text-white";

@@ -21,6 +21,8 @@ module.exports = {
         "bg-secondary": "#0D2950",
         "bg-darker": "#132B4E",
         "bd-primary": "#2A4977",
+        "bg-account-primary": "#062146",
+        "bd-focused": "#0064C7",
       },
       width: {
         "7/10": "70%",

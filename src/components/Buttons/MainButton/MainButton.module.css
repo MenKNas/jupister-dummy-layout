@@ -1,11 +1,11 @@
 
 .secondary {
-    @apply px-4 text-text-dark;
+    @apply px-4 text-text-dark text-lg;
     background: url("../../../icons/cta_bg.svg");
     background-position: center;
     background-size: 100%;
     background-repeat: no-repeat;
-    font-size: 16px;
+    /* font-size: 16px; */
     font-weight: 900;
     font-style: italic;
 }

@@ -1,13 +1,15 @@
 import * as React from "react";
-import { NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 // import { Link } from "";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faAngleDown, faUser } from "@fortawesome/free-solid-svg-icons";
+import { faAngleDown } from "@fortawesome/free-solid-svg-icons";
 import { SideBar } from "./SideBar";
 import MainButton from "../../Buttons/MainButton";
 import useWindowSize from "../../../hooks/useWindowSize";
 import AccountMenu from "./AccountMenu";
 import { ReactComponent as BurgerIcon } from "../../../icons/menu_burger_box.svg";
+import { ReactComponent as Avatar } from "../../../icons/avatar.svg";
+// import { ReactComponent as ChevronDown } from "../../../icons/chevron-down.svg";
 // import { ReactComponent as Logo } from "../../../icons/brand-logo-main.svg";
 
 const authenticatedUser = true;
@@ -38,7 +40,9 @@ function MobileHeader() {
         </div>
         <div>
           {authenticatedUser ? (
-            <MainButton secondary> Deposit </MainButton>
+            <Link to="/account/financials/">
+              <MainButton secondary> Deposit </MainButton>
+            </Link>
           ) : (
             <MainButton secondary> Register </MainButton>
           )}
@@ -72,10 +76,8 @@ function RegisteredHeaderButtons() {
       data-component="RegisteredHeaderButtons"
     >
       <div className="flex flex-col text-right">
-        <h4 className="font-bold text-white text-sm truncate">
-          2,504.24 &euro;
-        </h4>
-        <span className="text-blue-600 text-xs">200.00 &euro;</span>
+        <span className="text-text-secondary text-sm"> Balance </span>
+        <h4 className="font-bold text-white truncate">2,504.24 &euro;</h4>
       </div>
       <div className="relative">
         <div
@@ -83,12 +85,8 @@ function RegisteredHeaderButtons() {
           onMouseLeave={() => setShowProfileLinks(false)}
         >
           <div className="py-1">
-            <button>
-              <FontAwesomeIcon
-                icon={faUser}
-                className="bg-blue-500 p-2 w-full text-4xl rounded-lg text-white"
-                size="lg"
-              />
+            <button className="flex items-center">
+              <Avatar />
             </button>
             {showProfileLinks && (
               <AccountMenu setShowProfileLinks={setShowProfileLinks} />
@@ -96,7 +94,9 @@ function RegisteredHeaderButtons() {
           </div>
         </div>
       </div>
-      <MainButton secondary> Deposit </MainButton>
+      <Link to="/account/financials/">
+        <MainButton secondary> Deposit </MainButton>
+      </Link>
     </div>
   );
 }

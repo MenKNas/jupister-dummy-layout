@@ -1,9 +1,8 @@
 import * as React from "react";
 import { Link } from "react-router-dom";
 import MainButton from "../../Buttons/MainButton";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faAngleRight, faUser } from "@fortawesome/free-solid-svg-icons";
 import { ReactComponent as CloseIcon } from "../../../icons/menu_close_box.svg";
+import { ReactComponent as Avatar } from "../../../icons/avatar.svg";
 import { useLockedScroll } from "../../../hooks/useLockedScroll";
 
 const links = [
@@ -27,31 +26,18 @@ const authenticatedUser = true;
 
 function RegisteredUserTab({ showSidebar, setShowSidebar, user }) {
   return (
-    <div className="flex flex-col space-y-4" data-component="RegisteredTab">
-      <div className="flex flex-row justify-between items-center space-x-4">
-        <div>
-          <div className="flex flex-row justify-evenly space-x-2 items-center">
-            <FontAwesomeIcon
-              icon={faUser}
-              className="bg-blue-500 p-2 w-1/2 text-4xl rounded-lg"
-              size="lg"
-            />
+    <div className="flex flex-col space-y-6" data-component="RegisteredTab">
+      <Link to="/financials" onClick={() => setShowSidebar(!showSidebar)}>
+        <div className="flex flex-row justify-between items-center">
+          <div className="flex flex-row justify-evenly space-x-4 items-center">
+            <Avatar />
             <div className="flex flex-col">
               <h4 className="text-gray-300 text-xs"> User </h4>
-              <span className="text-sm font-bold truncate">
-                {user.userMail}
-              </span>
+              <span className="text-sm truncate">{user.userMail}</span>
             </div>
           </div>
         </div>
-        <div>
-          <Link to="/financials" onClick={() => setShowSidebar(!showSidebar)}>
-            <button>
-              <FontAwesomeIcon icon={faAngleRight} />
-            </button>
-          </Link>
-        </div>
-      </div>
+      </Link>
       <div className="flex justify-between items-center border-b border-gray-600 pb-4">
         <div>
           <div className="flex flex-col">
@@ -73,13 +59,24 @@ function RegisteredUserTab({ showSidebar, setShowSidebar, user }) {
 
 function VisitorUserTab() {
   return (
-    <div className="flex justify-between space-x-4" data-component="VisitorTab">
-      <MainButton outline className="w-1/2">
-        Login
-      </MainButton>
-      <MainButton secondary className="w-1/2">
-        Register
-      </MainButton>
+    <div
+      className="flex flex-col justify-between items-center border-b border-bd-primary pb-4 space-y-8"
+      data-component="VisitorTab"
+    >
+      <img
+        src="/assets/brand-logo-main.svg"
+        alt="Logo"
+        width={130}
+        height={80}
+      />
+      <div className="flex flex-row w-full space-x-4">
+        <MainButton outline className="w-1/2">
+          Login
+        </MainButton>
+        <MainButton secondary className="w-1/2">
+          Register
+        </MainButton>
+      </div>
     </div>
   );
 }
@@ -87,7 +84,7 @@ function VisitorUserTab() {
 const FooterLinks = React.memo(({ setShowSidebar }) => {
   return (
     <div
-      className="flex flex-col text-xs space-y-4 text-white tracking-wider"
+      className="flex flex-col text-xs space-y-4 text-text-secondary tracking-wider"
       data-component="FooterLinks"
     >
       {footerLinks.map(({ name, link }) => (
@@ -137,7 +134,7 @@ export const SideBar = ({ showSidebar, setShowSidebar }) => {
             <VisitorUserTab />
           )}
           <div className="space-y-4">
-            <div className="flex flex-col space-y-4 uppercase tracking-wider font-bold border-b border-gray-600 py-4">
+            <div className="flex flex-col space-y-4 uppercase tracking-wider border-b border-bd-primary py-4 font-black italic text-lg">
               {links.map(({ name, link }) => (
                 <Link
                   key={name}
