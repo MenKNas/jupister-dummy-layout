@@ -15,6 +15,6 @@
 } */
 
 .jackpot {
-    @apply flex flex-col lg:w-full mx-auto py-4 text-center text-white justify-center items-center border border-brand-secondary space-y-4 uppercase rounded-md;
+    @apply flex flex-col lg:w-full mx-auto py-0 lg:py-4 text-center text-white justify-center items-center border border-brand-secondary space-y-1 lg:space-y-4 uppercase rounded-md;
     background: #010F27;
 }

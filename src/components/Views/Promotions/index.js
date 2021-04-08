@@ -18,8 +18,8 @@ export default function Promotions({ preview = false }) {
         {preview ? (
           <div className="flex flex-col justify-center items-center space-y-6 md:py-3 lg:space-x-6 lg:flex-row lg:justify-between lg:space-y-0">
             {/* Promotions will probably be two images in flex-col for mobile and flex-row for desktop */}
-            <PromotionCard preview={preview} className="w-1/2" />
-            <PromotionCard preview={preview} className="w-1/2" />
+            <PromotionCard preview={preview} className="w-1/2" showInHomepage />
+            <PromotionCard preview={preview} className="w-1/2" showInHomepage />
           </div>
         ) : (
           <div className="w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 lg:flex-rows-2 items-center gap-8 lg:w-full lg:mx-auto h-full py-10 px-4 lg:px-0">
