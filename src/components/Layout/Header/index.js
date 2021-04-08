@@ -160,9 +160,9 @@ function DesktopHeader() {
                 exact={true}
               >
                 More
-                <span className="ml-2">
+                {/* <span className="ml-2">
                   <FontAwesomeIcon icon={faAngleDown} />
-                </span>
+                </span> */}
               </NavLink>
             </span>
             <span className="px-4 truncate">

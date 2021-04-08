@@ -56,8 +56,8 @@ export function DesktopSideMenu() {
             </div>
           </div>
         </div>
-        <div className="flex justify-between items-center">
-          <div className="w-1/2">
+        <div className="flex justify-center text-center items-center">
+          <div className="w-1/2 border-r border-bd-primary">
             <div className="flex flex-col">
               <h4 className="text-sm text-text-secondary font-bold">
                 Real Money
@@ -124,7 +124,7 @@ function TabletSideMenu() {
 function MainNavLinkSection() {
   let { path } = useRouteMatch();
   return (
-    <div className="space-y-2 p-4">
+    <div className="space-y-2 p-4 pt-0">
       <div className="flex flex-col space-y-1">
         <h3 className="font-thin text-text-secondary"> My Profile</h3>
         <NavLink
