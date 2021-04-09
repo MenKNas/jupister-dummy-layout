@@ -50,7 +50,7 @@ function MobileAccountMenu() {
     bonusBalance: 200,
   };
   return (
-    <div className="space-y-2 p-1 md:p-4 pt-0">
+    <div className="space-y-2 p-2.5 md:p-4 pt-0">
       <UserInfo user={user} />
       {menuSections.map((section) => (
         <div className="flex flex-col space-y-1">
@@ -85,7 +85,7 @@ export function MobileAccount() {
 
 function HeaderForPage({ title }) {
   return (
-    <div className="flex items-center">
+    <div className="flex items-center py-2 bg-bg-account-primary">
       <div className="w-1/3">
         <NavLink
           to="/account"
@@ -109,10 +109,13 @@ function MobileActiveSection() {
   return (
     <div>
       <Modal animated ref={ref}>
-        <ModalBody onClose={close} className="bg-bg-primary">
+        <ModalBody onClose={close} className="bg-bg-primary" hideCloseBtn>
           <Switch>
             <Route exact path={path}>
-              <ModalHeader onClose={close}>
+              <ModalHeader
+                onClose={close}
+                className="bg-bg-account-primary py-3 px-4"
+              >
                 <span className="text-white font-black uppercase">
                   My Account
                 </span>

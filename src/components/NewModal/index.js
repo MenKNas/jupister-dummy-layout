@@ -46,7 +46,7 @@ export function ModalHeader({ children, onClose, overide = false, className }) {
   return overide ? (
     <div className={className}>{children}</div>
   ) : (
-    <div className={styles.header}>
+    <div className={classNames(styles.header, className)}>
       <h3 className={styles.title}> {children} </h3>
       <button
         onClick={onClose}
@@ -60,7 +60,7 @@ export function ModalHeader({ children, onClose, overide = false, className }) {
 }
 
 export const ModalBody = React.forwardRef(
-  ({ children, onClose, className, ...rest }, ref) => {
+  ({ children, onClose, hideCloseBtn = false, className, ...rest }, ref) => {
     const innerRef = React.useRef();
     const [toggled, toggle] = React.useState(false);
     useLockedScroll(innerRef, toggled);
@@ -72,15 +72,17 @@ export const ModalBody = React.forwardRef(
         ref={useMergedRef(innerRef, ref)}
       >
         {children}
-        <div className="w-full text-center">
-          <MainButton
-            onClick={onClose}
-            outline
-            className="border-bg-darker text-bg-darker w-4/5 xl:w-1/5 mx-auto"
-          >
-            Close
-          </MainButton>
-        </div>
+        {!hideCloseBtn && (
+          <div className="w-full text-center">
+            <MainButton
+              onClick={onClose}
+              outline
+              className="border-bg-darker text-bg-darker w-4/5 xl:w-1/5 mx-auto"
+            >
+              Close
+            </MainButton>
+          </div>
+        )}
       </div>
     );
   }

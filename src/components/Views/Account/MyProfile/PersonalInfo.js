@@ -313,6 +313,7 @@ export default function PersonalInfo() {
       initial="hidden"
       animate="visible"
       exit="exit"
+      className="p-3"
     >
       <Form />
     </motion.div>
