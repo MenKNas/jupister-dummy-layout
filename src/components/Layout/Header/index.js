@@ -6,10 +6,11 @@ import useWindowSize from "../../../hooks/useWindowSize";
 import AccountMenu from "./AccountMenu";
 import { ReactComponent as BurgerIcon } from "../../../icons/menu_burger_box.svg";
 import { ReactComponent as Avatar } from "../../../icons/avatar.svg";
+import { useLoginRegister } from "../../LoginRegister";
 // import { ReactComponent as ChevronDown } from "../../../icons/chevron-down.svg";
 // import { ReactComponent as Logo } from "../../../icons/brand-logo-main.svg";
 
-const authenticatedUser = true;
+const authenticatedUser = false;
 
 function MobileHeader() {
   const [showSidebar, setShowSidebar] = React.useState(false);
@@ -57,10 +58,15 @@ function MobileHeader() {
 }
 
 function VisitorHeaderButtons() {
+  const showModal = useLoginRegister();
   return (
     <>
-      <MainButton outline> Login </MainButton>
-      <MainButton secondary> Register </MainButton>
+      <MainButton outline onClick={() => showModal("login")}>
+        Login
+      </MainButton>
+      <MainButton secondary onClick={() => showModal("register")}>
+        Register
+      </MainButton>
     </>
   );
 }

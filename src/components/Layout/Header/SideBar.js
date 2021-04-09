@@ -4,6 +4,7 @@ import MainButton from "../../Buttons/MainButton";
 import { ReactComponent as CloseIcon } from "../../../icons/menu_close_box.svg";
 import { ReactComponent as Avatar } from "../../../icons/avatar.svg";
 import { useLockedScroll } from "../../../hooks/useLockedScroll";
+import { useLoginRegister } from "../../LoginRegister";
 
 const links = [
   { name: "Casino", link: "/casino" },
@@ -22,7 +23,7 @@ const footerLinks = [
   { name: "Privacy Policy", link: "/" },
 ];
 
-const authenticatedUser = true;
+const authenticatedUser = false;
 
 function RegisteredUserTab({ showSidebar, setShowSidebar, user }) {
   return (
@@ -57,7 +58,8 @@ function RegisteredUserTab({ showSidebar, setShowSidebar, user }) {
   );
 }
 
-function VisitorUserTab() {
+function VisitorUserTab({ setShowSidebar }) {
+  const showModal = useLoginRegister();
   return (
     <div
       className="flex flex-col justify-between items-center border-b border-bd-primary pb-4 space-y-8"
@@ -70,10 +72,21 @@ function VisitorUserTab() {
         height={80}
       />
       <div className="flex flex-row w-full space-x-4">
-        <MainButton outline className="w-1/2">
+        <MainButton
+          outline
+          className="w-1/2"
+          onClick={() => {
+            setShowSidebar((prev) => !prev);
+            showModal("login");
+          }}
+        >
           Login
         </MainButton>
-        <MainButton secondary className="w-1/2">
+        <MainButton
+          secondary
+          className="w-1/2"
+          onClick={() => showModal("register")}
+        >
           Register
         </MainButton>
       </div>
@@ -131,7 +144,7 @@ export const SideBar = ({ showSidebar, setShowSidebar }) => {
               user={user}
             />
           ) : (
-            <VisitorUserTab />
+            <VisitorUserTab setShowSidebar={setShowSidebar} />
           )}
           <div className="space-y-4">
             <div className="flex flex-col space-y-4 uppercase tracking-wider border-b border-bd-primary py-4 font-black italic text-lg">

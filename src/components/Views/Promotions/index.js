@@ -54,7 +54,7 @@ export default function Promotions({ preview = false }) {
         )}
       </div>
       {isModalOpen && (
-        <Modal size="sm" animated ref={modalRef} isOpen={isModalOpen}>
+        <Modal size="sm" animated ref={modalRef}>
           <ModalHeader onClose={() => setIsModalOpen(false)}>
             HELLOOOO
           </ModalHeader>

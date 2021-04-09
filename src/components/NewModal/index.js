@@ -5,6 +5,8 @@ import classNames from "classnames";
 import MainButton from "../Buttons/MainButton";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTimes } from "@fortawesome/free-solid-svg-icons";
+import { useLockedScroll } from "../../hooks/useLockedScroll";
+import { useMergedRef } from "../../hooks/useMergedRef";
 
 const sizes = {
   sm: styles.sizeSM,
@@ -55,44 +57,64 @@ export function ModalHeader({ children, onClose }) {
   );
 }
 
-export function ModalBody({ children, onClose, ...rest }) {
-  return (
-    <div className="flex flex-col" {...rest}>
-      {children}
-      <div className="w-full text-center">
-        <MainButton
-          onClick={onClose}
-          outline
-          className="border-bg-darker text-bg-darker w-4/5 xl:w-1/5 mx-auto"
-        >
-          Close
-        </MainButton>
+export const ModalBody = React.forwardRef(
+  ({ children, onClose, className, ...rest }, ref) => {
+    const innerRef = React.useRef();
+    const [toggled, toggle] = React.useState(false);
+    useLockedScroll(innerRef, toggled);
+    React.useEffect(() => toggle(true), []);
+    return (
+      <div
+        className={classNames("flex flex-col", className, styles.body)}
+        {...rest}
+        ref={useMergedRef(innerRef, ref)}
+      >
+        {children}
+        <div className="w-full text-center">
+          <MainButton
+            onClick={onClose}
+            outline
+            className="border-bg-darker text-bg-darker w-4/5 xl:w-1/5 mx-auto"
+          >
+            Close
+          </MainButton>
+        </div>
       </div>
-    </div>
-  );
-}
+    );
+  }
+);
 
 export const Modal = React.forwardRef(
   (
-    { children, animated = false, size = "sm", fullScreen = "sm", ...props },
+    {
+      children,
+      className,
+      centered = true,
+      scrollable = true,
+      animated = false,
+      size = "md",
+      fullScreen = "sm",
+      ...rest
+    },
     ref
   ) => {
+    console.log(size);
     const modalNode = React.useContext(NewModalContext);
     return modalNode
       ? ReactDOM.createPortal(
-          <div
-            className={`${styles.overlay} ${animated ? styles.fadeIn : null}`}
-          >
+          <div className={`${styles.overlay} ${animated ? styles.fadeIn : ""}`}>
             <div
               className={classNames(
                 styles.dialog,
+                centered && styles.centered,
+                scrollable && styles.scrollable,
                 sizes[size] ?? sizes["md"],
                 fullscreens[fullScreen] ?? fullscreens["sm"]
               )}
-              {...props}
+              {...rest}
               ref={ref}
             >
-              {children}
+              <div className={styles.content}> {children} </div>
             </div>
           </div>,
           modalNode

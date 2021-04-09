@@ -2,6 +2,7 @@ import * as React from "react";
 import styles from "./MainButton.module.css";
 
 export default function MainButton({
+  loading = false,
   children,
   secondary = false,
   className,
