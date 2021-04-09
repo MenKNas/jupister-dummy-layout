@@ -56,7 +56,7 @@ export function Form() {
 
   return (
     <form className="space-y-4 w-full" onSubmit={handleSubmit(onSubmit)}>
-      <div className="flex flex-col space-y-4 w-7/10">
+      <div className="flex flex-col space-y-4 w-full md:w-7/10">
         <Field invalid={errors.oldPassword?.message}>
           <FormField
             label={
@@ -126,7 +126,7 @@ export function Form() {
           <MainButton
             secondary
             type="submit"
-            className="md:w-1/4 w-1/2"
+            className="md:w-1/4 w-full"
             // disabled={isSubmitting}
             // loading={isSubmitting}
           >

@@ -1,56 +1,148 @@
 import * as React from "react";
-import { Switch, Route } from "react-router";
+import { Switch, Route, Redirect, useHistory } from "react-router";
+import { NavLink, useRouteMatch } from "react-router-dom";
+import Financials from "../Financials";
+import MyProfile from "../MyProfile";
+import MyHistory from "../MyHistory";
+import { UserInfo } from "../UserInfo";
+import { ReactComponent as ChevronRight } from "../../../../icons/chevron-right.svg";
+import { ReactComponent as ChevronLeft } from "../../../../icons/chevron-left.svg";
+import { Modal, ModalBody, ModalHeader } from "../../../NewModal";
 // import useWindowSize from "../../../hooks/useWindowSize";
 // import Documents from "../Documents";
 // import Financials from "../Financials";
 
+const menuSections = [
+  {
+    title: "My Profile",
+    links: [
+      { url: "myprofile/personalinfo", name: "Personal Info" },
+      { url: "myprofile/documents", name: "Documents" },
+      { url: "myprofile/limits", name: "Limits" },
+      { url: "myprofile/changepassword", name: "Change Password" },
+      { url: "myprofile/bonuses", name: "Bonuses" },
+    ],
+  },
+  {
+    title: "Financials",
+    links: [
+      { url: "financials/deposit", name: "Deposit" },
+      { url: "financials/withdraw", name: "Withdraw" },
+      { url: "financials/pendingwithdraws", name: "Pending Withdraws" },
+    ],
+  },
+  {
+    title: "History",
+    links: [
+      { url: "history/bets", name: "Betting History" },
+      { url: "history/statement", name: "Account Statement" },
+      { url: "history/profitnloss", name: "Profit & Loss" },
+    ],
+  },
+];
+
+function MobileAccountMenu() {
+  let { path } = useRouteMatch();
+  let user = {
+    userName: "George Papadopoulos",
+    userMail: "papadopoulosg@gmail.com",
+    totalBalance: 2500,
+    bonusBalance: 200,
+  };
+  return (
+    <div className="space-y-2 p-4 pt-0">
+      <UserInfo user={user} />
+      {menuSections.map((section) => (
+        <div className="flex flex-col space-y-1">
+          <h3 className="font-thin text-text-secondary"> {section.title}</h3>
+          {section.links.map((link) => (
+            <NavLink
+              to={`${path}/${link.url}`}
+              className="bg-bg-secondary p-2 w-full rounded-md text-white"
+              exact
+            >
+              <div className="flex justify-between">
+                <span>{link.name} </span>
+                <span>
+                  <ChevronRight stroke="#fff" />
+                </span>
+              </div>
+            </NavLink>
+          ))}
+        </div>
+      ))}
+    </div>
+  );
+}
+
 export function MobileAccount() {
   return (
-    <div>
+    <div className="bg-bg-primary">
       <MobileActiveSection />
     </div>
   );
 }
 
-// function MobileMenu() {
-//   return <div> Yolo !</div>;
-// }
-
-// function PersonalInfo() {
-//   return <div> yeeees biaaaaatch !!</div>;
-// }
-
-// function ChangePassword() {
-//   return <div> ChangePassword !</div>;
-// }
+function HeaderForPage({ title }) {
+  return (
+    <div className="flex items-center">
+      <div className="w-1/3">
+        <NavLink
+          to="/account"
+          className="text-sm text-text-secondary flex items-center "
+        >
+          <ChevronLeft stroke="#A9B7D5" /> <span> Back </span>
+        </NavLink>
+      </div>
+      <div className="w-2/3">
+        <h2 className="uppercase text-2xl font-black text-white ">{title}</h2>
+      </div>
+    </div>
+  );
+}
 
 function MobileActiveSection() {
-  //   let { url, path } = useRouteMatch();
-  //   console.log(path);
-  //   console.log(path);
+  let { path } = useRouteMatch();
+  let history = useHistory();
+  const close = () => history.push("/");
+  const ref = React.useRef();
   return (
     <div>
-      <Switch>
-        <Route path="/">YOLO MOBILE ONLY</Route>
-        {/* <Route exact path={`${path}`}>
-          <MobileMenu />
-        </Route>
-        <Route exact path={`${path}/personalinfo`}>
-          <PersonalInfo />
-        </Route>
-        <Route exact path={`${path}/changepassword`}>
-          <ChangePassword />
-        </Route>
-        <Route exact path={`${path}/documents`}>
-          <Documents />
-        </Route>
-        <Route path={`${path}/financials`}>
-          <Financials />
-        </Route> */}
-        {/* <Route path="*">
-              <Redirect to={`${path}/personalinfo`} />
-            </Route> */}
-      </Switch>
+      <Modal animated ref={ref}>
+        <ModalBody onClose={close} className="py-4 bg-bg-primary">
+          <Switch>
+            <Route exact path={path}>
+              <ModalHeader onClose={close}>
+                <span className="text-white font-black uppercase">
+                  My Account
+                </span>
+              </ModalHeader>
+              <MobileAccountMenu />
+            </Route>
+            <Route path={`${path}/myprofile`}>
+              <ModalHeader onClose={close} overide>
+                <HeaderForPage title="My Profile"></HeaderForPage>
+              </ModalHeader>
+              <MyProfile />
+            </Route>
+            <Route path={`${path}/financials`}>
+              <ModalHeader onClose={close} overide>
+                <HeaderForPage title="Financials"></HeaderForPage>
+              </ModalHeader>
+              <Financials />
+            </Route>
+            <Route path={`${path}/history`}>
+              <ModalHeader onClose={close} overide>
+                <HeaderForPage title="History"></HeaderForPage>
+              </ModalHeader>
+              <MyHistory />
+            </Route>
+            <Route path="*">
+              <Redirect to="/" />
+            </Route>
+          </Switch>
+        </ModalBody>
+      </Modal>
     </div>
   );
 }

@@ -42,8 +42,10 @@ export function ModalManager({ children }) {
   );
 }
 
-export function ModalHeader({ children, onClose }) {
-  return (
+export function ModalHeader({ children, onClose, overide = false, className }) {
+  return overide ? (
+    <div className={className}>{children}</div>
+  ) : (
     <div className={styles.header}>
       <h3 className={styles.title}> {children} </h3>
       <button

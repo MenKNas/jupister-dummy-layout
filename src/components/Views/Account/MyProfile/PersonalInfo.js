@@ -34,7 +34,7 @@ const schema = (t) =>
 function FormField({ label, input }) {
   return (
     <div className="flex flex-col w-full">
-      <div className="text-text-secondary font-light tracking-wide text-sm py-1">
+      <div className="text-text-secondary font-light tracking-wide text-sm py-1 truncate">
         {label}
       </div>
       <div className="w-full">{input}</div>
@@ -67,7 +67,7 @@ export function Form() {
   console.log(watch("city"));
   return (
     <form className="space-y-4 w-full" onSubmit={handleSubmit(onSubmit)}>
-      <div className="grid grid-cols-2 w-7/10 gap-y-4 gap-x-4">
+      <div className="grid grid-cols-1 md:grid-cols-2 w-full md:w-7/10 gap-y-4 gap-x-4">
         <FormField
           label={<label htmlFor="email">{t("First Name")}</label>}
           input={
@@ -291,7 +291,7 @@ export function Form() {
           <MainButton
             secondary
             type="submit"
-            className="md:w-1/4 w-1/2"
+            className="md:w-1/4 w-full"
             // disabled={isSubmitting}
             // loading={isSubmitting}
           >
