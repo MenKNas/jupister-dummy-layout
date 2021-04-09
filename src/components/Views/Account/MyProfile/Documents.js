@@ -1,5 +1,22 @@
 import * as React from "react";
+import { containerVariants } from "../../../Generic/containerVariants";
+import { motion } from "framer-motion";
+
+function Form() {
+  return (
+    <div className="text-white"> This is going to be the documents form !!</div>
+  );
+}
 
 export default function Documents() {
-  return <div>These are the documents !!</div>;
+  return (
+    <motion.div
+      variants={containerVariants}
+      initial="hidden"
+      animate="visible"
+      exit="exit"
+    >
+      <Form />
+    </motion.div>
+  );
 }

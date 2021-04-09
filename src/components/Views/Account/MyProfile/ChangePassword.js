@@ -9,6 +9,8 @@ import { Field } from "../../../Inputs/Field";
 // import { GET_CURRENT_USER } from "../../../graphql/queries/getCurrentUser";
 // import { useCountdown } from "../../../hooks/useCountDown";
 // import { Alert, AlertContent, AlertTitle } from "../../Alert";
+import { motion } from "framer-motion";
+import { containerVariants } from "../../../Generic/containerVariants";
 import MainButton from "../../../Buttons/MainButton";
 
 const schema = (t) =>
@@ -139,5 +141,14 @@ export function Form() {
 }
 
 export default function ChangePassword() {
-  return <Form />;
+  return (
+    <motion.div
+      variants={containerVariants}
+      initial="hidden"
+      animate="visible"
+      exit="exit"
+    >
+      <Form />
+    </motion.div>
+  );
 }

@@ -16,6 +16,8 @@ import {
   DateSelector,
 } from "../../../Inputs/DateSelector";
 import MainButton from "../../../Buttons/MainButton";
+import { motion } from "framer-motion";
+import { containerVariants } from "../../../Generic/containerVariants";
 // import { CountriesProvider } from "../../../Generic/CountriesList";
 
 const schema = (t) =>
@@ -306,8 +308,13 @@ export function Form() {
 
 export default function PersonalInfo() {
   return (
-    <div>
+    <motion.div
+      variants={containerVariants}
+      initial="hidden"
+      animate="visible"
+      exit="exit"
+    >
       <Form />
-    </div>
+    </motion.div>
   );
 }

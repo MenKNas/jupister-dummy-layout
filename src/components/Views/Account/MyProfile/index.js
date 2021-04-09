@@ -1,13 +1,15 @@
 import * as React from "react";
 import { Switch, Route, Redirect } from "react-router";
-import { NavLink } from "react-router-dom";
+import { NavLink, useLocation } from "react-router-dom";
 import PersonalInfo from "./PersonalInfo";
 import Documents from "./Documents";
 import Limits from "./Limits";
 import ChangePassword from "./ChangePassword";
 import Bonuses from "./Bonuses";
+import { AnimatePresence } from "framer-motion";
 
 export default function MyProfile() {
+  const location = useLocation();
   return (
     <div>
       <div className="flex flex-col px-2 md:px-4 md:py-4 space-y-4">
@@ -54,26 +56,28 @@ export default function MyProfile() {
           </NavLink>
         </div>
         <div>
-          <Switch>
-            <Route path="/account/myprofile/personalinfo" exact>
-              <PersonalInfo />
-            </Route>
-            <Route path="/account/myprofile/documents" exact>
-              <Documents />
-            </Route>
-            <Route path="/account/myprofile/limits" exact>
-              <Limits />
-            </Route>
-            <Route path="/account/myprofile/changepassword" exact>
-              <ChangePassword />
-            </Route>
-            <Route path="/account/myprofile/bonuses" exact>
-              <Bonuses />
-            </Route>
-            <Route path="*">
-              <Redirect to="personalinfo" />
-            </Route>
-          </Switch>
+          <AnimatePresence>
+            <Switch location={location} key={location.key}>
+              <Route path="/account/myprofile/personalinfo" exact>
+                <PersonalInfo />
+              </Route>
+              <Route path="/account/myprofile/documents" exact>
+                <Documents />
+              </Route>
+              <Route path="/account/myprofile/limits" exact>
+                <Limits />
+              </Route>
+              <Route path="/account/myprofile/changepassword" exact>
+                <ChangePassword />
+              </Route>
+              <Route path="/account/myprofile/bonuses" exact>
+                <Bonuses />
+              </Route>
+              <Route path="*">
+                <Redirect to="personalinfo" />
+              </Route>
+            </Switch>
+          </AnimatePresence>
         </div>
       </div>
     </div>
