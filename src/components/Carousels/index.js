@@ -41,7 +41,7 @@ function Slider({ slide }) {
           height: "100%",
           maxWidth: "100%",
           maxHeight: "100%",
-          minHeight: "160px",
+          minHeight: "180px",
           objectFit: "cover",
           borderRadius: "4px",
         }}

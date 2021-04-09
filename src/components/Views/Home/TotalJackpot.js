@@ -6,7 +6,7 @@ export default function TotalJackpot() {
   return (
     <div className="px-4 md:px-6">
       <div className={styles.jackpot}>
-        <h4 className="text-3xl rounded-xl tracking-widest px-4 py-1 relative lg:-top-10 -top-7 font-bold italic">
+        <h4 className="text-3xl rounded-xl tracking-widest px-4 py-1 relative lg:-top-10 -top-9 font-bold italic">
           Total Jackpot
         </h4>
         <span className="text-3xl lg:text-5xl font-bold text-brand-primary">
