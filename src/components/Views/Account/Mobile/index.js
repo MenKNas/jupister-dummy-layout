@@ -50,7 +50,7 @@ function MobileAccountMenu() {
     bonusBalance: 200,
   };
   return (
-    <div className="space-y-2 p-4 pt-0">
+    <div className="space-y-2 p-1 md:p-4 pt-0">
       <UserInfo user={user} />
       {menuSections.map((section) => (
         <div className="flex flex-col space-y-1">
@@ -58,7 +58,7 @@ function MobileAccountMenu() {
           {section.links.map((link) => (
             <NavLink
               to={`${path}/${link.url}`}
-              className="bg-bg-secondary p-2 w-full rounded-md text-white"
+              className="bg-bg-secondary pl-3 p-2 w-full rounded-md text-white"
               exact
             >
               <div className="flex justify-between">
@@ -109,7 +109,7 @@ function MobileActiveSection() {
   return (
     <div>
       <Modal animated ref={ref}>
-        <ModalBody onClose={close} className="py-4 bg-bg-primary">
+        <ModalBody onClose={close} className="bg-bg-primary">
           <Switch>
             <Route exact path={path}>
               <ModalHeader onClose={close}>
