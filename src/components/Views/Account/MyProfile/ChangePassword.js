@@ -10,7 +10,7 @@ import { Field } from "../../../Inputs/Field";
 // import { useCountdown } from "../../../hooks/useCountDown";
 // import { Alert, AlertContent, AlertTitle } from "../../Alert";
 import { motion } from "framer-motion";
-import { containerVariants } from "../../../Generic/containerVariants";
+import { containerVariants } from "../../../Generic/animationVariants";
 import MainButton from "../../../Buttons/MainButton";
 
 const schema = (t) =>

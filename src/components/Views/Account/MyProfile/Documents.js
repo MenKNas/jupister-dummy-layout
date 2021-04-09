@@ -1,5 +1,5 @@
 import * as React from "react";
-import { containerVariants } from "../../../Generic/containerVariants";
+import { containerVariants } from "../../../Generic/animationVariants";
 import { motion } from "framer-motion";
 
 function Form() {

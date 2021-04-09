@@ -1,6 +1,6 @@
 import * as React from "react";
 import { motion } from "framer-motion";
-import { containerVariants } from "../../../Generic/containerVariants";
+import { containerVariants } from "../../../Generic/animationVariants";
 
 function Form() {
   return <div> This will be the bonuses page</div>;

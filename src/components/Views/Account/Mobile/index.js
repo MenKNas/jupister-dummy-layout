@@ -8,6 +8,10 @@ import { UserInfo } from "../UserInfo";
 import { ReactComponent as ChevronRight } from "../../../../icons/chevron-right.svg";
 import { ReactComponent as ChevronLeft } from "../../../../icons/chevron-left.svg";
 import { Modal, ModalBody, ModalHeader } from "../../../NewModal";
+import { motion, AnimatePresence } from "framer-motion";
+import { useLocation } from "react-use";
+import { accountMenuVariants } from "../../../Generic/animationVariants";
+import { CloseButton } from "../../../Buttons/CloseButton";
 // import useWindowSize from "../../../hooks/useWindowSize";
 // import Documents from "../Documents";
 // import Financials from "../Financials";
@@ -41,7 +45,7 @@ const menuSections = [
   },
 ];
 
-function MobileAccountMenu() {
+function MobileAccountMenu({ onClose }) {
   let { path } = useRouteMatch();
   let user = {
     userName: "George Papadopoulos",
@@ -50,29 +54,42 @@ function MobileAccountMenu() {
     bonusBalance: 200,
   };
   return (
-    <div className="space-y-2 p-2.5 md:p-4 pt-0">
-      <UserInfo user={user} />
-      {menuSections.map((section) => (
-        <div className="flex flex-col space-y-1" key={section.title}>
-          <h3 className="font-thin text-text-secondary"> {section.title}</h3>
-          {section.links.map((link) => (
-            <NavLink
-              key={link.name}
-              to={`${path}/${link.url}`}
-              className="bg-bg-secondary pl-3 p-2 w-full rounded-md text-white"
-              exact
-            >
-              <div className="flex justify-between">
-                <span>{link.name} </span>
-                <span>
-                  <ChevronRight stroke="#fff" />
-                </span>
-              </div>
-            </NavLink>
-          ))}
-        </div>
-      ))}
-    </div>
+    <motion.div
+      variants={accountMenuVariants}
+      initial="hidden"
+      animate="visible"
+      exit="exit"
+    >
+      <div className="bg-bg-account-primary py-3 px-4 flex justify-between items-center">
+        <span className="text-white font-black uppercase text-2xl">
+          My Account
+        </span>
+        <CloseButton onClick={() => onClose()} />
+      </div>
+      <div className="space-y-2 p-2.5 md:p-4 pt-0">
+        <UserInfo user={user} />
+        {menuSections.map((section) => (
+          <div className="flex flex-col space-y-1" key={section.title}>
+            <h3 className="font-thin text-text-secondary"> {section.title}</h3>
+            {section.links.map((link) => (
+              <NavLink
+                key={link.name}
+                to={`${path}/${link.url}`}
+                className="bg-bg-secondary pl-3 p-2 w-full rounded-md text-white"
+                exact
+              >
+                <div className="flex justify-between">
+                  <span>{link.name} </span>
+                  <span>
+                    <ChevronRight stroke="#fff" />
+                  </span>
+                </div>
+              </NavLink>
+            ))}
+          </div>
+        ))}
+      </div>
+    </motion.div>
   );
 }
 
@@ -105,46 +122,41 @@ function HeaderForPage({ title }) {
 function MobileActiveSection() {
   let { path } = useRouteMatch();
   let history = useHistory();
+  let location = useLocation();
   const close = () => history.push("/");
   const ref = React.useRef();
   return (
     <div>
       <Modal animated ref={ref}>
         <ModalBody onClose={close} className="bg-bg-primary" hideCloseBtn>
-          <Switch>
-            <Route exact path={path}>
-              <ModalHeader
-                onClose={close}
-                className="bg-bg-account-primary py-3 px-4"
-              >
-                <span className="text-white font-black uppercase">
-                  My Account
-                </span>
-              </ModalHeader>
-              <MobileAccountMenu />
-            </Route>
-            <Route path={`${path}/myprofile`}>
-              <ModalHeader onClose={close} overide>
-                <HeaderForPage title="My Profile"></HeaderForPage>
-              </ModalHeader>
-              <MyProfile />
-            </Route>
-            <Route path={`${path}/financials`}>
-              <ModalHeader onClose={close} overide>
-                <HeaderForPage title="Financials"></HeaderForPage>
-              </ModalHeader>
-              <Financials />
-            </Route>
-            <Route path={`${path}/history`}>
-              <ModalHeader onClose={close} overide>
-                <HeaderForPage title="History"></HeaderForPage>
-              </ModalHeader>
-              <MyHistory />
-            </Route>
-            <Route path="*">
-              <Redirect to="/" />
-            </Route>
-          </Switch>
+          <AnimatePresence>
+            <Switch location={location} key={location.key}>
+              <Route exact path={path}>
+                <MobileAccountMenu onClose={close} />
+              </Route>
+              <Route path={`${path}/myprofile`}>
+                <ModalHeader onClose={close} overide>
+                  <HeaderForPage title="My Profile"></HeaderForPage>
+                </ModalHeader>
+                <MyProfile />
+              </Route>
+              <Route path={`${path}/financials`}>
+                <ModalHeader onClose={close} overide>
+                  <HeaderForPage title="Financials"></HeaderForPage>
+                </ModalHeader>
+                <Financials />
+              </Route>
+              <Route path={`${path}/history`}>
+                <ModalHeader onClose={close} overide>
+                  <HeaderForPage title="History"></HeaderForPage>
+                </ModalHeader>
+                <MyHistory />
+              </Route>
+              <Route path="*">
+                <Redirect to="/" />
+              </Route>
+            </Switch>
+          </AnimatePresence>
         </ModalBody>
       </Modal>
     </div>

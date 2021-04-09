@@ -17,7 +17,7 @@ import {
 } from "../../../Inputs/DateSelector";
 import MainButton from "../../../Buttons/MainButton";
 import { motion } from "framer-motion";
-import { containerVariants } from "../../../Generic/containerVariants";
+import { containerVariants } from "../../../Generic/animationVariants";
 // import { CountriesProvider } from "../../../Generic/CountriesList";
 
 const schema = (t) =>
