@@ -102,7 +102,6 @@ export const Modal = React.forwardRef(
     },
     ref
   ) => {
-    console.log(size);
     const modalNode = React.useContext(NewModalContext);
     return modalNode
       ? ReactDOM.createPortal(

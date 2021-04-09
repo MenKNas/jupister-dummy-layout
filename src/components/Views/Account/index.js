@@ -6,7 +6,6 @@ import useWindowSize from "../../../hooks/useWindowSize";
 
 export default function Account() {
   const { width } = useWindowSize();
-  console.log(width);
   return width < 768 ? (
     <MobileAccount />
   ) : (

@@ -51,7 +51,7 @@ export function Form() {
     handleSubmit,
     errors,
     control,
-    watch,
+    // watch,
     // formState: { isSubmitting },
   } = useForm({
     defaultValues: {
@@ -65,8 +65,8 @@ export function Form() {
   });
   //   const fieldDisabled = profileChangeDisabled || isSubmitting;
   const onSubmit = (data) => console.log(data);
-  console.log(errors);
-  console.log(watch("city"));
+  // console.log(errors);
+  // console.log(watch("city"));
   return (
     <form className="space-y-4 w-full" onSubmit={handleSubmit(onSubmit)}>
       <div className="grid grid-cols-1 md:grid-cols-2 w-full md:w-7/10 gap-y-4 gap-x-4">

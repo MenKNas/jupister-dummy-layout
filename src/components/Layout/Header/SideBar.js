@@ -101,7 +101,7 @@ const FooterLinks = React.memo(({ setShowSidebar }) => {
       data-component="FooterLinks"
     >
       {footerLinks.map(({ name, link }) => (
-        <Link to={link} onClick={() => setShowSidebar(false)}>
+        <Link to={link} key={name} onClick={() => setShowSidebar(false)}>
           {name}
         </Link>
       ))}

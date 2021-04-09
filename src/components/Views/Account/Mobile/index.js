@@ -53,10 +53,11 @@ function MobileAccountMenu() {
     <div className="space-y-2 p-2.5 md:p-4 pt-0">
       <UserInfo user={user} />
       {menuSections.map((section) => (
-        <div className="flex flex-col space-y-1">
+        <div className="flex flex-col space-y-1" key={section.title}>
           <h3 className="font-thin text-text-secondary"> {section.title}</h3>
           {section.links.map((link) => (
             <NavLink
+              key={link.name}
               to={`${path}/${link.url}`}
               className="bg-bg-secondary pl-3 p-2 w-full rounded-md text-white"
               exact
