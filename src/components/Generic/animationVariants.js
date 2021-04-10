@@ -33,3 +33,21 @@ export const accountMenuVariants = {
     transition: { ease: "easeInOut" },
   },
 };
+
+// export const slideContainerVariant = {
+//   hidden: {
+//     x: "-100vw",
+//   },
+//   visible: {
+//     x: 0,
+//     transition: {
+//       // delay: 0.25,
+//       duration: 0.5,
+//     },
+//   },
+//   exit: {
+//     x: "-100vw",
+//     opacity: 0,
+//     transition: { ease: "easeInOut" },
+//   },
+// };
