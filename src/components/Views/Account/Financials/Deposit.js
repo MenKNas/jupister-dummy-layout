@@ -7,6 +7,10 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faAngleLeft } from "@fortawesome/free-solid-svg-icons";
 import MainButton from "../../../Buttons/MainButton";
 import { Field } from "../../../Inputs/Field";
+import { motion } from "framer-motion";
+import { containerVariants } from "../../../Generic/animationVariants";
+import { ReactComponent as ChevronDown } from "../../../../icons/chevron-down.svg";
+import { ReactComponent as ChevronUp } from "../../../../icons/chevron-up.svg";
 //payment images
 import MasterCardLogo from "../../../../images/payments/mastercard.png";
 import NetellerLogo from "../../../../images/payments/neteller.png";
@@ -29,6 +33,12 @@ const allPayments = [
 ];
 
 const paymentAmounts = [20, 50, 100, 200];
+
+const infoText = `If you wish to place a withdrawl before you manage to complete the
+wagering requirement, then you can cancel your bonus but keep in mind
+that bonus amount,the generated winnings and any wagered amount will
+be deducted from your overall balance. Bonus calculates bets with real
+money amount first and then with bonus amount`;
 
 const schema = (t) =>
   yup.object().shape({
@@ -53,7 +63,13 @@ function FormField({ label, input }) {
 export default function Deposit() {
   const [selectedPayment, setSelectedPayment] = React.useState();
   return (
-    <div className="flex flex-col py-4 space-y-4 text-black">
+    <motion.div
+      variants={containerVariants}
+      initial="hidden"
+      animate="visible"
+      exit="exit"
+      className="flex flex-col p-3 space-y-4 text-black"
+    >
       {!selectedPayment ? (
         <PaymentsGrid setSelectedPayment={setSelectedPayment} />
       ) : (
@@ -62,7 +78,7 @@ export default function Deposit() {
           setSelectedPayment={setSelectedPayment}
         />
       )}
-    </div>
+    </motion.div>
   );
 }
 
@@ -82,7 +98,13 @@ function PaymentMethod({ method, payment, setSelectedPayment }) {
 
 function PaymentsGrid({ setSelectedPayment }) {
   return (
-    <>
+    <motion.div
+      variants={containerVariants}
+      initial="hidden"
+      animate="visible"
+      exit="exit"
+      className="space-y-2"
+    >
       <h2 className="text-text-secondary tracking-wide">
         Select a payment method
       </h2>
@@ -98,11 +120,12 @@ function PaymentsGrid({ setSelectedPayment }) {
           );
         })}
       </div>
-    </>
+    </motion.div>
   );
 }
 
 function InfoPanel({ selectedPayment, setSelectedPayment }) {
+  const [showMore, setShowMore] = React.useState(false);
   return (
     <div>
       <button
@@ -114,35 +137,35 @@ function InfoPanel({ selectedPayment, setSelectedPayment }) {
       </button>
       <div className="flex space-x-4 items-center">
         <img src={selectedPayment.src} alt="payment method" className="w-40" />
-        <div className="text-gray-200 text-xl font-bold uppercase">
-          {selectedPayment && <span> {selectedPayment.method} </span>}
-        </div>
-        <div className="text-gray-400">
-          <span> Min: {selectedPayment.min}&euro; | </span>
-          <span> Max: {selectedPayment.max}&euro; </span>
+        <div className="flex flex-col lg:flex-row lg:space-x-4 lg:items-center">
+          <div className="text-gray-200 text-xl font-bold uppercase">
+            {selectedPayment && <span> {selectedPayment.method} </span>}
+          </div>
+          <div className="text-gray-400">
+            <span> Min: {selectedPayment.min}&euro; | </span>
+            <span> Max: {selectedPayment.max}&euro; </span>
+          </div>
         </div>
       </div>
-      <div className="border-b border-bg-secondary w-full">
-        <p className="text-gray-200  py-4 xl:pr-0 pr-4 break-words text-sm w-7/10">
-          If you wish to place a withdrawl before you manage to complete the
-          wagering requirement, then you can cancel your bonus but keep in mind
-          that bonus amount, the generated winnings and any wagered amount will
-          be deducted from your overall balance. Bonus calculates bets with real
-          money amount first and then with bonus amount.
+      <div className="border-b border-bg-secondary w-full flex lg:block space-x-4 lg:space-x-0 py-2">
+        <p
+          className={`text-gray-200  py-4 xl:pr-0 pr-4 break-words text-sm w-full lg:w-7/10 ${
+            !showMore ? "line-clamp-2 lg:line-clamp-none" : ""
+          }`}
+        >
+          {infoText}
         </p>
+        <button
+          onClick={() => setShowMore((prev) => !prev)}
+          className="block lg:hidden"
+        >
+          {!showMore ? (
+            <ChevronDown stroke="#A9B7D5" />
+          ) : (
+            <ChevronUp stroke="#A9B7D5" />
+          )}
+        </button>
       </div>
-    </div>
-  );
-}
-
-function DepositPage({ selectedPayment, setSelectedPayment }) {
-  return (
-    <div className="space-y-4">
-      <InfoPanel
-        selectedPayment={selectedPayment}
-        setSelectedPayment={setSelectedPayment}
-      />
-      <Form />
     </div>
   );
 }
@@ -206,19 +229,14 @@ function Form() {
       </div> */}
       <Field invalid={errors?.mobileNumber?.message}>
         <FormField
-          label={
-            <Field.Label htmlFor="mobileNumber">
-              {t("Mobile Number")}
-            </Field.Label>
-          }
           input={
             <>
               <Controller
                 name="mobileNumber"
                 control={control}
                 render={(props) => (
-                  <div className="flex space-x-8 w-full">
-                    <div className="space-y-1 w-1/3">
+                  <div className="grid grid-cols-2 gap-4 lg:w-4/6">
+                    <div className="space-y-1">
                       <Field
                         invalid={errors?.amount?.message}
                         defalutValue={props.value}
@@ -247,7 +265,7 @@ function Form() {
                     <div className="grid grid-cols-2 gap-2">
                       {paymentAmounts.map((amount) => (
                         <button
-                          className="bg-brand-secondary text-sm text-white rounded-sm font-bold h-14 w-14"
+                          className="bg-brand-secondary text-sm text-white rounded-sm font-bold"
                           key={amount}
                           // onClick={() => setSelectedAmount(amount)}
                           value={amount}
@@ -264,8 +282,8 @@ function Form() {
           }
         />
       </Field>
-      <div className="grid grid-cols-2 gap-2 lg:grid-cols-4 lg:space-x-4">
-        <div className="space-y-1 lg:w-auto w-full">
+      <div className="grid gap-2 grid-cols-2 lg:grid-cols-6 lg:space-x-4">
+        <div className="space-y-1 lg:w-auto w-full col-span-2">
           <Field invalid={errors?.cardNumber?.message}>
             <FormField
               label={
@@ -287,7 +305,7 @@ function Form() {
             />
           </Field>
         </div>
-        <div className="space-y-1">
+        <div className="space-y-1 col-span-2">
           <Field invalid={errors?.fullName?.message}>
             <FormField
               label={
@@ -348,9 +366,33 @@ function Form() {
           </Field>
         </div>
       </div>
-      <MainButton type="submit" secondary className="text-lg font-bold">
-        Deposit
-      </MainButton>
+      <div className="lg:w-2/3 py-1">
+        <MainButton
+          type="submit"
+          formBtn
+          className="text-lg font-bold md:w-1/4 w-full"
+        >
+          Deposit
+        </MainButton>
+      </div>
     </form>
+  );
+}
+
+function DepositPage({ selectedPayment, setSelectedPayment }) {
+  return (
+    <motion.div
+      variants={containerVariants}
+      initial="hidden"
+      animate="visible"
+      exit="exit"
+      className="space-y-4"
+    >
+      <InfoPanel
+        selectedPayment={selectedPayment}
+        setSelectedPayment={setSelectedPayment}
+      />
+      <Form />
+    </motion.div>
   );
 }

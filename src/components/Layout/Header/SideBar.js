@@ -8,17 +8,17 @@ import { useLoginRegister } from "../../LoginRegister";
 
 const links = [
   { name: "Casino", link: "/casino" },
-  { name: "Live Casino", link: "/" },
-  { name: "Table Games", link: "/" },
-  { name: "Sports", link: "/" },
-  { name: "Virtual Sports", link: "/" },
-  { name: "Promotions", link: "/" },
+  { name: "Live Casino", link: "/livecasino" },
+  { name: "Table Games", link: "/tablegames" },
+  { name: "Sports", link: "/sports" },
+  { name: "Virtual Sports", link: "/virtualsports" },
+  { name: "Promotions", link: "/promotions" },
 ];
 
 const footerLinks = [
   { name: "About Us", link: "/about" },
-  { name: "Contact Us", link: "/" },
-  { name: "Terms & Conditions", link: "/" },
+  { name: "Contact Us", link: "/contact" },
+  { name: "Terms & Conditions", link: "/terms" },
   { name: "Responsible Gaming", link: "/" },
   { name: "Privacy Policy", link: "/" },
 ];

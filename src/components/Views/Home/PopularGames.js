@@ -39,6 +39,7 @@ function GamesGrid() {
       {dummyGames.map((game, index) => (
         <Game
           // className="xl:row-span-2"
+          key={index}
           className={index === 0 ? `xl:row-span-2 h-full` : "null"}
           gameTitle={game.title}
           gameImg={game.src}
