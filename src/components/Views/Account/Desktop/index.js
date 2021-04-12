@@ -14,18 +14,16 @@ import { ReactComponent as FinancialIcon } from "../../../../icons/financials.sv
 
 export function DesktopAccount({ windowWidth }) {
   return (
-    <div className="bg-bg-secondary">
-      <div className="lg:max-w-1200 xl:max-w-1400 mx-auto p-4">
-        <div className="bg-bg-primary flex rounded-lg">
-          <div
-            className="w-20 xl:w-1/4 bg-bg-account-primary rounded-md"
-            style={{ minWidth: 70 }}
-          >
-            {windowWidth < 1280 ? <TabletSideMenu /> : <DesktopSideMenu />}
-          </div>
-          <div className="w-full xl:w-3/4 pl-4">
-            <DesktopActiveSection />
-          </div>
+    <div className="lg:max-w-1200 xl:max-w-1400 mx-auto p-4">
+      <div className="bg-bg-primary flex rounded-lg">
+        <div
+          className="w-20 xl:w-1/4 bg-bg-account-primary rounded-md"
+          style={{ minWidth: 70 }}
+        >
+          {windowWidth < 1280 ? <TabletSideMenu /> : <DesktopSideMenu />}
+        </div>
+        <div className="w-full xl:w-3/4 pl-4">
+          <DesktopActiveSection />
         </div>
       </div>
     </div>

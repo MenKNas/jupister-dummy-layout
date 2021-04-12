@@ -38,7 +38,7 @@ const schema = (t) =>
 function FormField({ label, input }) {
   return (
     <div className="flex flex-col w-full space-y-2">
-      <div className="lg:w-1/3">{label}</div>
+      <div className="lg:w-1/3 text-text-secondary">{label}</div>
       <div className="lg:w-2/3">{input}</div>
     </div>
   );
@@ -61,11 +61,7 @@ export function Form() {
       <div className="flex flex-col space-y-4 w-full md:w-7/10">
         <Field invalid={errors.oldPassword?.message}>
           <FormField
-            label={
-              <Field.Label className="text-text-secondary">
-                {t("Old Password")}
-              </Field.Label>
-            }
+            label={<Field.Label>{t("Old Password")}</Field.Label>}
             input={
               <>
                 <Field.Input
@@ -82,11 +78,7 @@ export function Form() {
         </Field>
         <Field invalid={errors.newPassword?.message}>
           <FormField
-            label={
-              <Field.Label className="text-text-secondary">
-                {t("New Password")}
-              </Field.Label>
-            }
+            label={<Field.Label>{t("New Password")}</Field.Label>}
             input={
               <>
                 <Field.Input
@@ -103,11 +95,7 @@ export function Form() {
         </Field>
         <Field invalid={errors.newPasswordConfirm?.message}>
           <FormField
-            label={
-              <Field.Label className="text-text-secondary">
-                {t("New password Confirm")}
-              </Field.Label>
-            }
+            label={<Field.Label>{t("New password Confirm")}</Field.Label>}
             input={
               <>
                 <Field.Input
@@ -126,7 +114,7 @@ export function Form() {
       <FormField
         input={
           <MainButton
-            secondary
+            formBtn
             type="submit"
             className="md:w-1/4 w-full"
             // disabled={isSubmitting}
@@ -147,6 +135,7 @@ export default function ChangePassword() {
       initial="hidden"
       animate="visible"
       exit="exit"
+      className="p-3"
     >
       <Form />
     </motion.div>

@@ -7,6 +7,7 @@ export default function MainButton({
   secondary = false,
   className,
   outline,
+  formBtn,
   ...rest
 }) {
   function finalClasses() {
@@ -14,6 +15,8 @@ export default function MainButton({
       ? "bg-transparent text-white rounded-lg italic font-black text-lg"
       : secondary
       ? styles.secondary
+      : formBtn
+      ? styles.formBtn
       : "bg-blue-800 text-white";
   }
 

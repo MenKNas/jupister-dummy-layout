@@ -291,7 +291,7 @@ export function Form() {
       <FormField
         input={
           <MainButton
-            secondary
+            formBtn
             type="submit"
             className="md:w-1/4 w-full"
             // disabled={isSubmitting}

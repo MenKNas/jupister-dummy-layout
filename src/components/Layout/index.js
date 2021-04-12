@@ -8,6 +8,7 @@ import Footer from "../Footer";
 import Promotions from "../Views/Promotions";
 import Casino from "../Views/Casino";
 import Account from "../Views/Account";
+import backgroundImg from "../../images/jupizino-BG_.jpg";
 
 export default function Layout() {
   return (
@@ -16,7 +17,14 @@ export default function Layout() {
         <Header />
         <div className="bg-white">
           <div
-            style={{ minHeight: "calc(100vh - 230px)" }}
+            style={{
+              minHeight: "calc(100vh - 230px)",
+              backgroundImage: `url(${backgroundImg})`,
+              // backgroundSize: "100%",
+              backgroundRepeat: "no-repeat",
+              backgroundPosition: "left top",
+              backgroundAttachment: "fixed",
+            }}
             className="bg-bg-secondary"
           >
             <Switch>

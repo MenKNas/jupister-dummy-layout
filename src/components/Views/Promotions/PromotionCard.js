@@ -14,8 +14,8 @@ export default function PromotionCard({
     <div
       data-component="PromotionCard"
       className={`flex flex-col border-gray-400 ${
-        !showInHomepage ? "bg-white" : "bg-bg-secondary"
-      } p-8 space-y-4 rounded-md ${className}`}
+        !showInHomepage ? "bg-bg-secondary" : "bg-bg-secondary"
+      } p-8 space-y-4 rounded-md text-white ${className}`}
     >
       <h3 className="text-lg uppercase font-bold whitespace-nowrap truncate">
         {title}

@@ -11,3 +11,9 @@
 }
 
 
+.formBtn {
+    @apply px-4 text-text-dark text-lg bg-brand-primary font-black italic;
+    /* font-size: 16px; */
+}
+
+
