@@ -3,8 +3,7 @@ import ReactDOM from "react-dom";
 import styles from "./NewModal.module.css";
 import classNames from "classnames";
 import MainButton from "../Buttons/MainButton";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faTimes } from "@fortawesome/free-solid-svg-icons";
+import { CloseButton } from "../Buttons/CloseButton";
 import { useLockedScroll } from "../../hooks/useLockedScroll";
 import { useMergedRef } from "../../hooks/useMergedRef";
 
@@ -48,13 +47,7 @@ export function ModalHeader({ children, onClose, overide = false, className }) {
   ) : (
     <div className={classNames(styles.header, className)}>
       <h3 className={styles.title}> {children} </h3>
-      <button
-        onClick={onClose}
-        className="-mt-2 text-bg-darker"
-        aria-label="Close"
-      >
-        <FontAwesomeIcon icon={faTimes} size="lg" />
-      </button>
+      <CloseButton onClick={onClose} />
     </div>
   );
 }
@@ -77,7 +70,7 @@ export const ModalBody = React.forwardRef(
             <MainButton
               onClick={onClose}
               outline
-              className="border-bg-darker text-bg-darker w-4/5 xl:w-1/5 mx-auto"
+              className="border-bg-darker text-text-secondary w-4/5 xl:w-1/5 mx-auto"
             >
               Close
             </MainButton>

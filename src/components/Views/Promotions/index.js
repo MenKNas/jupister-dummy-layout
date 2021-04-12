@@ -67,41 +67,94 @@ export default function Promotions({ preview = false }) {
         )}
       </div>
       {isModalOpen && (
-        <Modal size="sm" animated ref={modalRef}>
-          <ModalHeader onClose={() => setIsModalOpen(false)}>
-            HELLOOOO
+        <Modal size="lg" animated ref={modalRef}>
+          <ModalHeader
+            onClose={() => setIsModalOpen(false)}
+            className="bg-bg-primary p-4 text-text-secondary"
+          >
+            Promo Details
           </ModalHeader>
           <ModalBody
             onClose={() => setIsModalOpen(false)}
-            className="space-y-4 py-4"
+            className="space-y-4 p-4 bg-bg-secondary"
           >
-            <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus
-              porttitor pulvinar rhoncus. Vivamus laoreet faucibus cursus. Sed
-              lacinia risus tempus neque varius, in pretium sapien dapibus.
-              Maecenas facilisis nec metus sed elementum. Donec porttitor eget
-              est vitae aliquet. Donec hendrerit imperdiet mattis. Nunc at
-              scelerisque metus, quis fermentum ligula. Sed malesuada lacinia
-              facilisis. Nam euismod gravida blandit. Nam tincidunt turpis
-              egestas auctor condimentum. Fusce ut lectus ac neque fringilla
-              ultricies eu ac ex. In bibendum nisl varius, gravida felis vel,
-              lacinia tellus. Fusce bibendum ipsum quis erat gravida egestas.
-              Suspendisse convallis suscipit leo, non imperdiet dolor luctus id.
-            </p>
-            <p>
-              Pellentesque habitant morbi tristique senectus et netus et
-              malesuada fames ac turpis egestas. Mauris risus erat, interdum
-              eget tristique a, auctor nec metus. Etiam metus ex, eleifend ut
-              mollis quis, tincidunt quis ipsum. Suspendisse arcu est, porta
-              quis pretium nec, pretium sit amet ligula. Morbi gravida varius
-              ligula, vel tempor velit vehicula a. Cras feugiat lectus vitae mi
-              feugiat, eu ornare lacus convallis. Vestibulum vel lectus vel
-              nulla dignissim cursus. Morbi vitae odio luctus, tempor dui
-              sodales, facilisis purus. Etiam fringilla arcu mollis feugiat
-              consectetur. Maecenas vitae nibh ac nisl vulputate pretium.
-              Vestibulum accumsan auctor ultrices. Etiam varius tempus nibh in
-              laoreet.
-            </p>
+            <>
+              <h2 className="font-black text-white text-lg">
+                Welcome Bonus 100% up to 300
+              </h2>
+              <div className="text-white font-light space-y-4 text-sm">
+                <p>
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                  Phasellus porttitor pulvinar rhoncus. Vivamus laoreet faucibus
+                  cursus. Sed lacinia risus tempus neque varius, in pretium
+                  sapien dapibus. Maecenas facilisis nec metus sed elementum.
+                  Donec porttitor eget est vitae aliquet. Donec hendrerit
+                  imperdiet mattis. Nunc at scelerisque metus, quis fermentum
+                  ligula. Sed malesuada lacinia facilisis. Nam euismod gravida
+                  blandit. Nam tincidunt turpis egestas auctor condimentum.
+                  Fusce ut lectus ac neque fringilla ultricies eu ac ex. In
+                  bibendum nisl varius, gravida felis vel, lacinia tellus. Fusce
+                  bibendum ipsum quis erat gravida egestas. Suspendisse
+                  convallis suscipit leo, non imperdiet dolor luctus id.
+                </p>
+                {/* <p>
+                  Pellentesque habitant morbi tristique senectus et netus et
+                  malesuada fames ac turpis egestas. Mauris risus erat, interdum
+                  eget tristique a, auctor nec metus. Etiam metus ex, eleifend
+                  ut mollis quis, tincidunt quis ipsum. Suspendisse arcu est,
+                  porta quis pretium nec, pretium sit amet ligula. Morbi gravida
+                  varius ligula, vel tempor velit vehicula a. Cras feugiat
+                  lectus vitae mi feugiat, eu ornare lacus convallis. Vestibulum
+                  vel lectus vel nulla dignissim cursus. Morbi vitae odio
+                  luctus, tempor dui sodales, facilisis purus. Etiam fringilla
+                  arcu mollis feugiat consectetur. Maecenas vitae nibh ac nisl
+                  vulputate pretium. Vestibulum accumsan auctor ultrices. Etiam
+                  varius tempus nibh in laoreet.
+                </p>
+                <p>
+                  Pellentesque habitant morbi tristique senectus et netus et
+                  malesuada fames ac turpis egestas. Mauris risus erat, interdum
+                  eget tristique a, auctor nec metus. Etiam metus ex, eleifend
+                  ut mollis quis, tincidunt quis ipsum. Suspendisse arcu est,
+                  porta quis pretium nec, pretium sit amet ligula. Morbi gravida
+                  varius ligula, vel tempor velit vehicula a. Cras feugiat
+                  lectus vitae mi feugiat, eu ornare lacus convallis. Vestibulum
+                  vel lectus vel nulla dignissim cursus. Morbi vitae odio
+                  luctus, tempor dui sodales, facilisis purus. Etiam fringilla
+                  arcu mollis feugiat consectetur. Maecenas vitae nibh ac nisl
+                  vulputate pretium. Vestibulum accumsan auctor ultrices. Etiam
+                  varius tempus nibh in laoreet.
+                </p>
+                <p>
+                  Pellentesque habitant morbi tristique senectus et netus et
+                  malesuada fames ac turpis egestas. Mauris risus erat, interdum
+                  eget tristique a, auctor nec metus. Etiam metus ex, eleifend
+                  ut mollis quis, tincidunt quis ipsum. Suspendisse arcu est,
+                  porta quis pretium nec, pretium sit amet ligula. Morbi gravida
+                  varius ligula, vel tempor velit vehicula a. Cras feugiat
+                  lectus vitae mi feugiat, eu ornare lacus convallis. Vestibulum
+                  vel lectus vel nulla dignissim cursus. Morbi vitae odio
+                  luctus, tempor dui sodales, facilisis purus. Etiam fringilla
+                  arcu mollis feugiat consectetur. Maecenas vitae nibh ac nisl
+                  vulputate pretium. Vestibulum accumsan auctor ultrices. Etiam
+                  varius tempus nibh in laoreet.
+                </p>
+                <p>
+                  Pellentesque habitant morbi tristique senectus et netus et
+                  malesuada fames ac turpis egestas. Mauris risus erat, interdum
+                  eget tristique a, auctor nec metus. Etiam metus ex, eleifend
+                  ut mollis quis, tincidunt quis ipsum. Suspendisse arcu est,
+                  porta quis pretium nec, pretium sit amet ligula. Morbi gravida
+                  varius ligula, vel tempor velit vehicula a. Cras feugiat
+                  lectus vitae mi feugiat, eu ornare lacus convallis. Vestibulum
+                  vel lectus vel nulla dignissim cursus. Morbi vitae odio
+                  luctus, tempor dui sodales, facilisis purus. Etiam fringilla
+                  arcu mollis feugiat consectetur. Maecenas vitae nibh ac nisl
+                  vulputate pretium. Vestibulum accumsan auctor ultrices. Etiam
+                  varius tempus nibh in laoreet.
+                </p> */}
+              </div>
+            </>
           </ModalBody>
         </Modal>
       )}

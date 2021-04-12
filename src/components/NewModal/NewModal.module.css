@@ -7,7 +7,7 @@
 }
 
 .content {
-  @apply relative flex flex-col w-full h-full md:h-auto pointer-events-auto bg-clip-padding md:rounded-md shadow-lg;
+  @apply relative flex flex-col w-full pointer-events-auto bg-clip-padding md:rounded-md shadow-lg;
   background-color: #f2f2f2;
 }
 
@@ -16,15 +16,15 @@
 }
 
 .title {
-  @apply text-2xl;
+  @apply text-lg lg:text-2xl;
 }
 
 .body {
-  @apply relative flex-auto;
+  @apply relative flex-auto overflow-x-hidden overflow-y-auto;
 }
 
 .centered {
-  @apply flex items-center;
+  @apply flex xl:items-center;
   min-height: calc(100% - 1rem);
 }
 
