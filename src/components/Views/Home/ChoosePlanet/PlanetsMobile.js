@@ -33,7 +33,7 @@ export function ChoosePlanetMobile({
       >
         {planets.map((planet, index) => {
           return (
-            <>
+            <div key={index}>
               <SwiperSlide key={index} virtualIndex={index}>
                 {({ isActive }) => {
                   return (
@@ -81,7 +81,7 @@ export function ChoosePlanetMobile({
                   );
                 }}
               </SwiperSlide>
-            </>
+            </div>
           );
         })}
       </Swiper>
