@@ -51,3 +51,25 @@ export const accountMenuVariants = {
 //     transition: { ease: "easeInOut" },
 //   },
 // };
+
+export const subMenuVariants = {
+  enter: {
+    opacity: 1,
+    rotateX: 0,
+    transition: {
+      duration: 0.45,
+    },
+    display: "block",
+  },
+  exit: {
+    opacity: 0,
+    rotateX: -15,
+    transition: {
+      duration: 0.45,
+      delay: 0.1,
+    },
+    transitionEnd: {
+      display: "none",
+    },
+  },
+};

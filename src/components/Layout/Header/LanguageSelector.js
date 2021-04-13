@@ -1,10 +1,10 @@
 import * as React from "react";
-import { useTranslation } from "react-i18next";
+// import { useTranslation } from "react-i18next";
 import classNames from "classnames";
 import { useClickAway } from "react-use";
 import { ReactComponent as ChevronDown } from "../../../icons/chevron-down.svg";
-// import { motion } from "framer-motion";
-// import { containerVariants } from "../../Generic/animationVariants";
+import { motion } from "framer-motion";
+import { subMenuVariants } from "../../Generic/animationVariants";
 import "flag-icon-css/css/flag-icon.css";
 
 //this will be now used for dummy purposes -> to fully implement check the original LanguageSelector component
@@ -65,7 +65,7 @@ function Flag({ locale, className }) {
 export const LanguageSelector = React.memo(() => {
   const [visible, setVisible] = React.useState(false);
   // const { ENABLED_LOCALES } = useSettings();
-  const { t } = useTranslation();
+  // const { t } = useTranslation();
   const ref = React.useRef();
   useClickAway(ref, () => setVisible(false));
   // const activeLanguage = i18n.languages[0];
@@ -78,7 +78,10 @@ export const LanguageSelector = React.memo(() => {
       data-component="LanguageSelector"
       ref={ref}
     >
-      <button onClick={() => setVisible((prev) => !prev)} className="w-full">
+      <motion.button
+        onClick={() => setVisible((prev) => !prev)}
+        className="w-full"
+      >
         <div className="flex items-center justify-between">
           <Flag locale={activeLanguage} />
           <div className="-ml-8">{activeLanguage}</div>
@@ -86,15 +89,16 @@ export const LanguageSelector = React.memo(() => {
             <ChevronDown stroke="#A9B7D5" />
           </div>
         </div>
-      </button>
-      <div
+      </motion.button>
+      <motion.div
         data-component="DropDown"
         className={classNames(
-          "absolute left-0 top-14 z-10 w-full bg-bg-secondary rounded-md border border-bd-primary",
-          {
-            hidden: !visible,
-          }
+          `absolute left-0 top-14 z-10 w-full bg-bg-secondary rounded-md border border-bd-primary`
         )}
+        variants={subMenuVariants}
+        initial="exit"
+        animate={visible ? "enter" : "exit"}
+        // exit="exit"
       >
         <div className="py-1">
           {SUPPORTED_LOCALES.map((locale) => (
@@ -119,7 +123,7 @@ export const LanguageSelector = React.memo(() => {
             </button>
           ))}
         </div>
-      </div>
+      </motion.div>
     </div>
   );
 });

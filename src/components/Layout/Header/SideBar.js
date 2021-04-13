@@ -6,7 +6,6 @@ import { ReactComponent as CloseIcon } from "../../../icons/menu_close_box.svg";
 import { ReactComponent as Avatar } from "../../../icons/avatar.svg";
 import { useLockedScroll } from "../../../hooks/useLockedScroll";
 import { useLoginRegister } from "../../LoginRegister";
-import { AnimatePresence } from "framer-motion";
 
 const links = [
   { name: "Casino", link: "/casino" },
@@ -99,7 +98,7 @@ function VisitorUserTab({ setShowSidebar }) {
 const FooterLinks = React.memo(({ setShowSidebar }) => {
   return (
     <div
-      className="flex flex-col text-xs space-y-4 text-text-secondary tracking-wider"
+      className="flex flex-col text-sm space-y-4 text-text-secondary tracking-wider"
       data-component="FooterLinks"
     >
       {footerLinks.map(({ name, link }) => (
@@ -160,9 +159,9 @@ export const SideBar = ({ showSidebar, setShowSidebar }) => {
                 </Link>
               ))}
             </div>
-            <AnimatePresence>
+            <div className="-ml-2">
               <LanguageSelector />
-            </AnimatePresence>
+            </div>
             <FooterLinks setShowSidebar={setShowSidebar} />
           </div>
         </div>
