@@ -61,9 +61,9 @@ function MobileAccountMenu({ onClose }) {
       exit="exit"
     >
       <div className="bg-bg-account-primary py-3 px-4 flex justify-between items-center">
-        <span className="text-white font-black uppercase text-2xl">
+        <div className="text-white font-black uppercase text-2xl">
           My Account
-        </span>
+        </div>
         <CloseButton onClick={() => onClose()} />
       </div>
       <div className="space-y-2 p-2.5 md:p-4 pt-0">

@@ -127,7 +127,7 @@ function PaymentsGrid({ setSelectedPayment }) {
 function InfoPanel({ selectedPayment, setSelectedPayment }) {
   const [showMore, setShowMore] = React.useState(false);
   return (
-    <div>
+    <div className="space-y-1 lg:space-y-2">
       <button
         onClick={() => setSelectedPayment(undefined)}
         className="space-x-2 text-gray-400"
@@ -136,20 +136,35 @@ function InfoPanel({ selectedPayment, setSelectedPayment }) {
         <span>Back To Payment Methods</span>
       </button>
       <div className="flex space-x-4 items-center">
-        <img src={selectedPayment.src} alt="payment method" className="w-40" />
+        <img
+          src={selectedPayment.src}
+          alt="payment method"
+          className="w-32 lg:w-48 lg:border lg:border-bd-primary rounded-sm"
+        />
         <div className="flex flex-col lg:flex-row lg:space-x-4 lg:items-center">
-          <div className="text-gray-200 text-xl font-bold uppercase">
+          <div className="lg:hidden text-gray-200 font-bold uppercase">
             {selectedPayment && <span> {selectedPayment.method} </span>}
           </div>
-          <div className="text-gray-400">
-            <span> Min: {selectedPayment.min}&euro; | </span>
-            <span> Max: {selectedPayment.max}&euro; </span>
+          <div className="text-gray-400 lg:flex lg:flex-col lg:pt-2">
+            <div className="flex lg:space-x-4 items-center">
+              <div className="hidden lg:block text-gray-200 text-xl font-bold uppercase">
+                {selectedPayment && <span> {selectedPayment.method} </span>}
+              </div>
+              <div className="text-sm lg:text-md">
+                <span> Min: {selectedPayment.min}&euro; </span>
+                <span> | </span>
+                <span> Max: {selectedPayment.max}&euro; </span>
+              </div>
+            </div>
+            <p className="hidden lg:block text-gray-200 py-4 lg:py-1 xl:pr-0 pr-4 break-words text-sm w-full lg:w-5/6">
+              {infoText}
+            </p>
           </div>
         </div>
       </div>
-      <div className="border-b border-bg-secondary w-full flex lg:block space-x-4 lg:space-x-0 py-2">
+      <div className="border-b border-bg-secondary w-full flex lg:block space-x-4 lg:space-x-0 pb-2 lg:pb-0 lg:py-2">
         <p
-          className={`text-gray-200  py-4 xl:pr-0 pr-4 break-words text-sm w-full lg:w-7/10 ${
+          className={`lg:hidden text-gray-200  lg:py-4 xl:pr-0 pr-4 break-words text-sm w-full lg:w-5/6 ${
             !showMore ? "line-clamp-2 lg:line-clamp-none" : ""
           }`}
         >
@@ -195,7 +210,7 @@ function Form() {
   console.log(errors);
 
   return (
-    <form className="space-y-4" onSubmit={handleSubmit(onSubmit)}>
+    <form className="space-y-4 lg:w-5/6" onSubmit={handleSubmit(onSubmit)}>
       {/* <div className="flex space-x-8 w-full">
         <div className="space-y-1 w-1/3">
           <Field invalid={errors?.amount?.message}>
@@ -232,11 +247,11 @@ function Form() {
           input={
             <>
               <Controller
-                name="mobileNumber"
+                name="amount"
                 control={control}
                 render={(props) => (
-                  <div className="grid grid-cols-2 gap-4 lg:w-4/6">
-                    <div className="space-y-1">
+                  <div className="grid grid-cols-2 gap-4 lg:w-3/6">
+                    <div>
                       <Field
                         invalid={errors?.amount?.message}
                         defalutValue={props.value}
@@ -282,8 +297,8 @@ function Form() {
           }
         />
       </Field>
-      <div className="grid gap-2 grid-cols-2 lg:grid-cols-6 lg:space-x-4">
-        <div className="space-y-1 lg:w-auto w-full col-span-2">
+      <div className="grid gap-2 grid-cols-2 lg:grid-cols-4">
+        <div className="lg:w-auto w-full col-span-2">
           <Field invalid={errors?.cardNumber?.message}>
             <FormField
               label={
@@ -305,7 +320,7 @@ function Form() {
             />
           </Field>
         </div>
-        <div className="space-y-1 col-span-2">
+        <div className="col-span-2">
           <Field invalid={errors?.fullName?.message}>
             <FormField
               label={
@@ -325,7 +340,7 @@ function Form() {
             />
           </Field>
         </div>
-        <div className="space-y-1">
+        <div>
           <Field invalid={errors?.cardExpiry?.message}>
             <FormField
               label={
@@ -347,7 +362,7 @@ function Form() {
             />
           </Field>
         </div>
-        <div className="space-y-1">
+        <div>
           <Field invalid={errors?.ccv?.message}>
             <FormField
               label={<Field.Label htmlFor="ccv">{t("CCV/CVV")}</Field.Label>}
@@ -360,6 +375,26 @@ function Form() {
                     //   disabled={fieldDisabled}
                   />
                   <Field.Error>{errors?.ccv?.message}</Field.Error>
+                </>
+              }
+            />
+          </Field>
+        </div>
+        <div className="col-span-2">
+          <Field invalid={errors?.bonusCode?.message}>
+            <FormField
+              label={
+                <Field.Label htmlFor="bonusCode">{t("Bonus Code")}</Field.Label>
+              }
+              input={
+                <>
+                  <Field.Input
+                    type="text"
+                    name="bonusCode"
+                    ref={register}
+                    //   disabled={fieldDisabled}
+                  />
+                  <Field.Error>{errors?.bonusCode?.message}</Field.Error>
                 </>
               }
             />
