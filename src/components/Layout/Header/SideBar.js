@@ -1,10 +1,12 @@
 import * as React from "react";
 import { Link } from "react-router-dom";
 import MainButton from "../../Buttons/MainButton";
+import { LanguageSelector } from "./LanguageSelector";
 import { ReactComponent as CloseIcon } from "../../../icons/menu_close_box.svg";
 import { ReactComponent as Avatar } from "../../../icons/avatar.svg";
 import { useLockedScroll } from "../../../hooks/useLockedScroll";
 import { useLoginRegister } from "../../LoginRegister";
+import { AnimatePresence } from "framer-motion";
 
 const links = [
   { name: "Casino", link: "/casino" },
@@ -158,7 +160,9 @@ export const SideBar = ({ showSidebar, setShowSidebar }) => {
                 </Link>
               ))}
             </div>
-            {/* <div> Language Selector here </div> */}
+            <AnimatePresence>
+              <LanguageSelector />
+            </AnimatePresence>
             <FooterLinks setShowSidebar={setShowSidebar} />
           </div>
         </div>

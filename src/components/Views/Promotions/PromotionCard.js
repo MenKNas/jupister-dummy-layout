@@ -22,7 +22,11 @@ export default function PromotionCard({
       </h3>
       <p> {mainText} </p>
       <div className="flex space-x-4">
-        {hasDeposit && <MainButton secondary> Deposit </MainButton>}
+        {hasDeposit && (
+          <MainButton className="bg-brand-primary text-bg-secondary font-bold">
+            Deposit
+          </MainButton>
+        )}
         {!preview && (
           <MainButton onClick={() => setIsModalOpen(true)}>
             Read more
