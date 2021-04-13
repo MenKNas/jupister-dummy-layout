@@ -43,9 +43,11 @@ module.exports = {
   },
   variants: {
     extend: {},
+    scrollbar: ["dark", "rounded"],
   },
   plugins: [
     require("@tailwindcss/aspect-ratio"),
     require("@tailwindcss/line-clamp"),
+    require("tailwind-scrollbar"),
   ],
 };
