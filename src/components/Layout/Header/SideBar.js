@@ -7,6 +7,7 @@ import { LanguageSelector } from "./LanguageSelector";
 import { ReactComponent as CloseIcon } from "../../../icons/menu_close_box.svg";
 import { ReactComponent as Avatar } from "../../../icons/avatar.svg";
 import { ReactComponent as ChevronDown } from "../../../icons/chevron-down.svg";
+import { ReactComponent as ChevronUp } from "../../../icons/chevron-up.svg";
 import { useLockedScroll } from "../../../hooks/useLockedScroll";
 import { useLoginRegister } from "../../LoginRegister";
 import { motion } from "framer-motion";
@@ -56,14 +57,18 @@ function RegisteredUserTab({ showSidebar, setShowSidebar, user }) {
             <span className="text-sm truncate">{user.userMail}</span>
           </div>
           <button onClick={() => setShowAccountMenu((prev) => !prev)}>
-            <ChevronDown stroke="#A9B7D5" />
+            {showAccountMenu ? (
+              <ChevronUp stroke="#A9B7D5" />
+            ) : (
+              <ChevronDown stroke="#A9B7D5" />
+            )}
           </button>
         </div>
       </div>
       <motion.div
         data-component="DropDown"
         className={classNames(
-          `absolute left-6 top-24 z-10 w-5/6 p-4 bg-bg-secondary rounded-md border border-bd-primary`
+          `absolute right-5 top-24 z-10 w-3/5 p-4 bg-bg-secondary rounded-md border border-bd-primary`
         )}
         variants={subMenuVariants}
         initial="exit"
@@ -74,7 +79,7 @@ function RegisteredUserTab({ showSidebar, setShowSidebar, user }) {
           {accountLinks.map(({ name, link }) => (
             <button
               onClick={() => setShowSidebar((prev) => !prev)}
-              className="w-full"
+              className="w-full text-left"
             >
               <Link key={link} to={link}>
                 {name}
@@ -83,7 +88,7 @@ function RegisteredUserTab({ showSidebar, setShowSidebar, user }) {
           ))}
           <button
             onClick={() => setShowSidebar((prev) => !prev)}
-            className="w-full"
+            className="w-full text-left"
           >
             Log out
           </button>
@@ -172,7 +177,7 @@ export const SideBar = ({ showSidebar, setShowSidebar }) => {
     <>
       <div
         data-component="SideBar"
-        className="flex flex-col fixed left-0 top-0 bottom-0 text-white bg-bg-primary space-y-4 z-10 p-4 transform-gpu"
+        className="flex flex-col fixed left-0 top-0 bottom-0 text-white bg-gradient-to-t from-lower-grad to-bg-primary space-y-4 z-10 p-4 transform-gpu"
         style={{
           width: 320,
           transition: "0.35s ease-out",

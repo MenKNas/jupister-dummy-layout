@@ -30,6 +30,7 @@ module.exports = {
         "bd-primary": "#2A4977",
         "bg-account-primary": "#062146",
         "bd-focused": "#0064C7",
+        "lower-grad": "#052D63",
       },
       width: {
         "7/10": "70%",
