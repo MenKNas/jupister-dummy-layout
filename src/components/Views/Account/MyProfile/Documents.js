@@ -6,6 +6,7 @@ import { yupResolver } from "@hookform/resolvers/dist/ie11/yup";
 import * as yup from "yup";
 import { Field } from "../../../Inputs/Field";
 import { ErrorsList } from "../../../Generic/ErrorsList";
+import { DateTime } from "../../../Generic/DateTime";
 import { containerVariants } from "../../../Generic/animationVariants";
 import MainButton from "../../../Buttons/MainButton";
 import { motion } from "framer-motion";
@@ -19,6 +20,13 @@ const DOCUMENT_TYPES = [
   "BANK_STATEMENT",
   "OTHER_PAYMENT_METHOD",
   "OTHER",
+];
+
+//dummy table data
+const dummyTableData = [
+  { name: "Document 1", type: "ID", createdDate: Date.now() },
+  { name: "Document 1", type: "ID", createdDate: Date.now() },
+  { name: "Document 1", type: "ID", createdDate: Date.now() },
 ];
 
 // const UPLOAD_DOCUMENT = gql`
@@ -65,8 +73,8 @@ const schema = (t) =>
 function FormField({ label, input }) {
   return (
     <div className="flex flex-col w-full space-y-2">
-      <div className="lg:w-1/3 text-text-secondary">{label}</div>
-      <div className="lg:w-2/3">{input}</div>
+      <div className="text-text-secondary">{label}</div>
+      <div>{input}</div>
     </div>
   );
 }
@@ -85,48 +93,52 @@ function Form() {
   });
   return (
     <form onSubmit={handleSubmit} className="space-y-4 w-full">
-      <div className="flex flex-col space-y-4 w-full md:w-7/10">
-        <Field invalid={errors.file?.message}>
-          <FormField
-            label={<Field.Label>{t("global.file")}</Field.Label>}
-            input={
-              <>
-                <Field.Input
-                  name="file"
-                  type="file"
-                  disabled={isSubmitting}
-                  ref={register}
-                />
-                <Field.Error>{errors.file?.message}</Field.Error>
-              </>
-            }
-          />
-        </Field>
-        <Field invalid={errors.document_type?.message}>
-          <FormField
-            label={<Field.Label>{t("global.document_type")}</Field.Label>}
-            input={
-              <>
-                <Field.Select
-                  disabled={isSubmitting}
-                  name="document_type"
-                  ref={register}
-                  className="pr-2"
-                >
-                  <option value="" disabled>
-                    {t("global.please_select_document_type")}
-                  </option>
-                  {DOCUMENT_TYPES.map((value, index) => (
-                    <option value={value} key={index}>
-                      {t(`document_type.${value.toLowerCase()}`)}
+      <div className="flex flex-col space-y-4 w-full lg:w-7/10">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-2 items-end">
+          <Field invalid={errors.file?.message}>
+            <FormField
+              label={<Field.Label>{t("global.file")}</Field.Label>}
+              input={
+                <>
+                  <input
+                    name="file"
+                    type="file"
+                    disabled={isSubmitting}
+                    ref={register}
+                    className="text-text-secondary"
+                  />
+                  <Field.Error>{errors.file?.message}</Field.Error>
+                </>
+              }
+            />
+          </Field>
+          <Field invalid={errors.document_type?.message}>
+            <FormField
+              label={<Field.Label>{t("global.document_type")}</Field.Label>}
+              input={
+                <>
+                  <Field.Select
+                    disabled={isSubmitting}
+                    name="document_type"
+                    ref={register}
+                    className="pr-2"
+                  >
+                    <option value="" disabled>
+                      {t("global.please_select_document_type")}
                     </option>
-                  ))}
-                </Field.Select>
-                <Field.Error>{errors.document_type?.message} </Field.Error>
-              </>
-            }
-          />
-        </Field>
+                    {DOCUMENT_TYPES.map((value, index) => (
+                      <option value={value} key={index}>
+                        {t(`document_type.${value.toLowerCase()}`)}
+                      </option>
+                    ))}
+                  </Field.Select>
+                  <Field.Error>{errors.document_type?.message} </Field.Error>
+                </>
+              }
+            />
+          </Field>
+        </div>
+
         <Field invalid={errors.notes?.message}>
           <FormField
             label={<Field.Label>{t("global.notes")}</Field.Label>}
@@ -164,7 +176,7 @@ function Form() {
 function UploadDocument({ disabled }) {
   // const [uploadDocument, { error }] = useMutation(UPLOAD_DOCUMENT);
   return (
-    <div className="tw:space-y-4">
+    <div className="space-y-4">
       {/* <ErrorsList
         errors={error?.graphQLErrors?.map(({ message }) => message) ?? []}
       /> */}
@@ -206,9 +218,42 @@ function UploadDocument({ disabled }) {
 }
 
 function UploadedDocuments() {
+  const { t } = useTranslation();
   return (
-    <div className="text-text-secondary">
-      This is going to be the Upload Documents table (showing all the documents)
+    <div className="overflow-x-auto space-y-4">
+      <h2 className="text-lg text-white "> Uploaded Documents </h2>
+      <table className="w-full">
+        <thead>
+          <tr>
+            <th className="py-2 border-b border-bd-primary text-left text-text-secondary truncate w-1/3">
+              {t("global.date")}
+            </th>
+            <th className="py-2 border-b border-bd-primary text-text-secondary text-left truncate w-1/3">
+              {t("global.name")}
+            </th>
+            <th className="py-2 border-b border-bd-primary text-text-secondary text-left truncate w-1/3">
+              {t("global.document_type")}
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          {dummyTableData.map(({ createdDate, name, type }, idx) => {
+            return (
+              <tr key={idx}>
+                <td className="py-1 whitespace-nowrap border-b border-bd-primary text-left text-white">
+                  <DateTime date={createdDate} dateOnly />
+                </td>
+                <td className="py-1 whitespace-nowrap border-b border-bd-primary text-left text-white">
+                  {name}
+                </td>
+                <td className="py-1 whitespace-nowrap border-b border-bd-primary text-left text-white">
+                  {t(`document_type.${type.toLowerCase()}`)}
+                </td>
+              </tr>
+            );
+          })}
+        </tbody>
+      </table>
     </div>
   );
 }
@@ -231,8 +276,8 @@ export default function Documents() {
       exit="exit"
       className="w-full space-y-8 overflow-hidden p-3"
     >
-      <UploadedDocuments />
       <UploadDocument />
+      <UploadedDocuments />
     </motion.div>
   );
 }

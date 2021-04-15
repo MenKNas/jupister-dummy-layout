@@ -1,11 +1,16 @@
 import * as React from "react";
+import classNames from "classnames";
+import { useClickAway } from "react-use";
 import { Link } from "react-router-dom";
 import MainButton from "../../Buttons/MainButton";
 import { LanguageSelector } from "./LanguageSelector";
 import { ReactComponent as CloseIcon } from "../../../icons/menu_close_box.svg";
 import { ReactComponent as Avatar } from "../../../icons/avatar.svg";
+import { ReactComponent as ChevronDown } from "../../../icons/chevron-down.svg";
 import { useLockedScroll } from "../../../hooks/useLockedScroll";
 import { useLoginRegister } from "../../LoginRegister";
+import { motion } from "framer-motion";
+import { subMenuVariants } from "../../Generic/animationVariants";
 
 const links = [
   { name: "Casino", link: "/casino" },
@@ -24,22 +29,66 @@ const footerLinks = [
   { name: "Privacy Policy", link: "/" },
 ];
 
-const authenticatedUser = false;
+const accountLinks = [
+  { name: "Deposit", link: "/account/financials/deposit" },
+  { name: "Withdraw", link: "/account/financials/Withdraw" },
+  { name: "Pending Withdraws", link: "/account/financials/pendingwithdraws" },
+  { name: "Bonuses", link: "/account/profile/bonuses" },
+  { name: "Betting History", link: "/account/history/bets" },
+];
+
+const authenticatedUser = true;
 
 function RegisteredUserTab({ showSidebar, setShowSidebar, user }) {
+  const [showAccountMenu, setShowAccountMenu] = React.useState(false);
+  const ref = React.useRef();
+  useClickAway(ref, () => setShowAccountMenu(false));
   return (
     <div className="flex flex-col space-y-6" data-component="RegisteredTab">
-      <Link to="/financials" onClick={() => setShowSidebar(!showSidebar)}>
-        <div className="flex flex-row justify-between items-center">
-          <div className="flex flex-row justify-evenly space-x-4 items-center">
-            <Avatar />
-            <div className="flex flex-col">
-              <h4 className="text-gray-300 text-xs"> User </h4>
-              <span className="text-sm truncate">{user.userMail}</span>
-            </div>
+      <div
+        className="relative flex flex-row justify-between items-center"
+        ref={ref}
+      >
+        <div className="flex flex-row justify-evenly space-x-4 items-center">
+          <Avatar />
+          <div className="flex flex-col">
+            <h4 className="text-gray-300 text-xs"> User </h4>
+            <span className="text-sm truncate">{user.userMail}</span>
           </div>
+          <button onClick={() => setShowAccountMenu((prev) => !prev)}>
+            <ChevronDown stroke="#A9B7D5" />
+          </button>
         </div>
-      </Link>
+      </div>
+      <motion.div
+        data-component="DropDown"
+        className={classNames(
+          `absolute left-6 top-24 z-10 w-5/6 p-4 bg-bg-secondary rounded-md border border-bd-primary`
+        )}
+        variants={subMenuVariants}
+        initial="exit"
+        animate={showAccountMenu ? "enter" : "exit"}
+        // exit="exit"
+      >
+        <div className="flex flex-col space-y-2">
+          {accountLinks.map(({ name, link }) => (
+            <button
+              onClick={() => setShowSidebar((prev) => !prev)}
+              className="w-full"
+            >
+              <Link key={link} to={link}>
+                {name}
+              </Link>
+            </button>
+          ))}
+          <button
+            onClick={() => setShowSidebar((prev) => !prev)}
+            className="w-full"
+          >
+            Log out
+          </button>
+        </div>
+      </motion.div>
       <div className="flex justify-between items-center border-b border-gray-600 pb-4">
         <div>
           <div className="flex flex-col">

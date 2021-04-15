@@ -103,8 +103,8 @@ export function MobileAccount() {
 
 function HeaderForPage({ title }) {
   return (
-    <div className="flex items-center py-2 bg-bg-account-primary">
-      <div className="w-1/3">
+    <div className="grid grid-cols-3 items-center py-2 bg-bg-account-primary">
+      <div>
         <NavLink
           to="/account"
           className="text-sm text-text-secondary flex items-center "
@@ -112,8 +112,10 @@ function HeaderForPage({ title }) {
           <ChevronLeft stroke="#A9B7D5" /> <span> Back </span>
         </NavLink>
       </div>
-      <div className="w-2/3">
-        <h2 className="uppercase text-2xl font-black text-white ">{title}</h2>
+      <div>
+        <h2 className="uppercase text-2xl font-black text-white whitespace-nowrap">
+          {title}
+        </h2>
       </div>
     </div>
   );

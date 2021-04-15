@@ -4,7 +4,9 @@ const scrollbarClasses = [
   "scrollbar",
   "scrollbar-thin",
   "scrollbar-thumb-bd-focused",
-  "scrollbar-thumb-rounded-md",
+  "scrollbar-thumb-rounded-sm",
+  "scrollbar-track-gray-400",
+  "scrollbar-track-rounded-md",
 ];
 
 export function useCustomScrollbar() {
