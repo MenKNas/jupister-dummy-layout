@@ -78,6 +78,7 @@ function RegisteredUserTab({ showSidebar, setShowSidebar, user }) {
         <div className="flex flex-col space-y-2">
           {accountLinks.map(({ name, link }) => (
             <button
+              key={link}
               onClick={() => setShowSidebar((prev) => !prev)}
               className="w-full text-left"
             >

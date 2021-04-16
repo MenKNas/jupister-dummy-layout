@@ -203,18 +203,15 @@ function Form({
   });
   return (
     <form
-      className="flex flex-col space-y-2 md:space-x-2 md:flex-row md:space-y-0 md:items-end"
+      className="flex flex-col space-y-2 lg:space-x-2 lg:flex-row lg:space-y-0"
       onSubmit={handleSubmit(({ range: { from, to }, category, filter }) =>
         setValue({ category, from, to, filter })
       )}
     >
       <div className="flex flex-row space-x-2">
-        <div className="w-full md:w-3/6">
+        <div className="w-full">
           <Field invalid={errors.category?.message}>
-            <Field.Label className="text-text-secondary">
-              {" "}
-              Category{" "}
-            </Field.Label>
+            <Field.Label className="text-text-secondary">Category</Field.Label>
             <Field.Select name="category" ref={register} className="h-10">
               <option value="">{t("global.all_categories")}</option>
               {BETTING_CATEGORIES.map((value, index) => (
@@ -226,7 +223,7 @@ function Form({
             <Field.Error>{errors.category?.message}</Field.Error>
           </Field>
         </div>
-        <div className="w-full md:w-3/6">
+        <div className="w-full">
           <Field invalid={errors.filter?.message}>
             <Field.Label className="text-text-secondary"> Filter </Field.Label>
             <Field.Select name="filter" ref={register} className="h-10">
@@ -240,17 +237,18 @@ function Form({
           </Field>
         </div>
       </div>
-      <div className="w-full md:w-4/6 flex flex-col md:flex-row md:items-end space-y-4 md:space-y-0">
+      <div className="w-full flex flex-col space-y-4 lg:space-y-0">
         <Field invalid={errors.range?.message}>
           <Controller
             name="range"
             control={control}
             render={(props) => {
               return (
-                <div className="flex flex-col w-full space-y-2 md:space-x-2 md:flex-row md:space-y-0">
+                <div className="flex flex-col w-full space-y-2 lg:space-x-2 lg:flex-row lg:space-y-0 lg:items-end">
                   <DateRangePicker
                     defaultValue={props.value}
                     onChange={props.onChange}
+                    // isInvalid={errors.range?.message}
                   >
                     <DateRangePicker.RangeSelect
                       label="Range"
@@ -258,8 +256,8 @@ function Form({
                       disabled={disabled}
                       className="h-10"
                     />
-                    {width < 640 ? (
-                      <div className="flex flex-row space-x-2 w-full md:w-full">
+                    {width < 1025 ? (
+                      <div className="flex flex-row space-x-2 w-full lg:w-full">
                         <div className="w-1/2">
                           <DateRangePicker.FromInput
                             label="From"
@@ -294,13 +292,24 @@ function Form({
                       </>
                     )}
                   </DateRangePicker>
+                  <div className="hidden lg:block w-full md:w-auto">
+                    <MainButton
+                      formBtn
+                      type="submit"
+                      className="w-full md:w-auto h-10"
+                      // disabled={disabled}
+                      // loading={disabled}
+                    >
+                      {width < 620 ? "Submit" : <SearchIcon stroke="#031A39" />}
+                    </MainButton>
+                  </div>
                 </div>
               );
             }}
           />
           <Field.Error>{errors.range?.message}</Field.Error>
         </Field>
-        <div className="w-full md:w-auto">
+        <div className="block lg:hidden w-full md:w-auto mx-auto">
           <MainButton
             formBtn
             type="submit"
@@ -308,7 +317,7 @@ function Form({
             // disabled={disabled}
             // loading={disabled}
           >
-            {width < 640 ? "Submit" : <SearchIcon stroke="#031A39" />}
+            {width < 1025 ? "Submit" : <SearchIcon stroke="#031A39" />}
           </MainButton>
         </div>
       </div>

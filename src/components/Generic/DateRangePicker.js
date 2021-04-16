@@ -112,7 +112,7 @@ export function useDateRangePicker() {
   return React.useContext(Ctx);
 }
 
-function RangeSelect({ label, labelClasses, ...rest }) {
+function RangeSelect({ label, labelClasses, isInvalid, ...rest }) {
   const {
     value: { range },
     setValue,
@@ -120,7 +120,7 @@ function RangeSelect({ label, labelClasses, ...rest }) {
   } = useDateRangePicker();
   const { t } = useTranslation();
   return (
-    <div className="flex flex-col">
+    <div className="flex flex-col w-full">
       <Field>
         {label && <Field.Label className={labelClasses}> {label} </Field.Label>}
         <Field.Select
@@ -159,7 +159,7 @@ function FromInput({ disabled, label, labelClasses, ...rest }) {
     setValue,
   } = useDateRangePicker();
   return (
-    <div className="flex flex-col">
+    <div className="flex flex-col w-full">
       <Field>
         {label && <Field.Label className={labelClasses}> {label} </Field.Label>}
         <Field.Input
@@ -192,7 +192,7 @@ function ToInput({ disabled, label, labelClasses, ...rest }) {
     setValue,
   } = useDateRangePicker();
   return (
-    <div className="flex flex-col">
+    <div className="flex flex-col w-full">
       <Field>
         {label && <Field.Label className={labelClasses}> {label} </Field.Label>}
         <Field.Input

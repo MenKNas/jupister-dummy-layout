@@ -10,7 +10,7 @@ export default function History() {
     <div>
       <div className="flex flex-col md:px-4 md:py-4 space-y-0 md:space-y-4">
         <h2 className="hidden md:block uppercase font-bold text-3xl text-white">
-          Financials
+          History
         </h2>
         <div className="flex space-x-6 border-b border-bg-secondary text text-white flex-nowrap md:flex-wrap overflow-x-scroll bg-bg-account-primary md:bg-bg-primary md:overflow-x-hidden px-2 md:px-0">
           <NavLink

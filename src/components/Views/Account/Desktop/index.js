@@ -22,7 +22,7 @@ export function DesktopAccount({ windowWidth }) {
         >
           {windowWidth < 1280 ? <TabletSideMenu /> : <DesktopSideMenu />}
         </div>
-        <div className="w-full xl:w-3/4 pl-4">
+        <div className="w-full xl:w-3/4 pl-4 overflow-x-hidden">
           <DesktopActiveSection />
         </div>
       </div>
