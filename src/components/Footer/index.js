@@ -83,7 +83,9 @@ export default function Footer() {
             </h3>
             <div className="flex flex-col space-y-2 text-white text-thin">
               {aboutLinks.map(({ name, link }) => (
-                <Link to={link}> {name} </Link>
+                <Link key={name} to={link}>
+                  {name}
+                </Link>
               ))}
             </div>
           </div>
@@ -93,7 +95,9 @@ export default function Footer() {
             </h3>
             <div className="flex flex-col space-y-2 text-white text-thin">
               {helpLinks.map(({ name, link }) => (
-                <Link to={link}> {name} </Link>
+                <Link key={name} to={link}>
+                  {name}
+                </Link>
               ))}
             </div>
           </div>
