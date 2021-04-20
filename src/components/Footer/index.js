@@ -58,7 +58,7 @@ export default function Footer() {
             key={description}
             src={src}
             alt={description}
-            className="w-full"
+            className="w-full xl:p-10"
           />
         ))}
       </div>
@@ -76,7 +76,7 @@ export default function Footer() {
         </div>
       </div>
       <div className="bg-bg-secondary">
-        <div className="grid grid-cols-2 border-b border-bd-primary p-6">
+        <div className="grid grid-cols-2 border-b border-bd-primary p-6 xl:w-3/5 mx-auto">
           <div className="flex flex-col space-y-4">
             <h3 className="text-xl text-text-secondary italic font-black uppercase">
               About
@@ -102,7 +102,7 @@ export default function Footer() {
             </div>
           </div>
         </div>
-        <div className="text-sm text-text-secondary p-6 space-y-6">
+        <div className="text-sm text-text-secondary p-6 space-y-6 xl:w-3/5 mx-auto">
           <p>
             JupiterCasino 24 is operated and controlled by GTX TECHNOLOGIES B.V
             having its registered address at DR M.J Hugnafasf bearing company
