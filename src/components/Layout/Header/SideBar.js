@@ -107,7 +107,7 @@ function RegisteredUserTab({ showSidebar, setShowSidebar, user }) {
           </div>
         </div>
         <div>
-          <MainButton secondary> Deposit </MainButton>
+          <MainButton formBtn> Deposit </MainButton>
         </div>
       </div>
     </div>
@@ -139,7 +139,7 @@ function VisitorUserTab({ setShowSidebar }) {
           Login
         </MainButton>
         <MainButton
-          secondary
+          formBtn
           className="w-1/2"
           onClick={() => showModal("register")}
         >

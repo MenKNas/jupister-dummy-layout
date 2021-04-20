@@ -39,10 +39,10 @@ function MobileHeader() {
         <div>
           {authenticatedUser ? (
             <Link to="/account/financials/">
-              <MainButton secondary> Deposit </MainButton>
+              <MainButton formBtn> Deposit </MainButton>
             </Link>
           ) : (
-            <MainButton secondary> Register </MainButton>
+            <MainButton formBtn> Register </MainButton>
           )}
         </div>
       </div>
@@ -64,7 +64,7 @@ function VisitorHeaderButtons() {
       <MainButton outline onClick={() => showModal("login")}>
         Login
       </MainButton>
-      <MainButton secondary onClick={() => showModal("register")}>
+      <MainButton formBtn onClick={() => showModal("register")}>
         Register
       </MainButton>
     </>
@@ -98,7 +98,7 @@ function RegisteredHeaderButtons() {
         </div>
       </div>
       <Link to="/account/financials/">
-        <MainButton secondary> Deposit </MainButton>
+        <MainButton formBtn> Deposit </MainButton>
       </Link>
     </div>
   );
