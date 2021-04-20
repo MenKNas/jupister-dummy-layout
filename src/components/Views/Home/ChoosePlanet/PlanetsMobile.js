@@ -23,7 +23,7 @@ export function ChoosePlanetMobile({
         slidesPerView={numberOfSlides}
         spaceBetween={40}
         centeredSlides={true}
-        speed={500}
+        speed={300}
         centeredSlidesBounds={true}
         slideToClickedSlide={true}
         loop
@@ -41,7 +41,7 @@ export function ChoosePlanetMobile({
                       <div
                         className={`flex flex-col transform-gpu scale-75 items-center opacity-50 mx-auto ${
                           isActive
-                            ? "transform-gpu scale-100 transition-transform duration-500 opacity-100 text-lg"
+                            ? "transform-gpu scale-100 transition-transform duration-300 opacity-100 text-lg"
                             : "text-sm"
                         }`}
                       >

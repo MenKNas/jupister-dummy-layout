@@ -51,7 +51,7 @@ export default function LiveCasino() {
   return (
     <div className="space-y-4 p-4 md:p-6 lg:pb-8">
       <div className="lg:w-full mx-auto">
-        <Promotions preview={true} />
+        <Promotions preview />
         <div className="flex justify-between items-center py-4">
           <div className="uppercase font-black text-xl lg:text-2xl text-white tracking-wide">
             Live Casino
