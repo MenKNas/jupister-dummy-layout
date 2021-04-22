@@ -7,12 +7,13 @@ import AccountMenu from "./AccountMenu";
 import { ReactComponent as BurgerIcon } from "../../../icons/menu_burger_box.svg";
 import { ReactComponent as Avatar } from "../../../icons/avatar.svg";
 import { useLoginRegister } from "../../LoginRegister";
+import { LanguageSelector } from "./LanguageSelector";
 // import { ReactComponent as ChevronDown } from "../../../icons/chevron-down.svg";
 // import { ReactComponent as Logo } from "../../../icons/brand-logo-main.svg";
 
-const authenticatedUser = false;
+const authenticatedUser = true;
 
-function MobileHeader() {
+function MobileHeader({ width }) {
   const [showSidebar, setShowSidebar] = React.useState(false);
   return (
     <>
@@ -36,15 +37,24 @@ function MobileHeader() {
             />
           </NavLink>
         </div>
-        <div>
-          {authenticatedUser ? (
-            <Link to="/account/financials/">
+        {width < 720 ? (
+          <div className="px-2">
+            {authenticatedUser ? (
               <MainButton formBtn> Deposit </MainButton>
-            </Link>
-          ) : (
-            <MainButton formBtn> Register </MainButton>
-          )}
-        </div>
+            ) : (
+              <MainButton formBtn> Register </MainButton>
+            )}
+          </div>
+        ) : (
+          <div className="space-x-4 flex items-center">
+            {authenticatedUser ? (
+              <RegisteredHeaderButtons />
+            ) : (
+              <VisitorHeaderButtons />
+            )}
+            <LanguageSelector />
+          </div>
+        )}
       </div>
       {showSidebar && (
         <div
@@ -179,12 +189,13 @@ function DesktopHeader() {
             </span>
           </div>
         </div>
-        <div className="space-x-4">
+        <div className="space-x-1 flex items-center">
           {authenticatedUser ? (
             <RegisteredHeaderButtons />
           ) : (
             <VisitorHeaderButtons />
           )}
+          <LanguageSelector />
         </div>
       </div>
     </div>
@@ -194,7 +205,7 @@ function DesktopHeader() {
 function Header() {
   const { width } = useWindowSize();
 
-  return width < 1366 ? <MobileHeader /> : <DesktopHeader />;
+  return width < 1366 ? <MobileHeader width={width} /> : <DesktopHeader />;
 }
 
 export default Header;

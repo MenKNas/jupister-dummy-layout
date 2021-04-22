@@ -57,12 +57,12 @@ function addUrlToParam(url, param, value) {
 function Flag({ locale, className }) {
   return (
     <span
-      className={classNames(className, "flag-icon rounded-md", `flag-icon-gb`)}
+      className={classNames(className, "flag-icon rounded-xl", `flag-icon-gb`)}
     />
   );
 }
 
-export const LanguageSelector = React.memo(() => {
+export const MobileLanguageSelector = React.memo(() => {
   const [visible, setVisible] = React.useState(false);
   // const { ENABLED_LOCALES } = useSettings();
   // const { t } = useTranslation();
@@ -95,6 +95,72 @@ export const LanguageSelector = React.memo(() => {
         className={classNames(
           `absolute left-0 top-14 z-10 w-full bg-bg-secondary rounded-md border border-bd-primary`
         )}
+        variants={subMenuVariants}
+        initial="exit"
+        animate={visible ? "enter" : "exit"}
+        // exit="exit"
+      >
+        <div className="py-1">
+          {SUPPORTED_LOCALES.map((locale) => (
+            <button
+              type="button"
+              key={locale.locale}
+              className={classNames("px-4 py-1.5 block w-full text-start", {
+                active: locale.locale === activeLanguage,
+              })}
+              onClick={() =>
+                (window.location.href = addUrlToParam(
+                  window.location.href,
+                  "lng",
+                  locale.locale
+                ))
+              }
+            >
+              <div className="flex items-center space-x-4">
+                <Flag />
+                <div className="whitespace-nowrap">{locale.locale}</div>
+              </div>
+            </button>
+          ))}
+        </div>
+      </motion.div>
+    </div>
+  );
+});
+
+export const LanguageSelector = React.memo(() => {
+  const [visible, setVisible] = React.useState(false);
+  // const { ENABLED_LOCALES } = useSettings();
+  // const { t } = useTranslation();
+  const ref = React.useRef();
+  useClickAway(ref, () => setVisible(false));
+  // const activeLanguage = i18n.languages[0];
+
+  //dummy value
+  const activeLanguage = "English";
+  return (
+    <div
+      className="relative border-bg-primary text-text-secondary font-light py-3 px-4 rounded-md"
+      data-component="LanguageSelector"
+      ref={ref}
+    >
+      <motion.button
+        onClick={() => setVisible((prev) => !prev)}
+        className="w-full"
+      >
+        <div className="flex items-center justify-between space-x-1">
+          <Flag locale={activeLanguage} />
+          <div>
+            <ChevronDown stroke="#A9B7D5" />
+          </div>
+        </div>
+      </motion.button>
+      <motion.div
+        data-component="DropDown"
+        className={classNames(
+          `absolute right-0 top-14 z-10 w-full bg-bg-primary rounded-md border border-bd-primary text-white`
+        )}
+        style={{ width: 250 }}
         variants={subMenuVariants}
         initial="exit"
         animate={visible ? "enter" : "exit"}

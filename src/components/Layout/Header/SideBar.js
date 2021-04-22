@@ -3,7 +3,7 @@ import classNames from "classnames";
 import { useClickAway } from "react-use";
 import { Link } from "react-router-dom";
 import MainButton from "../../Buttons/MainButton";
-import { LanguageSelector } from "./LanguageSelector";
+import { MobileLanguageSelector } from "./LanguageSelector";
 import { ReactComponent as CloseIcon } from "../../../icons/menu_close_box.svg";
 import { ReactComponent as Avatar } from "../../../icons/avatar.svg";
 import { ReactComponent as ChevronDown } from "../../../icons/chevron-down.svg";
@@ -215,7 +215,7 @@ export const SideBar = ({ showSidebar, setShowSidebar }) => {
               ))}
             </div>
             <div className="-ml-2">
-              <LanguageSelector />
+              <MobileLanguageSelector />
             </div>
             <FooterLinks setShowSidebar={setShowSidebar} />
           </div>

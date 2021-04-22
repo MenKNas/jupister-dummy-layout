@@ -121,7 +121,7 @@ export function MobileInfoCard({
             className="text-text-secondary text-sm"
           />
         </div>
-        <MainButton secondary> Colonize It </MainButton>
+        <MainButton formBtn> Colonize It </MainButton>
       </div>
       <div className="flex justify-between">
         <div className="flex flex-col text-white">
