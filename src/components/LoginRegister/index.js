@@ -35,8 +35,7 @@ export function LoginRegisterProvider({ children }) {
   const [step, setStep] = React.useState();
   const close = React.useCallback(() => setStep(undefined), []);
   const { t } = useTranslation();
-  const { component: Body, size, title, clockOnClickAway } =
-    MODALS(t)[step] ?? {};
+  const { component: Body, size, clockOnClickAway } = MODALS(t)[step] ?? {};
   const ref = React.useRef();
   useClickAway(ref, () => clockOnClickAway && close());
 
@@ -45,8 +44,15 @@ export function LoginRegisterProvider({ children }) {
       {children}
       {step !== undefined && (
         <Modal size={size} animated ref={ref}>
-          <ModalHeader onClose={close}>{title}</ModalHeader>
-          <ModalBody onClose={close} className="space-y-4 py-4">
+          <ModalHeader
+            onClose={close}
+            className="bg-bg-primary p-2 border-b-bg-primary"
+          ></ModalHeader>
+          <ModalBody
+            onClose={close}
+            className="space-y-4 py-4 bg-bg-primary"
+            hideCloseBtn
+          >
             <Body onClose={close} setStep={setStep} />
           </ModalBody>
         </Modal>

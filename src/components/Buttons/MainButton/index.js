@@ -12,18 +12,18 @@ export default function MainButton({
 }) {
   function finalClasses() {
     return outline
-      ? "bg-transparent text-white rounded-lg italic font-black text-lg"
+      ? "bg-transparent text-white rounded-lg italic font-black text-lg font-bold "
       : secondary
       ? styles.secondary
       : formBtn
       ? styles.formBtn
-      : "bg-blue-800 text-white";
+      : "bg-bd-focused text-white";
   }
 
   return (
     <button
       data-component="MainButton"
-      className={`${finalClasses()} font-bold py-2 px-4 outline-none uppercase text-sm tracking-wide truncate ${
+      className={`${finalClasses()} py-2.5 px-4 outline-none uppercase text-sm tracking-wide truncate ${
         className ? className : ""
       }`}
       {...rest}

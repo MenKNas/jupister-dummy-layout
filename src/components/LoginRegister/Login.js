@@ -31,6 +31,17 @@ const schema = (t) =>
     password: yup.string().label(t("global.password")).required(),
   });
 
+function FormField({ label, input }) {
+  return (
+    <div className="flex flex-col w-full">
+      <div className="text-text-secondary font-light tracking-wide text-sm py-1 truncate">
+        {label}
+      </div>
+      <div className="w-full">{input}</div>
+    </div>
+  );
+}
+
 export function Login({ close, setStep }) {
   const { t } = useTranslation();
   const {
@@ -58,69 +69,83 @@ export function Login({ close, setStep }) {
     <div className="flex space-x-6">
       <form
         onSubmit={handleSubmit(onSubmit)}
-        className="w-full lg:w-1/2 space-y-4"
+        className="w-full lg:w-1/2 space-y-4 py-1 px-4"
       >
-        <div className="font-bold">{t("global.account_details")}</div>
+        <div className="flex flex-col items-center space-y-1">
+          <span className="text-text-secondary text-sm"> Welcome Back</span>
+          <h1 className="text-white text-xl font-bold uppercase italic">
+            Login to your Account
+          </h1>
+        </div>
         {/* <ErrorsList
           errors={error?.graphQLErrors?.map(({ message }) => message) ?? []}
         /> */}
-        <div>
-          <Field invalid={errors.email?.message}>
-            <Field.Input
-              type="text"
-              name="email"
-              disabled={isSubmitting}
-              autoComplete="email"
-              placeholder={t("global.your_email_address")}
-              ref={register}
-            />
-            <Field.Error> {errors.email?.message}</Field.Error>
-          </Field>
-        </div>
-        <div>
-          <Field invalid={errors.password?.message}>
-            <Field.Input
-              type="password"
-              name="password"
-              disabled={isSubmitting}
-              autoComplete="current-password"
-              placeholder={t("global.password")}
-              ref={register}
-            />
-            <Field.Error> {errors.password?.message}</Field.Error>
-          </Field>
-        </div>
+        <Field invalid={errors.email?.message}>
+          <FormField
+            label={<Field.Label> Email </Field.Label>}
+            input={
+              <>
+                <Field.Input
+                  type="text"
+                  name="email"
+                  disabled={isSubmitting}
+                  autoComplete="email"
+                  ref={register}
+                />
+                <Field.Error> {errors.email?.message}</Field.Error>
+              </>
+            }
+          ></FormField>
+        </Field>
+        <Field invalid={errors.password?.message}>
+          <FormField
+            label={<Field.Label> Password </Field.Label>}
+            input={
+              <>
+                <Field.Input
+                  type="text"
+                  name="password"
+                  disabled={isSubmitting}
+                  autoComplete="password"
+                  ref={register}
+                />
+                <Field.Error> {errors.password?.message}</Field.Error>
+              </>
+            }
+          ></FormField>
+        </Field>
         <div className="flex justify-end">
           <button
-            className="font-bold"
+            className="text-text-secondary text-sm -mt-2"
             type="button"
             onClick={() => setStep("resetPassword")}
           >
-            {t("global.forgot_your_password")}
+            Forgot Password?
           </button>
         </div>
         <div className="flex flex-col -my-2 items-center w-100 space-y-4">
-          <div className="w-1/2 sm:w-full">
+          <div className="w-2/5 sm:w-full">
             <MainButton
               type="submit"
               disabled={isSubmitting}
               className="w-full"
               loading={isSubmitting}
+              formBtn
             >
-              {t("global.login")}
+              LOG IN
             </MainButton>
           </div>
           <div>
             <Trans i18nKey="global.dont_have_an_account">
-              <div className="flex items-center space-s-2">
-                <div>Dont have an account?</div>
+              <div className="flex items-center space-x-1">
+                <div className="text-white">Dont have an account?</div>
                 <div>
                   <button
                     type="button"
-                    className="font-bold"
+                    className="text-brand-primary"
                     onClick={() => setStep("register")}
                   >
-                    Register here
+                    Register Now
                   </button>
                 </div>
               </div>

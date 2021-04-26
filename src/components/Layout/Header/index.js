@@ -11,10 +11,11 @@ import { LanguageSelector } from "./LanguageSelector";
 // import { ReactComponent as ChevronDown } from "../../../icons/chevron-down.svg";
 // import { ReactComponent as Logo } from "../../../icons/brand-logo-main.svg";
 
-const authenticatedUser = true;
+const authenticatedUser = false;
 
 function MobileHeader({ width }) {
   const [showSidebar, setShowSidebar] = React.useState(false);
+  const showModal = useLoginRegister();
   return (
     <>
       <div
@@ -38,21 +39,37 @@ function MobileHeader({ width }) {
           </NavLink>
         </div>
         {width < 720 ? (
-          <div className="px-2">
+          <div className="flex items-center px-1">
             {authenticatedUser ? (
-              <MainButton formBtn> Deposit </MainButton>
+              <Link to="/account/financials/deposit">
+                <MainButton formBtn> Deposit </MainButton>
+              </Link>
             ) : (
-              <MainButton formBtn> Register </MainButton>
+              <>
+                <MainButton
+                  outline
+                  className="text-white"
+                  onClick={() => showModal("login")}
+                >
+                  Login
+                </MainButton>
+                <MainButton
+                  outline
+                  className="text-brand-primary"
+                  onClick={() => showModal("register")}
+                >
+                  Register
+                </MainButton>
+              </>
             )}
           </div>
         ) : (
-          <div className="space-x-4 flex items-center">
+          <div className="space-x-4 flex items-center px-2">
             {authenticatedUser ? (
               <RegisteredHeaderButtons />
             ) : (
               <VisitorHeaderButtons />
             )}
-            <LanguageSelector />
           </div>
         )}
       </div>
@@ -166,18 +183,15 @@ function DesktopHeader() {
                 Sports
               </NavLink>
             </span>
-            <span className="px-4 truncate">
+            {/* <span className="px-4 truncate">
               <NavLink
                 to="/livecasino"
                 activeClassName="text-brand-primary"
                 exact={true}
               >
                 More
-                {/* <span className="ml-2">
-                  <FontAwesomeIcon icon={faAngleDown} />
-                </span> */}
               </NavLink>
-            </span>
+            </span> */}
             <span className="px-4 truncate">
               <NavLink
                 to="/promotions"
