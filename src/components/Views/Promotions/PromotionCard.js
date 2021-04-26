@@ -22,7 +22,7 @@ export default function PromotionCard({
     >
       <div
         style={{
-          backgroundImage: `url(${PromoImg1})`,
+          background: `${!showInHomepage ? `url(${PromoImg1})` : "#0D2950"}`,
           backgroundPosition: "center center",
           backgroundSize: "100%",
           backgroundColor: "#464646",
@@ -72,10 +72,9 @@ export default function PromotionCard({
     >
       <div
         style={{
-          backgroundImage: `url(${PromoImg1})`,
+          background: `${!showInHomepage ? `url(${PromoImg1})` : "#0D2950"}`,
           backgroundPosition: "center center",
           backgroundSize: "100%",
-          backgroundColor: "#464646",
           height: "100%",
           width: "100%",
           maxHeight: "100%",

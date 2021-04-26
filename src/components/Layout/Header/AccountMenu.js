@@ -2,6 +2,14 @@ import * as React from "react";
 import { Link } from "react-router-dom";
 import { useClickAway } from "react-use";
 
+const links = [
+  { path: "/account/financials/deposit", label: "Deposit" },
+  { path: "/account/financials/withdraw", label: "Withdraw" },
+  { path: "/account/financials/pendingwithdraws", label: "Pending Withdraws" },
+  { path: "/account/myprofile/bonuses", label: "Bonuses" },
+  { path: "/account/history/bets", label: "Betting History" },
+];
+
 export default function AccountMenu({ setShowProfileLinks }) {
   const ref = React.useRef(null);
   useClickAway(ref, () => {
@@ -16,48 +24,18 @@ export default function AccountMenu({ setShowProfileLinks }) {
         onMouseLeave={() => setShowProfileLinks(false)}
       >
         <div className="text-white py-1 px-2">
-          <Link
-            to="/deposit"
-            className="px-2 py-2 truncate w-full inline-block hover:textw-white hover:bg-brand-primary hover:text-bg-darker"
-            onClick={() => setShowProfileLinks(false)}
-          >
-            Deposit
-          </Link>
-          <Link
-            to="/deposit"
-            className="px-2 py-2 truncate w-full inline-block hover:textw-white hover:bg-brand-primary hover:text-bg-darker"
-            onClick={() => setShowProfileLinks(false)}
-          >
-            Deposit
-          </Link>
-          <Link
-            to="/deposit"
-            className="px-2 py-2 truncate w-full inline-block hover:textw-white hover:bg-brand-primary hover:text-bg-darker"
-            onClick={() => setShowProfileLinks(false)}
-          >
-            Deposit
-          </Link>
-          <Link
-            to="/deposit"
-            className="px-2 py-2 truncate w-full inline-block hover:textw-white hover:bg-brand-primary hover:text-bg-darker"
-            onClick={() => setShowProfileLinks(false)}
-          >
-            Deposit
-          </Link>
-          <Link
-            to="/deposit"
-            className="px-2 py-2 truncate w-full inline-block hover:textw-white hover:bg-brand-primary hover:text-bg-darker"
-            onClick={() => setShowProfileLinks(false)}
-          >
-            Deposit
-          </Link>
-          <Link
-            to="/deposit"
-            className="px-2 py-2 truncate w-full inline-block hover:textw-white hover:bg-brand-primary hover:text-bg-darker"
-            onClick={() => setShowProfileLinks(false)}
-          >
-            Deposit
-          </Link>
+          {links.map(({ path, label }) => (
+            <Link
+              to={path}
+              className="px-2 py-2 truncate w-full inline-block hover:bg-brand-primary hover:text-bg-darker"
+              onClick={() => setShowProfileLinks(false)}
+            >
+              {label}
+            </Link>
+          ))}
+          <button className="px-2 py-2 truncate w-full inline-block hover:bg-brand-primary hover:text-bg-darker text-left">
+            Logout
+          </button>
         </div>
       </div>
     </div>

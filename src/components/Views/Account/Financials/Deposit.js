@@ -275,7 +275,7 @@ function Form() {
                         setValue("amount", amount, { shouldValidate: true })
                       }
                       className="bg-brand-secondary text-sm text-white rounded-sm font-boldp p-2"
-                      style={{ height: 40, width: 80 }}
+                      style={{ height: 40, width: "100%" }}
                       key={amount}
                       value={amount}
                       type="button"

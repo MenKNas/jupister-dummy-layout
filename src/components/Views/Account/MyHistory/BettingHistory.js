@@ -169,7 +169,12 @@ function Form({
   width,
 }) {
   const { t } = useTranslation();
-  const { errors, control, handleSubmit, register } = useForm({
+  const {
+    control,
+    handleSubmit,
+    register,
+    formState: { errors },
+  } = useForm({
     defaultValues: {
       category,
       filter,
@@ -210,9 +215,13 @@ function Form({
     >
       <div className="flex flex-row space-x-2">
         <div className="w-full">
-          <Field invalid={errors.category?.message}>
+          <Field invalid={errors?.category?.message}>
             <Field.Label className="text-text-secondary">Category</Field.Label>
-            <Field.Select name="category" ref={register} className="h-10">
+            <Field.Select
+              name="category"
+              {...register("category")}
+              className="h-10"
+            >
               <option value="">{t("global.all_categories")}</option>
               {BETTING_CATEGORIES.map((value, index) => (
                 <option value={value} key={index}>
@@ -220,34 +229,38 @@ function Form({
                 </option>
               ))}
             </Field.Select>
-            <Field.Error>{errors.category?.message}</Field.Error>
+            <Field.Error>{errors?.category?.message}</Field.Error>
           </Field>
         </div>
         <div className="w-full">
-          <Field invalid={errors.filter?.message}>
+          <Field invalid={errors?.filter?.message}>
             <Field.Label className="text-text-secondary"> Filter </Field.Label>
-            <Field.Select name="filter" ref={register} className="h-10">
+            <Field.Select
+              name="filter"
+              {...register("filter")}
+              className="h-10"
+            >
               {BET_OPTIONS.map((value, index) => (
                 <option value={value} key={value}>
                   {t(`global.${value.toLowerCase()}`)}
                 </option>
               ))}
             </Field.Select>
-            <Field.Error>{errors.filter?.message}</Field.Error>
+            <Field.Error>{errors?.filter?.message}</Field.Error>
           </Field>
         </div>
       </div>
       <div className="w-full flex flex-col space-y-4 lg:space-y-0">
-        <Field invalid={errors.range?.message}>
+        <Field invalid={errors?.range?.message}>
           <Controller
             name="range"
             control={control}
-            render={(props) => {
+            render={({ field }) => {
               return (
                 <div className="flex flex-col w-full space-y-2 lg:space-x-2 lg:flex-row lg:space-y-0 lg:items-end">
                   <DateRangePicker
-                    defaultValue={props.value}
-                    onChange={props.onChange}
+                    defaultValue={field.value}
+                    onChange={field.onChange}
                     // isInvalid={errors.range?.message}
                   >
                     <DateRangePicker.RangeSelect

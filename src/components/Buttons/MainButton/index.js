@@ -23,7 +23,7 @@ export default function MainButton({
   return (
     <button
       data-component="MainButton"
-      className={`${finalClasses()} py-2.5 px-4 outline-none uppercase text-sm  truncate ${
+      className={`${finalClasses()} py-1.5 px-4 outline-none uppercase text-sm  truncate ${
         className ? className : ""
       }`}
       {...rest}
