@@ -39,28 +39,32 @@ export default function Promotions({ preview = false }) {
                 className="h-full"
                 mainText="Get 750% Welcome Casino Package Bonus"
                 title="Welcome Casino Package"
-                hasDeposit
+                // hasDeposit
                 setIsModalOpen={setIsModalOpen}
               />
               <PromotionCard
                 className="h-full"
                 title="Weekend Madness 75% Bonus"
                 mainText="Get 750% Welcome Casino Package Bonus"
+                setIsModalOpen={setIsModalOpen}
               />
               <PromotionCard
                 className="h-full"
                 title="Welcome Sports Bonus"
                 mainText="Get 750% Welcome Casino Package Bonus"
+                setIsModalOpen={setIsModalOpen}
               />
               <PromotionCard
                 className="h-full"
                 title="Cashback Bonus"
                 mainText="Get 750% Welcome Casino Package Bonus"
+                setIsModalOpen={setIsModalOpen}
               />
               <PromotionCard
                 className="h-full"
                 title="Magic Monday 50% Bonus"
                 mainText="Get 750% Welcome Casino Package Bonus"
+                setIsModalOpen={setIsModalOpen}
               />
             </div>
           </div>
