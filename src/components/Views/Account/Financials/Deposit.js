@@ -1,5 +1,5 @@
 import * as React from "react";
-import { useForm, Controller } from "react-hook-form";
+import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { useTranslation } from "react-i18next";
 import * as yup from "yup";
@@ -42,7 +42,7 @@ money amount first and then with bonus amount`;
 
 const schema = (t) =>
   yup.object().shape({
-    amount: yup.number().label("Amount").required(),
+    amount: yup.number().min(10).max(1000).label("Amount").required(),
     cardNumber: yup.string().label("Card number").required(),
     fullName: yup.string().label("Full Name").min(5).required(),
     cardExpiry: yup.string().label("Card Expiry").required(),
@@ -52,7 +52,7 @@ const schema = (t) =>
 function FormField({ label, input }) {
   return (
     <div className="flex flex-col w-full">
-      <div className="text-text-secondary font-light tracking-wide text-sm py-1">
+      <div className="text-text-secondary font-light  text-sm py-1">
         {label}
       </div>
       <div className="w-full">{input}</div>
@@ -105,9 +105,7 @@ function PaymentsGrid({ setSelectedPayment }) {
       exit="exit"
       className="space-y-2"
     >
-      <h2 className="text-text-secondary tracking-wide">
-        Select a payment method
-      </h2>
+      <h2 className="text-text-secondary ">Select a payment method</h2>
       <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4">
         {allPayments.map((payment) => {
           return (
@@ -191,9 +189,11 @@ function Form() {
   const {
     register,
     handleSubmit,
-    errors,
-    control,
-    // formState: { isSubmitting },
+    setValue,
+    formState: {
+      errors,
+      // isSubmitting
+    },
   } = useForm({
     defaultValues: {
       // amount: selectedAmount,
@@ -242,57 +242,50 @@ function Form() {
           ))}
         </div>
       </div> */}
-      <Field invalid={errors?.mobileNumber?.message}>
+      <Field invalid={errors?.amount?.message}>
         <FormField
           input={
             <>
-              <Controller
-                name="amount"
-                control={control}
-                render={(props) => (
-                  <div className="grid grid-cols-2 gap-4 lg:w-3/6">
-                    <div>
-                      <Field
-                        invalid={errors?.amount?.message}
-                        defalutValue={props.value}
-                        onChange={props.onChange}
-                      >
-                        <FormField
-                          label={
-                            <Field.Label htmlFor="amount">
-                              {t("Amount")}
-                            </Field.Label>
-                          }
-                          input={
-                            <>
-                              <Field.Input
-                                type="text"
-                                name="amount"
-                                ref={register}
-                                //   disabled={fieldDisabled}
-                              />
-                            </>
-                          }
-                        />
-                        <Field.Error>{errors?.amount?.message}</Field.Error>
-                      </Field>
-                    </div>
-                    <div className="grid grid-cols-2 gap-2">
-                      {paymentAmounts.map((amount) => (
-                        <button
-                          className="bg-brand-secondary text-sm text-white rounded-sm font-bold"
-                          key={amount}
-                          // onClick={() => setSelectedAmount(amount)}
-                          value={amount}
-                        >
-                          {amount} &euro;
-                        </button>
-                      ))}
-                    </div>
-                  </div>
-                )}
-              />
-              <Field.Error>{errors?.mobileNumber?.message}</Field.Error>
+              <div className="grid grid-cols-2 gap-4 lg:w-3/6 items-end">
+                <div>
+                  <Field invalid={errors?.amount?.message}>
+                    <FormField
+                      label={
+                        <Field.Label htmlFor="amount">
+                          {t("Amount")}
+                        </Field.Label>
+                      }
+                      input={
+                        <>
+                          <Field.Input
+                            type="text"
+                            name="amount"
+                            {...register("amount")}
+                            //   disabled={fieldDisabled}
+                          />
+                        </>
+                      }
+                    />
+                  </Field>
+                </div>
+                <div className="grid grid-cols-2 gap-2">
+                  {paymentAmounts.map((amount) => (
+                    <button
+                      onClick={() =>
+                        setValue("amount", amount, { shouldValidate: true })
+                      }
+                      className="bg-brand-secondary text-sm text-white rounded-sm font-boldp p-2"
+                      style={{ height: 40, width: 80 }}
+                      key={amount}
+                      value={amount}
+                      type="button"
+                    >
+                      {amount} &euro;
+                    </button>
+                  ))}
+                </div>
+              </div>
+              <Field.Error>{errors?.amount?.message}</Field.Error>
             </>
           }
         />
@@ -311,7 +304,7 @@ function Form() {
                   <Field.Input
                     type="text"
                     name="cardNumber"
-                    ref={register}
+                    {...register("cardNumber")}
                     //   disabled={fieldDisabled}
                   />
                   <Field.Error>{errors?.cardNumber?.message}</Field.Error>
@@ -331,7 +324,7 @@ function Form() {
                   <Field.Input
                     type="text"
                     name="fullName"
-                    ref={register}
+                    {...register("fullName")}
                     //   disabled={fieldDisabled}
                   />
                   <Field.Error>{errors?.fullName?.message}</Field.Error>
@@ -353,7 +346,7 @@ function Form() {
                   <Field.Input
                     type="text"
                     name="cardExpiry"
-                    ref={register}
+                    {...register("cardExpiry")}
                     //   disabled={fieldDisabled}
                   />
                   <Field.Error>{errors?.cardExpiry?.message}</Field.Error>
@@ -371,7 +364,7 @@ function Form() {
                   <Field.Input
                     type="text"
                     name="ccv"
-                    ref={register}
+                    {...register("ccv")}
                     //   disabled={fieldDisabled}
                   />
                   <Field.Error>{errors?.ccv?.message}</Field.Error>
@@ -391,7 +384,7 @@ function Form() {
                   <Field.Input
                     type="text"
                     name="bonusCode"
-                    ref={register}
+                    {...register("bonusCode")}
                     //   disabled={fieldDisabled}
                   />
                   <Field.Error>{errors?.bonusCode?.message}</Field.Error>

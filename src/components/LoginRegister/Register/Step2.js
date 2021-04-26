@@ -61,7 +61,7 @@ const schema = (t) =>
 function FormField({ label, input }) {
   return (
     <div className="flex flex-col w-full lg:w-1/2">
-      <div className="text-text-secondary font-light tracking-wide text-sm py-1 truncate">
+      <div className="text-text-secondary font-light  text-sm py-1 truncate">
         {label}
       </div>
       <div className="w-full">{input}</div>

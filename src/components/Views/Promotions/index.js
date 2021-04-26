@@ -25,7 +25,7 @@ export default function Promotions({ preview = false }) {
         ) : (
           <div className="space-y-2 px-6">
             <div className="flex">
-              <div className="uppercase font-black text-xl lg:text-2xl tracking-wide text-white py-4">
+              <div className="uppercase font-black text-xl lg:text-2xl  text-white py-4">
                 <span>Promotions </span>
                 <img
                   src={underheading}

@@ -89,7 +89,7 @@ function MainNavLinkSection() {
   return (
     <div className="space-y-2 p-4 pt-0">
       <div className="flex flex-col space-y-1">
-        <h3 className="font-thin text-text-secondary"> My Profile</h3>
+        <h3 className=" text-text-secondary"> My Profile</h3>
         <NavLink
           to={`${path}/myprofile/personalinfo`}
           activeStyle={{ backgroundColor: "#FDDB4C", color: "#132B4E" }}
@@ -130,7 +130,7 @@ function MainNavLinkSection() {
         </NavLink>
       </div>
       <div className="flex flex-col space-y-1">
-        <h3 className="font-thin text-text-secondary"> Financials</h3>
+        <h3 className=" text-text-secondary"> Financials</h3>
         <NavLink
           to={`${path}/financials/deposit`}
           activeStyle={{ backgroundColor: "#FDDB4C", color: "#132B4E" }}
@@ -154,7 +154,7 @@ function MainNavLinkSection() {
         </NavLink>
       </div>
       <div className="flex flex-col space-y-1">
-        <h3 className="font-thin text-text-secondary"> History </h3>
+        <h3 className=" text-text-secondary"> History </h3>
         <NavLink
           to={`${path}/history/bets`}
           activeStyle={{ backgroundColor: "#FDDB4C", color: "#132B4E" }}

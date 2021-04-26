@@ -22,7 +22,7 @@ export default function CasinoHeader() {
               <NavLink
                 key={link}
                 to={link.to}
-                className="text-white font-light tracking-wide text-sm"
+                className="text-white font-light  text-sm"
               >
                 {link.name}
               </NavLink>

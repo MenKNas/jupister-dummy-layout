@@ -5,10 +5,8 @@ import "./index.css";
 // import { PortalManager } from "./components/Portal";
 import { ModalManager } from "./components/NewModal";
 import { LoginRegisterProvider } from "./components/LoginRegister";
-import { useCustomScrollbar } from "./hooks/useCustomScrollbar";
 
 function App() {
-  useCustomScrollbar();
   return (
     <Router>
       <ModalManager>

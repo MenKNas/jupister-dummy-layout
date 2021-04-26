@@ -29,7 +29,7 @@ export default function SearchBar() {
         <button className="w-1/5 bg-bd-focused rounded-md text-md flex items-center justify-between text-white px-4">
           <div className="flex items-center space-x-2">
             <ListIcon />
-            <span className="hidden md:block tracking-wide">Providers </span>
+            <span className="hidden md:block ">Providers </span>
           </div>
           <span className="hidden md:block">
             <ChevronDown stroke="#fff" />

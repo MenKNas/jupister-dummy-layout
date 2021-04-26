@@ -70,7 +70,7 @@ function MobileAccountMenu({ onClose }) {
         <UserInfo user={user} />
         {menuSections.map((section) => (
           <div className="flex flex-col space-y-1" key={section.title}>
-            <h3 className="font-thin text-text-secondary"> {section.title}</h3>
+            <h3 className=" text-text-secondary"> {section.title}</h3>
             {section.links.map((link) => (
               <NavLink
                 key={link.name}

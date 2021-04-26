@@ -153,7 +153,7 @@ function VisitorUserTab({ setShowSidebar }) {
 const FooterLinks = React.memo(({ setShowSidebar }) => {
   return (
     <div
-      className="flex flex-col text-sm space-y-4 text-text-secondary tracking-wider"
+      className="flex flex-col text-sm space-y-4 text-text-secondary r"
       data-component="FooterLinks"
     >
       {footerLinks.map(({ name, link }) => (
@@ -203,7 +203,7 @@ export const SideBar = ({ showSidebar, setShowSidebar }) => {
             <VisitorUserTab setShowSidebar={setShowSidebar} />
           )}
           <div className="space-y-4">
-            <div className="flex flex-col space-y-4 uppercase tracking-wider border-b border-bd-primary py-4 font-black italic text-lg">
+            <div className="flex flex-col space-y-4 uppercase r border-b border-bd-primary py-4 font-black italic text-lg">
               {links.map(({ name, link }) => (
                 <Link
                   key={name}
