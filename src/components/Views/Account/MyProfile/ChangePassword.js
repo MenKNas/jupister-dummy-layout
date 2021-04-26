@@ -2,7 +2,7 @@ import * as React from "react";
 // import { gql, useMutation, useApolloClient } from "@apollo/client";
 import { useTranslation } from "react-i18next";
 import { useForm } from "react-hook-form";
-import { yupResolver } from "@hookform/resolvers/dist/ie11/yup";
+import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
 // import { ErrorsList } from "../../ErrorsList";
 import { Field } from "../../../Inputs/Field";
@@ -59,7 +59,7 @@ export function Form() {
   return (
     <form className="space-y-4 w-full" onSubmit={handleSubmit(onSubmit)}>
       <div className="flex flex-col space-y-4 w-full md:w-7/10">
-        <Field invalid={errors.oldPassword?.message}>
+        <Field invalid={errors?.oldPassword?.message}>
           <FormField
             label={<Field.Label>{t("Old Password")}</Field.Label>}
             input={
@@ -71,12 +71,12 @@ export function Form() {
                   disabled={isSubmitting}
                   ref={register}
                 />
-                <Field.Error>{errors.oldPassword?.message}</Field.Error>
+                <Field.Error>{errors?.oldPassword?.message}</Field.Error>
               </>
             }
           />
         </Field>
-        <Field invalid={errors.newPassword?.message}>
+        <Field invalid={errors?.newPassword?.message}>
           <FormField
             label={<Field.Label>{t("New Password")}</Field.Label>}
             input={
@@ -88,12 +88,12 @@ export function Form() {
                   disabled={isSubmitting}
                   ref={register}
                 />
-                <Field.Error>{errors.newPassword?.message}</Field.Error>
+                <Field.Error>{errors?.newPassword?.message}</Field.Error>
               </>
             }
           />
         </Field>
-        <Field invalid={errors.newPasswordConfirm?.message}>
+        <Field invalid={errors?.newPasswordConfirm?.message}>
           <FormField
             label={<Field.Label>{t("New password Confirm")}</Field.Label>}
             input={
@@ -105,7 +105,7 @@ export function Form() {
                   disabled={isSubmitting}
                   ref={register}
                 />
-                <Field.Error>{errors.newPasswordConfirm?.message}</Field.Error>
+                <Field.Error>{errors?.newPasswordConfirm?.message}</Field.Error>
               </>
             }
           />

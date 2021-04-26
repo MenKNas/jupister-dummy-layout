@@ -3,7 +3,7 @@ import { useTranslation } from "react-i18next";
 import { useForm, Controller } from "react-hook-form";
 import { Field } from "../Inputs/Field";
 import * as yup from "yup";
-import { yupResolver } from "@hookform/resolvers/dist/ie11/yup";
+import { yupResolver } from "@hookform/resolvers/yup";
 import {
   DaySelector,
   MonthSelector,

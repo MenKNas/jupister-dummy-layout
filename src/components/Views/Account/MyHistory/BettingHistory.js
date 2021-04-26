@@ -8,7 +8,7 @@ import {
 } from "date-fns";
 import { Controller, useForm } from "react-hook-form";
 import * as yup from "yup";
-import { yupResolver } from "@hookform/resolvers/dist/ie11/yup";
+import { yupResolver } from "@hookform/resolvers/yup";
 import { motion } from "framer-motion";
 import { containerVariants } from "../../../Generic/animationVariants";
 // import { useUpdateEffect } from "react-use";

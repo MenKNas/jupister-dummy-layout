@@ -5,7 +5,7 @@ import { useTranslation, Trans } from "react-i18next";
 import { useForm } from "react-hook-form";
 import { Field } from "../Inputs/Field";
 import * as yup from "yup";
-import { yupResolver } from "@hookform/resolvers/dist/ie11/yup";
+import { yupResolver } from "@hookform/resolvers/yup";
 // import userInfoFragment from "../../graphql/fragments/userinfo";
 // import { GET_CURRENT_USER } from "../../graphql/queries/getCurrentUser";
 // import { gql, useMutation } from "@apollo/client";
@@ -47,8 +47,7 @@ export function Login({ close, setStep }) {
   const {
     register,
     handleSubmit,
-    errors,
-    formState: { isSubmitting },
+    formState: { errors, isSubmitting },
   } = useForm({
     resolver: yupResolver(schema(t)),
   });
@@ -80,7 +79,7 @@ export function Login({ close, setStep }) {
         {/* <ErrorsList
           errors={error?.graphQLErrors?.map(({ message }) => message) ?? []}
         /> */}
-        <Field invalid={errors.email?.message}>
+        <Field invalid={errors?.email?.message}>
           <FormField
             label={<Field.Label> Email </Field.Label>}
             input={
@@ -90,14 +89,14 @@ export function Login({ close, setStep }) {
                   name="email"
                   disabled={isSubmitting}
                   autoComplete="email"
-                  ref={register}
+                  {...register("email")}
                 />
-                <Field.Error> {errors.email?.message}</Field.Error>
+                <Field.Error> {errors?.email?.message}</Field.Error>
               </>
             }
           ></FormField>
         </Field>
-        <Field invalid={errors.password?.message}>
+        <Field invalid={errors?.password?.message}>
           <FormField
             label={<Field.Label> Password </Field.Label>}
             input={
@@ -107,9 +106,9 @@ export function Login({ close, setStep }) {
                   name="password"
                   disabled={isSubmitting}
                   autoComplete="password"
-                  ref={register}
+                  {...register("password")}
                 />
-                <Field.Error> {errors.password?.message}</Field.Error>
+                <Field.Error> {errors?.password?.message}</Field.Error>
               </>
             }
           ></FormField>

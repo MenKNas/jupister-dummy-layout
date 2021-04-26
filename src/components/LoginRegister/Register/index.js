@@ -2,6 +2,7 @@ import * as React from "react";
 // import { useSettings } from "../../Settings";
 import { Alert, AlertTitle, AlertContent } from "../../Generic/Alert";
 import { useTranslation, Trans } from "react-i18next";
+import { ReactComponent as ChevronLeft } from "../../../icons/chevron-left.svg";
 import Step1 from "./Step1";
 import Step2 from "./Step2";
 import Step3 from "./Step3";
@@ -9,6 +10,7 @@ import Step3 from "./Step3";
 import { PHONES } from "../../Inputs/MobileNumber/phones";
 import { useHistory } from "react-router-dom";
 import { useCountdown } from "../../../hooks/useCountDown";
+import { CloseButton } from "../../Buttons/CloseButton";
 
 const TOTAL_STEPS = 3;
 
@@ -49,7 +51,26 @@ function SuccessState({ close }) {
   );
 }
 
-export function Register({ close, setStep }) {
+function HeaderSection({ formStep, setFormStep, close }) {
+  return (
+    <div className="flex justify-between items-center py-1">
+      {formStep === 0 ? (
+        <span> </span>
+      ) : (
+        <button
+          className="flex items-center"
+          onClick={() => setFormStep(formStep - 1)}
+        >
+          <ChevronLeft stroke="#A9B7D5" />{" "}
+          <span className="text-text-secondary"> Back </span>
+        </button>
+      )}
+      <CloseButton onClick={close} type="button" />
+    </div>
+  );
+}
+
+export function Register({ close, step, setStep }) {
   const { t } = useTranslation();
   // const history = useHistory();
   // const { COUNTRY } = useSettings();
@@ -95,29 +116,37 @@ export function Register({ close, setStep }) {
         setFormStep(1);
       }}
     >
-      <div className="flex flex-col space-y-6 items-center">
-        <img
-          src="/assets/brand-logo-main.svg"
-          alt="Logo"
-          width={130}
-          height={80}
-          loading="lazy"
+      <>
+        <HeaderSection
+          formStep={formStep}
+          setFormStep={setFormStep}
+          close={() => setStep(undefined)}
         />
-        <div className="text-center space-y-1">
-          <h1 className="text-white text-xl font-bold uppercase italic">
-            Register New Account
-          </h1>
-          <div className="whitespace-nowrap text-text-secondary text-sm space-x-2">
-            <span> Account Details |</span>
-            <span>
-              Step {formStep + 1}/{TOTAL_STEPS}
-            </span>
+        <div className="flex flex-col space-y-6 items-center">
+          <img
+            src="/assets/brand-logo-main.svg"
+            alt="Logo"
+            width={130}
+            height={80}
+            loading="lazy"
+          />
+          <div className="text-center space-y-1">
+            <h1 className="text-white text-xl font-bold uppercase italic">
+              Register New Account
+            </h1>
+            <div className="whitespace-nowrap text-text-secondary text-sm space-x-2">
+              <span> Account Details |</span>
+              <span>
+                Step {formStep + 1}/{TOTAL_STEPS}
+              </span>
+            </div>
           </div>
         </div>
-      </div>
+      </>
     </Step1>
   ) : formStep === 1 ? (
     <Step2
+      setStep={setStep}
       defaultValues={state}
       onSubmit={(data) => {
         setState((prev) => ({ ...prev, ...data }));
@@ -125,59 +154,31 @@ export function Register({ close, setStep }) {
       }}
       onBack={() => setFormStep(0)}
     >
-      <div className="flex flex-col space-y-6 items-center">
-        <div className="text-center space-y-1">
-          <h1 className="text-white text-xl font-bold uppercase italic">
-            Register New Account
-          </h1>
-          <div className="whitespace-nowrap text-text-secondary text-sm space-x-2">
-            <span> Personal Details |</span>
-            <span>
-              Step {formStep + 1}/{TOTAL_STEPS}
-            </span>
+      <>
+        <HeaderSection
+          formStep={formStep}
+          setFormStep={setFormStep}
+          close={() => setStep(undefined)}
+        />
+        <div className="flex flex-col space-y-6 items-center">
+          <div className="text-center space-y-1">
+            <h1 className="text-white text-xl font-bold uppercase italic">
+              Register New Account
+            </h1>
+            <div className="whitespace-nowrap text-text-secondary text-sm space-x-2">
+              <span> Personal Details |</span>
+              <span>
+                Step {formStep + 1}/{TOTAL_STEPS}
+              </span>
+            </div>
           </div>
         </div>
-      </div>
+      </>
       {/* <ErrorsList
         errors={error?.graphQLErrors?.map(({ message }) => message) ?? []}
       /> */}
     </Step2>
   ) : (
-    <Step3
-    // onSubmit={(data) => {
-    //   const completedData = { ...state, ...data };
-    //   setState(completedData);
-    //   const { passwordConfirm, accept, ...rest } = completedData;
-    //   return createUser({
-    //     variables: {
-    //       input: { ...rest, activationPath: "/activate" },
-    //     },
-    //     update: (cache, { data: { user } }) => {
-    //       if (user === null) return;
-    //       cache.writeQuery({
-    //         query: GET_CURRENT_USER,
-    //         data: { user },
-    //       });
-    //     },
-    //   }).then(({ data: { user } }) => {
-    //     if (user === null) {
-    //       setCreated(true);
-    //     } else {
-    //       close();
-    //       history.push("/account/financials/deposit");
-    //     }
-    //     return user;
-    //   });
-    // }}
-    >
-      <div className="flex justify-between space-x-4">
-        <div className="font-bold text-truncate">
-          {t("global.personal_details")}
-        </div>
-        <div className="whitespace-nowrap">
-          {t("global.step", { step: formStep + 1, max: TOTAL_STEPS })}
-        </div>
-      </div>
-    </Step3>
+    <div> step 3</div>
   );
 }

@@ -2,7 +2,7 @@ import * as React from "react";
 // import { gql, useMutation, useQuery } from "@apollo/client";
 import { useTranslation } from "react-i18next";
 import { useForm } from "react-hook-form";
-import { yupResolver } from "@hookform/resolvers/dist/ie11/yup";
+import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
 import { Field } from "../../../Inputs/Field";
 import { ErrorsList } from "../../../Generic/ErrorsList";

@@ -1,6 +1,6 @@
 import * as React from "react";
 import { useForm } from "react-hook-form";
-import { yupResolver } from "@hookform/resolvers/dist/ie11/yup";
+import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
 import { useTranslation, Trans } from "react-i18next";
 import { Field } from "../../Inputs/Field";
@@ -68,7 +68,11 @@ export default function Step1({ children, setStep, defaultValues, onSubmit }) {
   //dummy value once again
   const securityCodeIsRequired = false;
 
-  const { register, handleSubmit, errors, isSubmitting } = useForm({
+  const {
+    register,
+    handleSubmit,
+    formState: { errors, isSubmitting },
+  } = useForm({
     defaultValues,
     resolver: yupResolver(schema(t, securityCodeIsRequired)),
   });
@@ -89,7 +93,7 @@ export default function Step1({ children, setStep, defaultValues, onSubmit }) {
                   type="text"
                   name="email"
                   autoComplete="email"
-                  ref={register}
+                  {...register("email")}
                 />
                 <Field.Error>{errors.email?.message} </Field.Error>
               </>
@@ -105,7 +109,7 @@ export default function Step1({ children, setStep, defaultValues, onSubmit }) {
                   type="text"
                   name="password"
                   autoComplete="password"
-                  ref={register}
+                  {...register("password")}
                 />
                 <Field.Error>{errors.password?.message} </Field.Error>
               </>
@@ -121,7 +125,7 @@ export default function Step1({ children, setStep, defaultValues, onSubmit }) {
                   type="text"
                   name="passwordConfirm"
                   autoComplete="new-password"
-                  ref={register}
+                  {...register("passwordConfirm")}
                 />
                 <Field.Error>{errors.passwordConfirm?.message} </Field.Error>
               </>
@@ -135,7 +139,7 @@ export default function Step1({ children, setStep, defaultValues, onSubmit }) {
                 type="text"
                 name="securityCode"
                 placeholder={t("global.securitycode")}
-                ref={register}
+                {...register("securityCode")}
               />
               <Field.Error>{errors.securityCode?.message}</Field.Error>
             </Field>
@@ -147,7 +151,7 @@ export default function Step1({ children, setStep, defaultValues, onSubmit }) {
               label={<Field.Label> Currency</Field.Label>}
               input={
                 <>
-                  <Field.Select name="currency" ref={register}>
+                  <Field.Select name="currency" {...register("currency")}>
                     <option value="" disabled>
                       {t("global.currency")}
                     </option>
@@ -171,7 +175,7 @@ export default function Step1({ children, setStep, defaultValues, onSubmit }) {
                     type="text"
                     name="bonusCode"
                     autoComplete="new-password"
-                    ref={register}
+                    {...register("bonusCode")}
                   />
                   <Field.Error>{errors.bonusCode?.message} </Field.Error>
                 </>
