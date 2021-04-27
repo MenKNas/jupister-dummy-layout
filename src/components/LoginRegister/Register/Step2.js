@@ -406,14 +406,14 @@ export default function Step2({ children, onSubmit, onBack, defaultValues }) {
             disabled={isSubmitting}
             loading={isSubmitting}
           >
-            Register
+            Continue
           </MainButton>
         </div>
-        <div>
+        {/* <div>
           <button type="button" onClick={onBack} disabled={isSubmitting}>
             {t("global.back")}
           </button>
-        </div>
+        </div> */}
       </div>
     </form>
   );

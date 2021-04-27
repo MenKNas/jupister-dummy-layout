@@ -54,7 +54,7 @@ export const Game = React.memo(
     const { onClickReal, onClickFun } = useLaunchActions(id, provider);
     const ref = React.useRef(null);
     useClickAway(ref, () => {
-      console.log(setShowGameInfo(false));
+      setShowGameInfo(false);
     });
 
     return (

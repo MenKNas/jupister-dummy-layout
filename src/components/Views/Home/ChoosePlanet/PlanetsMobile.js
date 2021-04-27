@@ -25,7 +25,7 @@ export function ChoosePlanetMobile({
         centeredSlides={true}
         speed={300}
         centeredSlidesBounds={true}
-        slideToClickedSlide={true}
+        slideToClickedSlide={false}
         loop
         navigation={navigation}
         uniqueNavElements
@@ -96,6 +96,9 @@ export function MobileInfoCard({
   planets,
   numberOfSlides,
 }) {
+  console.log("active index :");
+  console.log(activeIndex);
+  console.log(activeIndex - numberOfSlides);
   React.useEffect(() => {
     if (activeIndex < numberOfSlides)
       setSelectedPlanet(planets[planets.length - 1]);
@@ -103,8 +106,18 @@ export function MobileInfoCard({
       setSelectedPlanet(planets[activeIndex + 1]);
     else if (activeIndex - numberOfSlides >= planets.length)
       setSelectedPlanet(planets[0]);
-    else setSelectedPlanet(planets[activeIndex - numberOfSlides]);
+    else {
+      setSelectedPlanet(planets[activeIndex - numberOfSlides]);
+    }
   }, [activeIndex, setSelectedPlanet, planets, numberOfSlides]);
+
+  React.useEffect(() => {
+    if (activeIndex - numberOfSlides === -2) {
+      setSelectedPlanet(planets[2]);
+    } else if (activeIndex - numberOfSlides === 5) {
+      setSelectedPlanet(planets[5 - planets.length]);
+    }
+  }, [planets, setSelectedPlanet, activeIndex, numberOfSlides]);
 
   return (
     <div className="flex flex-col bg-bg-secondary p-3 space-y-4 rounded-md md:w-1/2 lg:w-1/3 border border-bd-primary">
