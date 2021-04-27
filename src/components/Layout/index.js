@@ -9,8 +9,12 @@ import Promotions from "../Views/Promotions";
 import Casino from "../Views/Casino";
 import Account from "../Views/Account";
 import backgroundImg from "../../images/jupizino-BG_.jpg";
+import useWindowSize from "../../hooks/useWindowSize";
 
 export default function Layout() {
+  const { width } = useWindowSize();
+  const minHeight =
+    width < 1024 ? "calc(100vh - 400px)" : "calc(100vh - 230px)";
   return (
     <div>
       <div>
@@ -18,7 +22,7 @@ export default function Layout() {
         <div className="bg-white">
           <div
             style={{
-              minHeight: "calc(100vh - 230px)",
+              minHeight: minHeight,
               backgroundImage: `url(${backgroundImg})`,
               // backgroundSize: "100%",
               backgroundRepeat: "no-repeat",

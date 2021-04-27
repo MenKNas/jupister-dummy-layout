@@ -1,6 +1,5 @@
 import * as React from "react";
 import { Modal, ModalBody, ModalHeader } from "../NewModal";
-import { ReactComponent as ChevronLeft } from "../../icons/chevron-left.svg";
 import { useTranslation } from "react-i18next";
 import { Login } from "./Login";
 import { Register } from "./Register";

@@ -96,9 +96,6 @@ export function MobileInfoCard({
   planets,
   numberOfSlides,
 }) {
-  console.log("active index :");
-  console.log(activeIndex);
-  console.log(activeIndex - numberOfSlides);
   React.useEffect(() => {
     if (activeIndex < numberOfSlides)
       setSelectedPlanet(planets[planets.length - 1]);

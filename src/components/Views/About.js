@@ -1,36 +1,47 @@
-import { faAngleLeft } from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import React from "react";
-import { Link } from "react-router-dom";
+import * as React from "react";
 
 export default function About() {
   return (
-    <div
-      data-component="About"
-      className="px-4 lg:max-w-1200 xl:max-w-1400 mx-auto"
-    >
-      <div className="grid grid-cols-3 lg:hidden bg-gray-100 p-2 items-center">
-        <Link to="/">Back</Link>
-        <h2 className="uppercase font-bold text-lg text-center">About Us</h2>
-      </div>
-      <div className="w-full md:w-full mx-auto p-4 lg:space-y-4 md:p-8 md:rounded-md md:shadow-md md:bg-white">
-        <Link to="/" className="text-blue-600 hidden lg:block space-x-2">
-          <FontAwesomeIcon icon={faAngleLeft} />
-          <span>Back To Home Page </span>
-        </Link>
-        <h2 className="uppercase border-b border-gray-200 font-bold text-2xl hidden lg:block py-2">
-          About Us
-        </h2>
-        <div className="space-y-4">
-          <div>
-            <h3 className="uppercase text-lg font-bold"> About us:</h3>
-            <p> Text that is going to be saying stuff about us</p>
+    <div data-component="About" className="md:px-4 max-w-1400 mx-auto">
+      <div className="space-y-4 md:py-4">
+        <div className="flex flex-col bg-bg-secondary py-4 px-8 text-white space-y-8">
+          <div className="space-y-2">
+            <h1 className="font-bold uppercase text-xl"> About us</h1>
+            <div className="space-y-4">
+              <p>
+                Red lion is the platform you have been looking for. Thanks to
+                years of experience behind the wheel, our team has managed to
+                collaborate with the best gaming providers out there in order to
+                provide you the full-on experience.
+              </p>
+              <p>
+                Our compatible desktop and mobile-friendly platform aim to
+                provide you the full catered experience so you do not feel the
+                need to suit up and leave the comfort of your home to that same
+                old boring brick and mortar establishment.
+              </p>
+            </div>
           </div>
-          <div>
-            <h3 className="uppercase text-lg font-bold">
-              Why Choose jupitercasino24:
-            </h3>
-            <p> Text that is going to be saying stuff about us</p>
+          <div className="space-y-2">
+            <h1 className="font-bold uppercase text-xl">why choose red lion</h1>
+            <div className="space-y-4">
+              <p>
+                We commit ourselves to always putting our customers first. This
+                starts with a very swift registration process which takes only 2
+                minutes to create an account. You may then begin experiencing
+                all what Red lion has to offer, which includes over 400 titles
+                of Slot & Table games. Once you have created your Red lion
+                account you will be entitled to our industry leading welcome
+                offer. We offer a wide range of both fiat and crypto-currency
+                methods and will throw in extra benefits when choosing Bitcoin.
+                We take your security very seriously, which is why we use
+                128-bit SSL technology to protect your data and maintain
+                airtight compliance with international data protection and
+                privacy laws. We strive to offer top level customer service for
+                whichever query you might have, you will find our team available
+                round the clock who are both friendly and highly professional.
+              </p>
+            </div>
           </div>
         </div>
       </div>
