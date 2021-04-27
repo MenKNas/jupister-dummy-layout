@@ -11,7 +11,7 @@ import { LanguageSelector } from "./LanguageSelector";
 // import { ReactComponent as ChevronDown } from "../../../icons/chevron-down.svg";
 // import { ReactComponent as Logo } from "../../../icons/brand-logo-main.svg";
 
-const authenticatedUser = true;
+const authenticatedUser = false;
 
 function MobileHeader({ width }) {
   const [showSidebar, setShowSidebar] = React.useState(false);

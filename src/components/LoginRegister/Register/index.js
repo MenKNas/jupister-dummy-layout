@@ -77,7 +77,7 @@ export function Register({ close, step, setStep }) {
 
   //dummy value for now
   const COUNTRY = "Greece";
-  const [formStep, setFormStep] = React.useState(1);
+  const [formStep, setFormStep] = React.useState(2);
   const [created, setCreated] = React.useState(false);
   const [state, setState] = React.useState(() => ({
     mobileNumber: (COUNTRY && PHONES[COUNTRY.toLowerCase()]) ?? "",
@@ -100,7 +100,7 @@ export function Register({ close, step, setStep }) {
     securityCode: "",
     bonusCode: "",
     //we will have to talk about that and how it will be implemented -> also got to discuss how we will pass this piece of data to the server
-    bonusPlanet: null,
+    bonusPlanet: "",
   }));
 
   // const [createUser, { error }] = useMutation(CREATE_USER);
@@ -178,7 +178,28 @@ export function Register({ close, step, setStep }) {
         errors={error?.graphQLErrors?.map(({ message }) => message) ?? []}
       /> */}
     </Step2>
-  ) : (
-    <div> step 3</div>
-  );
+  ) : formStep === 2 ? (
+    <Step3 setStep={setStep} defaultValues={state}>
+      <>
+        <HeaderSection
+          formStep={formStep}
+          setFormStep={setFormStep}
+          close={() => setStep(undefined)}
+        />
+        <div className="flex flex-col space-y-6 items-center">
+          <div className="text-center space-y-1">
+            <h1 className="text-white text-xl font-bold uppercase italic">
+              Register New Account
+            </h1>
+            <div className="whitespace-nowrap text-text-secondary text-sm space-x-2">
+              <span> Personal Details |</span>
+              <span>
+                Step {formStep + 1}/{TOTAL_STEPS}
+              </span>
+            </div>
+          </div>
+        </div>
+      </>
+    </Step3>
+  ) : null;
 }

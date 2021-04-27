@@ -4,6 +4,7 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
 import { useTranslation } from "react-i18next";
 import { Field } from "../../Inputs/Field";
+// import { CountriesProvider } from "../../Generic/CountriesList";
 // import { LazyLoadImage } from "../../LazyLoadImage";
 // import sideImg from "image-trace-loader!skin/static/register.png";
 // import { useSettings } from "../../Settings";
@@ -93,7 +94,7 @@ export default function Step2({ children, onSubmit, onBack, defaultValues }) {
   return (
     <form
       onSubmit={handleSubmit(onSubmit)}
-      className="w-full lg:w-1/2 space-y-4 py-1 px-4"
+      className="w-full lg:w-full space-y-4 py-1 px-4"
     >
       <div className="space-y-2 mb-4">{children}</div>
       <div className="space-y-4 space-y-4">
@@ -224,7 +225,7 @@ export default function Step2({ children, onSubmit, onBack, defaultValues }) {
             ></FormField>
           </Field>
         </div>
-        <div className="lg:w-1/2 flex">
+        <div className="lg:w-full flex">
           <div className="w-3/5">
             <FormField
               label={<Field.Label> House and Street Number </Field.Label>}
@@ -296,7 +297,7 @@ export default function Step2({ children, onSubmit, onBack, defaultValues }) {
               <Field.Error>{errors.gender?.message} </Field.Error>
             </Field>
           </div> */}
-        <div className="flex flex-col lg:w-1/2">
+        <div className="flex flex-col lg:w-full">
           <Field invalid={errors?.mobileNumber?.message}>
             <FormField
               label={<Field.Label> Mobile Number</Field.Label>}
@@ -330,11 +331,11 @@ export default function Step2({ children, onSubmit, onBack, defaultValues }) {
         </div>
       </div>
       <Field invalid={errors?.accept?.message}>
-        <div className="inline-flex space-x-2 items-center">
+        <div className="inline-flex space-x-2">
           <Field.Checkbox
             name="accept"
             id="accept"
-            className="flex-shrink-0"
+            className="form-checkbox h-5 w-5 flex-shrink-0 mt-2 rounded text-brand-primary focus:text-brand-primary focus:ring-0 p-1.5 ring-offset-transparent focus:ring-offset-transparent"
             {...register("accept")}
             disabled={isSubmitting}
           />
@@ -344,16 +345,21 @@ export default function Step2({ children, onSubmit, onBack, defaultValues }) {
               the terms & conditions , privacy policy, cookies policy and
               policies relating to age verification and KYC (know Your Customer)
             </Trans> */}
+            <span className="text-text-secondary text-sm">
+              I am at least 18 years of age and I have read, accept and agree to
+              the terms & conditions , privacy policy, cookies policy and
+              policies relating to age verification and KYC (know Your Customer)
+            </span>
           </Field.Label>
         </div>
       </Field>
       {!shouldHideMailingListPrompt && (
         <Field>
-          <div className="inline-flex space-x-2 items-center">
+          <div className="inline-flex space-x-2">
             <Field.Checkbox
               id="newsletter"
               name="newsletter"
-              className="flex-shrink-0"
+              className="form-checkbox h-5 w-5 flex-shrink-0 mt-2 rounded text-brand-primary focus:text-brand-primary focus:ring-0 p-1.5 ring-offset-transparent focus:ring-offset-transparent"
               {...register("newsletter")}
               disabled={isSubmitting}
             />
@@ -362,6 +368,10 @@ export default function Step2({ children, onSubmit, onBack, defaultValues }) {
                 I would like to receive news, promotional material and other
                 information from {{ name: brandName }} and its affiliates
               </Trans> */}
+              <span className="text-text-secondary text-sm">
+                I would like to receive news, promotional material and other
+                information from brandName and its affiliates
+              </span>
             </Field.Label>
           </div>
         </Field>
@@ -372,7 +382,7 @@ export default function Step2({ children, onSubmit, onBack, defaultValues }) {
             <Field.Checkbox
               id="autoBonus"
               name="autoBonus"
-              className="flex-shrink-0"
+              className="form-checkbox h-5 w-5 flex-shrink-0 mt-1 rounded text-brand-primary focus:text-brand-primary focus:ring-0 p-1.5 ring-offset-transparent focus:ring-offset-transparent"
               {...register("autoBonus")}
               disabled={isSubmitting}
             />
@@ -380,6 +390,9 @@ export default function Step2({ children, onSubmit, onBack, defaultValues }) {
               {/* <Trans i18nKey="global.register_auto_bonus">
                 I would like to participate to automatic bonuses
               </Trans> */}
+              <span className="text-text-secondary text-sm">
+                I would like to participate to automatic bonuses
+              </span>
             </Field.Label>
           </div>
         </Field>

@@ -43,12 +43,20 @@ module.exports = {
     },
   },
   variants: {
-    extend: {},
+    extend: {
+      // color: ["checked"],
+      // backgroundColor: ["checked"],
+      // borderColor: ["checked"],
+      // textColor: ["checked"],
+    },
     scrollbar: ["dark", "rounded"],
   },
   plugins: [
     require("@tailwindcss/aspect-ratio"),
     require("@tailwindcss/line-clamp"),
+    require("@tailwindcss/forms")({
+      strategy: "class",
+    }),
     require("tailwind-scrollbar"),
   ],
 };

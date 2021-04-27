@@ -25,7 +25,6 @@ export default function PromotionCard({
           background: `${!showInHomepage ? `url(${PromoImg1})` : "#0D2950"}`,
           backgroundPosition: "center center",
           backgroundSize: "100%",
-          backgroundColor: "#464646",
           height: "100%",
           width: "100%",
           maxHeight: "100%",
