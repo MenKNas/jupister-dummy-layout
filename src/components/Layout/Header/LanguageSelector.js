@@ -57,7 +57,12 @@ function addUrlToParam(url, param, value) {
 function Flag({ locale, className }) {
   return (
     <span
-      style={{ width: 25, height: 25, borderRadius: "50%" }}
+      style={{
+        width: 20,
+        height: 20,
+        borderRadius: "50%",
+        backgroundSize: "cover",
+      }}
       className={classNames(className, "flag-icon", `flag-icon-gb`)}
     />
   );

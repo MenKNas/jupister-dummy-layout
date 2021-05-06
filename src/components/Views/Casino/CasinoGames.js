@@ -21,9 +21,9 @@ const dummyGames = [
   { src: Casino6, title: "Game 6" },
   { src: Casino7, title: "Game 7" },
   { src: Casino2, title: "Game 8" },
-  { src: Casino2, title: "Game 8" },
-  { src: Casino2, title: "Game 8" },
-  { src: Casino2, title: "Game 8" },
+  { src: Casino2, title: "Game 9" },
+  { src: Casino2, title: "Game 10" },
+  { src: Casino2, title: "Game 11" },
 ];
 
 export default function CasinoGames() {
@@ -36,11 +36,9 @@ export default function CasinoGames() {
         <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-4">
           {dummyGames.map((game) => {
             return (
-              <Game
-                gameTitle={game.title}
-                gameImg={game.src}
-                className="border border-bd-focused"
-              />
+              <div key={game.title}>
+                <Game gameTitle={game.title} gameImg={game.src} />{" "}
+              </div>
             );
           })}
         </div>

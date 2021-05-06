@@ -19,13 +19,14 @@ export default function CasinoHeader() {
           <SearchBar />
           <div className="flex md:justify-center space-x-4 pt-6 overflow-x-scroll lg:overflow-x-hidden items-center flex-nowrap whitespace-nowrap">
             {gameLinks.map((link) => (
-              <NavLink
-                key={link}
-                to={link.to}
-                className="text-white font-light  text-sm"
-              >
-                {link.name}
-              </NavLink>
+              <div key={link.name}>
+                <NavLink
+                  to={link.to}
+                  className="text-white font-light  text-sm"
+                >
+                  {link.name}
+                </NavLink>
+              </div>
             ))}
           </div>
         </div>

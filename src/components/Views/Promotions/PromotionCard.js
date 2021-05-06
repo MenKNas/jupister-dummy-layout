@@ -31,6 +31,8 @@ export default function PromotionCard({
           maxWidth: "100%",
           paddingTop: "47%",
           backgroundRepeat: "no-repeat",
+          boxShadow: "inset 0px 0px 18px 10px #011C41",
+          WebkitBoxShadow: "inset 0px 0px 18px 10px #011C41",
         }}
       >
         {/* <img
@@ -80,8 +82,8 @@ export default function PromotionCard({
           maxWidth: "100%",
           paddingTop: "47%",
           backgroundRepeat: "no-repeat",
-          boxShadow: "0px 0px 100px 10px rgba(0,0,0,0.7) inset",
-          WebkitBoxShadow: "0px 0px 100px 10px rgba(0,0,0,0.7) inset",
+          boxShadow: "inset 0px 0px 18px 10px #011C41",
+          WebkitBoxShadow: "inset 0px 0px 18px 10px #011C41",
         }}
       >
         {/* <img

@@ -35,6 +35,9 @@ module.exports = {
       width: {
         "7/10": "70%",
       },
+      opacity: {
+        85: "0.85",
+      },
       aspectRatio: {
         // defaults to {}
         none: 0,

@@ -55,11 +55,13 @@ export default function LiveCasino() {
         <div className="flex justify-between items-center py-4">
           <div className="uppercase font-black text-xl lg:text-2xl text-white ">
             Live Casino
-            <img
-              src={underheading}
-              alt="red colored border under the section title"
-              className="w-7/10"
-            />
+            <div style={{ height: 9, width: "100%", overflow: "hidden" }}>
+              <img
+                src={underheading}
+                alt="red colored border under the section title"
+                className="w-7/10 h-4"
+              />
+            </div>
           </div>
           <ShowAllButton />
         </div>

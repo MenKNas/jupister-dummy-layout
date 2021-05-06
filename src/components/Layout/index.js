@@ -4,7 +4,7 @@ import Header from "./Header";
 // import MainSection from "./MainSection";
 import { Switch, Route } from "react-router-dom";
 import About from "../Views/About";
-import Footer from "../Footer";
+import Footer from "./Footer";
 import Promotions from "../Views/Promotions";
 import Casino from "../Views/Casino";
 import Account from "../Views/Account";

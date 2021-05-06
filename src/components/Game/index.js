@@ -48,7 +48,7 @@ function useLaunchActions(id, provider) {
 }
 
 export const Game = React.memo(
-  ({ gameTitle, gameImg, className, id, provider }) => {
+  ({ gameTitle, gameImg, className, id, provider }, rest) => {
     const { width } = useWindowSize();
     const [showGameInfo, setShowGameInfo] = React.useState(false);
     const { onClickReal, onClickFun } = useLaunchActions(id, provider);
@@ -76,9 +76,10 @@ export const Game = React.memo(
           transition: "opacity 0.25s ease-in 0s",
           backgroundRepeat: "no-repeat",
         }}
+        {...rest}
       >
         {width > 1024 ? (
-          <div className="absolute top-0 left-0 bottom-0 right-0 transform-gpu text-center transition duration-500 ease-in-out flex flex-col items-center justify-evenly opacity-0 hover:opacity-100 hover:bg-bg-primary hover:bg-opacity-75">
+          <div className="absolute top-0 left-0 bottom-0 right-0 transform-gpu text-center transition duration-500 ease-in-out flex flex-col items-center justify-evenly opacity-0 hover:opacity-100 hover:bg-bg-primary hover:bg-opacity-85">
             <span className="text-text-secondary"> {gameTitle} </span>
             <button onClick={onClickReal}>
               <PlayBtn />

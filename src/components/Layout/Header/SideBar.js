@@ -50,19 +50,22 @@ function RegisteredUserTab({ showSidebar, setShowSidebar, user }) {
         className="relative flex flex-row justify-between items-center"
         ref={ref}
       >
-        <div className="flex flex-row justify-evenly space-x-4 items-center">
+        <div
+          className="flex flex-row justify-evenly space-x-4 items-center"
+          onClick={() => setShowAccountMenu((prev) => !prev)}
+        >
           <Avatar />
           <div className="flex flex-col">
             <h4 className="text-gray-300 text-xs"> User </h4>
             <span className="text-sm truncate">{user.userMail}</span>
           </div>
-          <button onClick={() => setShowAccountMenu((prev) => !prev)}>
+          <div>
             {showAccountMenu ? (
               <ChevronUp stroke="#A9B7D5" />
             ) : (
               <ChevronDown stroke="#A9B7D5" />
             )}
-          </button>
+          </div>
         </div>
       </div>
       <motion.div
@@ -178,11 +181,13 @@ export const SideBar = ({ showSidebar, setShowSidebar }) => {
     <>
       <div
         data-component="SideBar"
-        className="flex flex-col fixed left-0 top-0 bottom-0 text-white bg-gradient-to-t from-lower-grad to-bg-primary space-y-4 z-10 p-4 transform-gpu"
+        className="flex flex-col fixed left-0 top-0 bottom-0 text-white bg-gradient-to-t from-lower-grad to-bg-primary space-y-4 z-10 p-4 transform-gpu pb-4"
         style={{
           width: 320,
           transition: "0.35s ease-out",
           transform: `translateX(${showSidebar ? 0 : -320}px)`,
+          overflowY: " auto",
+          paddingBottom: 20,
         }}
         ref={ref}
       >

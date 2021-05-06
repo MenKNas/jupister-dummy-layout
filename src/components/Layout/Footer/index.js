@@ -1,18 +1,18 @@
 import * as React from "react";
 import { Link } from "react-router-dom";
-import MasterCardLogo from "../../images/payments/mastercard.png";
-import NetellerLogo from "../../images/payments/neteller.png";
-import VisaLogo from "../../images/payments/visa.png";
-import PaysafeLogo from "../../images/payments/paysafe.png";
-import NeosurfLogo from "../../images/payments/neosurf.png";
-import IdealLogo from "../../images/payments/ideal.png";
-import SofortLogo from "../../images/payments/sofort.png";
-import GiropayLogo from "../../images/payments/giropay.png";
-import providersImg from "../../images/providers.png";
-import BestCasinos from "../../images/featured/the-best-casinos.png";
-import NonStop from "../../images/featured/nonstop.png";
-import British from "../../images/featured/british.png";
-import Curacao from "../../images/curacao.png";
+import MasterCardLogo from "../../../images/payments/mastercard.png";
+import NetellerLogo from "../../../images/payments/neteller.png";
+import VisaLogo from "../../../images/payments/visa.png";
+import PaysafeLogo from "../../../images/payments/paysafe.png";
+import NeosurfLogo from "../../../images/payments/neosurf.png";
+import IdealLogo from "../../../images/payments/ideal.png";
+import SofortLogo from "../../../images/payments/sofort.png";
+import GiropayLogo from "../../../images/payments/giropay.png";
+import providersImg from "../../../images/providers.png";
+import BestCasinos from "../../../images/featured/the-best-casinos.png";
+import NonStop from "../../../images/featured/nonstop.png";
+import British from "../../../images/featured/british.png";
+import Curacao from "../../../images/curacao.png";
 
 const paymentLogos = [
   { src: MasterCardLogo, description: "Mastercard" },
@@ -76,7 +76,7 @@ export default function Footer() {
         </div>
       </div>
       <div className="bg-bg-secondary">
-        <div className="grid grid-cols-2 border-b border-bd-primary p-6 xl:w-3/5 mx-auto">
+        <div className="grid grid-cols-2 lg:grid-cols-5 border-b border-bd-primary p-6 mx-auto max-w-1400">
           <div className="flex flex-col space-y-4">
             <h3 className="text-xl text-text-secondary italic font-black uppercase">
               About
@@ -101,8 +101,19 @@ export default function Footer() {
               ))}
             </div>
           </div>
+          <div className="hidden lg:block text-sm text-text-secondary p-6 lg:p-0 space-y-6 mx-auto col-span-2">
+            <p>
+              JupiterCasino 24 is operated and controlled by GTX TECHNOLOGIES
+              B.V having its registered address at DR M.J Hugnafasf bearing
+              company registration number 14501
+            </p>
+            <p> Responsible Gaming | 18+</p>
+          </div>
+          <div className="hidden lg:block">
+            <img src={Curacao} alt="Curacao Flag" className="mx-auto" />
+          </div>
         </div>
-        <div className="text-sm text-text-secondary p-6 space-y-6 xl:w-3/5 mx-auto">
+        <div className="block lg:hidden text-sm text-text-secondary p-6 lg:p-0 space-y-6 xl:w-3/5 mx-auto">
           <p>
             JupiterCasino 24 is operated and controlled by GTX TECHNOLOGIES B.V
             having its registered address at DR M.J Hugnafasf bearing company

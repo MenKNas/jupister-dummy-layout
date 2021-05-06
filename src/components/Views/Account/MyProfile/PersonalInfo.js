@@ -49,10 +49,9 @@ export function Form() {
   const {
     register,
     handleSubmit,
-    errors,
     control,
     // watch,
-    // formState: { isSubmitting },
+    formState: { errors, isSubmitting },
   } = useForm({
     defaultValues: {
       //   country: user.country,
@@ -191,7 +190,7 @@ export function Form() {
             }
           />
         </Field> */}
-        <Field invalid={errors.city?.message}>
+        <Field invalid={errors?.city?.message}>
           <FormField
             label={<Field.Label htmlFor="city">{t("City")}</Field.Label>}
             input={
@@ -199,10 +198,10 @@ export function Form() {
                 <Field.Input
                   type="text"
                   name="city"
-                  ref={register}
+                  {...register("city")}
                   //   disabled={fieldDisabled}
                 />
-                <Field.Error>{errors.city?.message}</Field.Error>
+                <Field.Error>{errors?.city?.message}</Field.Error>
               </>
             }
           />
@@ -219,7 +218,7 @@ export function Form() {
                 <Field.Input
                   type="text"
                   name="houseNumberAndStreetName"
-                  ref={register}
+                  {...register("houseNumberAndStreetName")}
                   //   disabled={fieldDisabled}
                 />
                 <Field.Error>
@@ -239,7 +238,7 @@ export function Form() {
                 <Field.Input
                   type="text"
                   name="postCode"
-                  ref={register}
+                  {...register("postCode")}
                   //   disabled={fieldDisabled}
                 />
                 <Field.Error>{errors?.postCode?.message}</Field.Error>
@@ -259,13 +258,13 @@ export function Form() {
                 <Controller
                   name="mobileNumber"
                   control={control}
-                  render={(props) => (
+                  render={({ field }) => (
                     <div className="flex space-x-2">
                       <MobileNumber
-                        defaultValue={props.value}
-                        onChange={props.onChange}
-                        isInvalid={errors.mobileNumber?.message}
-                        error={errors.mobileNumber?.message}
+                        defaultValue={field.value}
+                        onChange={field.onChange}
+                        isInvalid={errors?.mobileNumber?.message}
+                        error={errors?.mobileNumber?.message}
                       >
                         <div className="w-1/3">
                           <MobileNumberPrefix

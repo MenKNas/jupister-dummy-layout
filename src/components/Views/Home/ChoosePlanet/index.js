@@ -50,11 +50,13 @@ export default function ChoosePlanet() {
       <div className="inline-block">
         <div className="flex flex-col uppercase font-bold text-xl lg:text-2xl ">
           Choose your Planet
-          <img
-            src={underheading}
-            alt="red colored border under the section title"
-            className="w-7/10"
-          />
+          <div style={{ height: 10, width: "100%", overflow: "hidden" }}>
+            <img
+              src={underheading}
+              alt="red colored border under the section title"
+              className="w-7/10 h-4"
+            />
+          </div>
         </div>
       </div>
       {width < 768 ? (

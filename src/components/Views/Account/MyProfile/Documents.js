@@ -84,9 +84,8 @@ function Form() {
   const {
     register,
     handleSubmit,
-    errors,
     // reset,
-    formState: { isSubmitting },
+    formState: { errors, isSubmitting },
   } = useForm({
     defaultValues: { document_type: "" },
     resolver: yupResolver(schema(t)),
@@ -95,7 +94,7 @@ function Form() {
     <form onSubmit={handleSubmit} className="space-y-4 w-full">
       <div className="flex flex-col space-y-4 w-full lg:w-7/10">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-2 items-end">
-          <Field invalid={errors.file?.message}>
+          <Field invalid={errors?.file?.message}>
             <FormField
               label={<Field.Label>{t("global.file")}</Field.Label>}
               input={
@@ -104,15 +103,15 @@ function Form() {
                     name="file"
                     type="file"
                     disabled={isSubmitting}
-                    ref={register}
+                    {...register("file")}
                     className="text-text-secondary"
                   />
-                  <Field.Error>{errors.file?.message}</Field.Error>
+                  <Field.Error>{errors?.file?.message}</Field.Error>
                 </>
               }
             />
           </Field>
-          <Field invalid={errors.document_type?.message}>
+          <Field invalid={errors?.document_type?.message}>
             <FormField
               label={<Field.Label>{t("global.document_type")}</Field.Label>}
               input={
@@ -120,7 +119,7 @@ function Form() {
                   <Field.Select
                     disabled={isSubmitting}
                     name="document_type"
-                    ref={register}
+                    {...register("document_type")}
                     className="pr-2"
                   >
                     <option value="" disabled>
@@ -132,14 +131,14 @@ function Form() {
                       </option>
                     ))}
                   </Field.Select>
-                  <Field.Error>{errors.document_type?.message} </Field.Error>
+                  <Field.Error>{errors?.document_type?.message} </Field.Error>
                 </>
               }
             />
           </Field>
         </div>
 
-        <Field invalid={errors.notes?.message}>
+        <Field invalid={errors?.notes?.message}>
           <FormField
             label={<Field.Label>{t("global.notes")}</Field.Label>}
             input={
@@ -148,9 +147,9 @@ function Form() {
                   name="notes"
                   rows="3"
                   disabled={isSubmitting}
-                  ref={register}
+                  {...register("notes")}
                 />
-                <Field.Error>{errors.notes?.message}</Field.Error>
+                <Field.Error>{errors?.notes?.message}</Field.Error>
               </>
             }
           />
