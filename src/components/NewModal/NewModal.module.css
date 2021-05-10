@@ -29,7 +29,8 @@
 }
 
 .scrollable {
-  height: calc(100% - 1rem);
+  /* height: calc(100% - 1rem); */
+  height: 100%;
 
   .content {
     @apply max-h-full overflow-hidden;

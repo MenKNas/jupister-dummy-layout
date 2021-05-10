@@ -21,7 +21,7 @@ export function Alert({ children, status = "success", className, ...rest }) {
         className={classNames(
           statusClassName,
           className,
-          `px-3 py-2 space-y-2 relative`
+          `px-4 py-3 space-y-2 relative`
         )}
         {...rest}
       >

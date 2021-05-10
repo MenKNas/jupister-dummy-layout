@@ -74,7 +74,7 @@ export function ResetPasswordLink({ setStep }) {
   return (
     <form
       onSubmit={handleSubmit}
-      className="w-full lg:w-full space-y-4 py-1 px-4"
+      className="w-full lg:w-full space-y-8 py-1 px-4"
     >
       {(dateOfBirthIsRequired || securityCodeIsRequired) && (
         <div className="font-bold">{t("global.account_details")}</div>
@@ -82,6 +82,11 @@ export function ResetPasswordLink({ setStep }) {
       {/* <ErrorsList
         errors={error?.graphQLErrors?.map(({ message }) => message) ?? []}
       /> */}
+      <div className="flex flex-col items-center space-y-1">
+        <h1 className="text-white text-xl font-black uppercase italic">
+          Password Reset
+        </h1>
+      </div>
       <div className="flex flex-col w-full lg:w-1/2">
         <Field invalid={errors.email?.message}>
           <Field.Label className="text-text-secondary font-light  text-sm py-1 truncate">
@@ -156,11 +161,11 @@ export function ResetPasswordLink({ setStep }) {
             Submit
           </MainButton>
         </div>
-        {/* <div>
+        <div className="text-text-secondary">
           <button type="button" onClick={() => setStep("login")}>
-            {t("global.back")}
+            Back
           </button>
-        </div> */}
+        </div>
       </div>
     </form>
   );

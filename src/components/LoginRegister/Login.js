@@ -71,10 +71,12 @@ export function Login({ close, setStep }) {
         className="w-full lg:w-1/2 space-y-4 py-1 px-4"
       >
         <div className="flex flex-col items-center space-y-1">
-          <span className="text-text-secondary text-sm"> Welcome Back</span>
-          <h1 className="text-white text-xl font-bold uppercase italic">
-            Login to your Account
+          <h1 className="text-white text-xl font-black uppercase italic">
+            Welcome Back
           </h1>
+          <span className="text-text-secondary text-sm">
+            Login To Your Account
+          </span>
         </div>
         {/* <ErrorsList
           errors={error?.graphQLErrors?.map(({ message }) => message) ?? []}
